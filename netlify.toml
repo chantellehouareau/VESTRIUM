@@ -1,0 +1,16 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# Enquiry email settings live in Netlify → Site configuration → Environment variables
+# (values set in this file are not visible to functions at runtime):
+#   ENQUIRY_TO      chantelle.houareau@vis10nholdings.com  (also the built-in default)
+#   ENQUIRY_FROM    Vestrium Global <enquiries@your-verified-domain>
+#   RESEND_API_KEY  from resend.com
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

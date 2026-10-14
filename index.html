@@ -1,0 +1,1012 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Vestrium Global builds and runs the business infrastructure behind NIL athletes: companies, brand operations, protection and ventures. A private business institution.">
+<meta name="theme-color" content="#06080A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%2306080A'/%3E%3Cpath d='M12 20h24l26 62-9 22z M53 104l9-22 20-46h13L66 104z M88 18h26l-11 24H92z' fill='%23C9CFD9' stroke='%230061F3' stroke-width='2'/%3E%3C/svg%3E">
+<title>Vestrium Global</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+/* Layout: cinematic. Full-bleed sport scenes lit from above, light mixed-case type, wide margins, one blue line per screen. */
+:root{
+  --edge:#030509; --void:#06080A; --lift:#101421; --rule:#1A202D; --rule2:#252D3C;
+  --soft:#0B0F16; --soft2:#11161F;
+  --blue:#0061F3; --blue-l:#4E86E8; --glow:rgba(0,97,243,.6);
+  --hi:#E6EBF4; --lo:#969EAC; --body:#9AA2B0; --strong:#D6DCE7; --mute:#6D7684; --deep:#4A5260;
+  --f-sans:"Helvetica Neue","Inter",Helvetica,Arial,sans-serif;
+  --f-mono:"SF Mono",Menlo,"JetBrains Mono",ui-monospace,monospace;
+  --gl:max(clamp(20px,6vw,88px), env(safe-area-inset-left,0px));
+  --gr:max(clamp(20px,6vw,88px), env(safe-area-inset-right,0px));
+  --ease:cubic-bezier(.22,.7,.12,1);
+  --sec:clamp(110px,13vw,190px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--edge);scroll-behavior:smooth}
+body{margin:0;background:var(--void);color:var(--body);font-family:var(--f-sans);font-weight:300;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+p{margin:0}
+h1,h2,h3,h4{margin:0;font-weight:300;color:var(--hi);text-wrap:balance}
+b,strong{font-weight:400;color:var(--strong)}
+::selection{background:var(--blue);color:#fff}
+:focus-visible{outline:1px solid var(--blue-l);outline-offset:4px}
+[id]{scroll-margin-top:90px}
+
+.wrap{max-width:1360px;margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
+.sec{padding-block:var(--sec);position:relative}
+.sec+.sec{border-top:1px solid var(--rule)}
+.d1{font-size:clamp(2.2rem,6.6vw,6.2rem);line-height:1;letter-spacing:-.035em}
+.d2{font-size:clamp(2.1rem,4.4vw,4rem);line-height:1.04;letter-spacing:-.03em}
+.d3{font-size:clamp(1.35rem,2vw,1.75rem);line-height:1.2;letter-spacing:-.015em}
+.label{font-family:var(--f-mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
+.label.b{color:var(--blue-l)}
+.lede{font-size:clamp(1.08rem,1.45vw,1.3rem);line-height:1.6;max-width:44ch;color:var(--body)}
+.rule-b{display:block;width:64px;height:2px;background:var(--blue);box-shadow:0 0 14px var(--glow)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* buttons */
+.btn{position:relative;display:inline-flex;align-items:center;gap:14px;padding:16px 30px;font-size:15px;font-weight:400;letter-spacing:.01em;border:1px solid var(--rule2);border-radius:999px;color:var(--hi);background:transparent;overflow:hidden;isolation:isolate;transition:color .45s var(--ease),border-color .45s,box-shadow .45s}
+.btn::before{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--hi);transform:scaleX(0);transform-origin:left;transition:transform .55s var(--ease);z-index:-1}
+.btn:hover::before,.btn:focus-visible::before{transform:scaleX(1)}
+.btn:hover,.btn:focus-visible{color:var(--void);border-color:var(--hi)}
+.btn .ar{transition:transform .4s var(--ease)}
+.btn:hover .ar{transform:translateX(4px)}
+.btn-solid{border-color:var(--hi)}
+.btn-solid:hover{box-shadow:0 0 30px -8px var(--glow)}
+.btn-line{border-color:var(--rule2)}
+
+.tlink{display:inline-flex;gap:10px;align-items:center;font-size:15px;color:var(--strong);padding-block:6px;border-bottom:1px solid var(--rule2);transition:border-color .4s}
+.tlink:hover{border-color:var(--blue-l)}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:40;padding-top:env(safe-area-inset-top,0px);transition:background .5s,border-color .5s;border-bottom:1px solid transparent}
+.nav.solid{background:rgba(5,7,10,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:var(--rule)}
+.nav .wrap{height:84px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand svg{width:30px;height:27px;flex:none}
+.brand span{font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--strong);font-weight:300}
+.links{display:flex;align-items:center;gap:34px}
+.links a.nl{font-size:14.5px;color:var(--lo);position:relative;padding-block:8px;transition:color .3s}
+.links a.nl:hover,.links a.nl.on{color:var(--hi)}
+.links a.nl.on::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--blue)}
+.links .btn{padding:11px 22px;font-size:14px}
+.burger{display:none;width:44px;height:44px;position:relative}
+.burger i{position:absolute;left:12px;right:12px;height:1px;background:var(--hi);transition:transform .45s var(--ease),top .45s var(--ease)}
+.burger i:first-child{top:18px}.burger i:last-child{top:26px}
+.open .burger i:first-child{top:22px;transform:rotate(45deg)}
+.open .burger i:last-child{top:22px;transform:rotate(-45deg)}
+.sheet{position:fixed;inset:0;z-index:35;background:var(--edge);display:flex;flex-direction:column;justify-content:center;gap:4px;padding:100px var(--gr) 40px var(--gl);opacity:0;pointer-events:none;transition:opacity .45s}
+.open .sheet{opacity:1;pointer-events:auto}
+.sheet a{font-size:2.6rem;letter-spacing:-.03em;color:var(--hi);padding:12px 0;border-bottom:1px solid var(--rule)}
+@media (max-width:860px){.links{display:none}.burger{display:block}}
+
+/* page fade */
+.veil{position:fixed;inset:0;z-index:60;background:var(--edge);opacity:0;pointer-events:none;transition:opacity .4s ease}
+.veil.on{opacity:1}
+
+/* film canvases */
+.film{position:absolute;inset:0;width:100%;height:100%;display:block}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:var(--edge)}
+.hero.short{min-height:min(78svh,760px)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(3,5,9,.55) 0%,rgba(3,5,9,0) 28%,rgba(3,5,9,0) 48%,rgba(6,8,10,.86) 82%,var(--void) 100%),linear-gradient(90deg,rgba(3,5,9,.7) 0%,rgba(3,5,9,0) 62%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-block:0 clamp(56px,8vw,104px);display:grid;gap:34px}
+.hero h1{max-width:13ch}
+.hero .lede{color:#B2B9C6}
+.word{display:inline-grid;vertical-align:top;overflow:hidden}
+.word b{grid-area:1/1;padding-bottom:.14em;font-weight:300;color:var(--hi);white-space:nowrap;opacity:0;transform:translateY(40%);transition:opacity .55s ease,transform .7s var(--ease)}
+.word b.on{opacity:1;transform:none}
+.word b.out{opacity:0;transform:translateY(-40%)}
+.word b.reset{transition:none}
+.hrow{display:flex;flex-wrap:wrap;align-items:center;gap:20px 34px}
+.hfoot{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;padding-top:26px;border-top:1px solid rgba(150,158,172,.16)}
+.caption{display:flex;gap:16px;align-items:center;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--lo);transition:opacity .6s}
+.caption .bar{width:44px;height:1px;background:var(--rule2);position:relative;overflow:hidden}
+.caption .bar i{position:absolute;inset:0;background:var(--blue-l);transform-origin:left;transform:scaleX(0)}
+.caption .bar i.run{animation:fill var(--dur) linear forwards}
+@keyframes fill{to{transform:scaleX(1)}}
+.intro-in>*{animation:rise 1.2s var(--ease) both}
+.intro-in>*:nth-child(2){animation-delay:.12s}.intro-in>*:nth-child(3){animation-delay:.24s}.intro-in>*:nth-child(4){animation-delay:.36s}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+/* reveals (progressive enhancement) */
+@supports (animation-timeline: view()){
+  .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
+  @keyframes rv{from{opacity:.12;transform:translateY(40px)}to{opacity:1;transform:none}}
+}
+
+/* split head */
+.split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(40px,8vw,140px);align-items:end}
+.split>*{min-width:0}
+.stack{display:grid;gap:26px;align-content:start}
+@media (max-width:900px){.split{grid-template-columns:1fr;align-items:start}}
+
+/* roles */
+.roles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:20px;row-gap:20px;margin-top:clamp(64px,8vw,110px)}
+.role{position:relative;padding:36px 30px;display:grid;grid-template-rows:subgrid;grid-row:span 6;row-gap:22px;align-content:start;border:1px solid var(--rule);background:linear-gradient(180deg,var(--soft2) 0%,var(--void) 70%);overflow:hidden;transition:border-color .5s,transform .7s var(--ease)}
+.role:hover{border-color:var(--rule2);transform:translateY(-6px)}
+.role svg{width:100%;height:150px;margin-bottom:10px}
+.role svg *{fill:none;stroke:#3a4354;stroke-width:1;transition:stroke .6s}
+.role svg .acc{stroke:var(--blue)}
+.role:hover svg *{stroke:#6c7586}
+.role:hover svg .acc{stroke:var(--blue-l)}
+.role ul{list-style:none;margin:0;align-self:start;padding:20px 0 0;border-top:1px solid var(--rule);display:grid;gap:10px;font-size:15px}
+.role li{display:flex;gap:12px}
+.role li::before{content:"";flex:none;width:10px;height:1px;background:var(--blue-l);margin-top:.85em}
+.role .ent{align-self:end;font-family:var(--f-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--deep)}
+@media (max-width:1180px){.roles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.roles{grid-template-columns:1fr}}
+
+/* sports */
+.sports{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);gap:clamp(36px,6vw,96px);margin-top:clamp(64px,8vw,100px)}
+.slist{display:grid;align-content:start;border-top:1px solid var(--rule)}
+.slist button{display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;padding:20px 0;border-bottom:1px solid var(--rule);font-size:clamp(1.25rem,2vw,1.7rem);letter-spacing:-.02em;color:var(--deep);transition:color .4s}
+.slist button:hover{color:var(--lo)}
+.slist button[aria-pressed="true"]{color:var(--hi)}
+.slist button .ln{width:0;height:1px;background:var(--blue);box-shadow:0 0 10px var(--glow);transition:width .6s var(--ease)}
+.slist button[aria-pressed="true"] .ln{width:48px}
+.stage{display:grid;gap:44px;min-width:0;align-content:start}
+.screen{position:relative;aspect-ratio:16/9;max-width:100%;border:1px solid var(--rule);overflow:hidden;background:var(--edge)}
+.screen::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(3,5,9,.75));pointer-events:none}
+.screen .caption{position:absolute;left:24px;bottom:20px;z-index:2}
+.sp-title{display:grid;gap:18px;margin:0;font-size:clamp(2rem,3.6vw,3.2rem);font-weight:300;letter-spacing:-.03em;line-height:1.05;color:var(--hi);transition:opacity .4s,transform .5s var(--ease)}
+.sp-title.fade{opacity:0;transform:translateY(8px)}
+.notes{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--rule);transition:opacity .4s,transform .5s var(--ease)}
+.notes.fade{transform:translateY(8px)}
+.notes.fade{opacity:0}
+.notes>div{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:24px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--rule)}
+@media (max-width:700px){.notes>div{grid-template-columns:1fr;gap:8px}}
+.notes h4{font-size:1.25rem;letter-spacing:-.015em}
+.notes p{font-size:15px}
+@media (max-width:1000px){.sports{grid-template-columns:1fr}.slist{grid-auto-flow:column;grid-auto-columns:max-content;overflow-x:auto;gap:22px;border:0;scrollbar-width:none}.slist::-webkit-scrollbar{display:none}.slist button{border:0;padding:6px 0;font-size:1.15rem}.slist button .ln{display:none}.notes{grid-template-columns:1fr}}
+
+/* method */
+.phases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(24px,3vw,44px);margin-top:clamp(64px,8vw,100px);position:relative;padding-top:44px}
+.phases::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--rule)}
+.phases .prog{position:absolute;left:0;top:0;height:1px;width:100%;background:var(--blue);box-shadow:0 0 12px var(--glow);transform-origin:left;transform:scaleX(.25)}
+@supports (animation-timeline: view()){.phases .prog{animation:grow linear both;animation-timeline:view();animation-range:entry 30% cover 55%}@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}}
+.phase{display:grid;gap:16px;align-content:start}
+.phase .n{font-size:clamp(3rem,5vw,4.4rem);line-height:.9;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px #3a4354}
+.phase p{font-size:15.5px}
+.gate{margin-top:56px;display:flex;gap:22px;align-items:baseline;padding:24px 28px;background:var(--soft);border-left:2px solid var(--blue);max-width:760px}
+@media (max-width:1000px){.phases{grid-template-columns:1fr 1fr;row-gap:56px}}
+@media (max-width:560px){.phases{grid-template-columns:1fr}.gate{flex-direction:column;gap:8px}}
+
+/* structure */
+.web{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.8fr);gap:clamp(36px,6vw,90px);align-items:center;margin-top:clamp(64px,8vw,100px)}
+.webfig{overflow-x:auto}
+.webfig svg{width:100%;min-width:540px;display:block}
+.node rect{fill:var(--soft);stroke:var(--rule2);transition:stroke .4s,fill .4s}
+.node text{fill:var(--hi);font-family:var(--f-sans);font-size:14px;font-weight:300}
+.node .s{fill:var(--mute);font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase}
+.node{cursor:pointer;outline:none}
+.node:hover rect,.node.on rect,.node:focus-visible rect{stroke:var(--blue);fill:var(--soft2)}
+.t-own{stroke:#59616f;stroke-width:1;fill:none}
+.t-frame{stroke:var(--blue);stroke-width:1.5;fill:none}
+.t-ben{stroke:var(--blue-l);stroke-width:1;stroke-dasharray:2 6;fill:none}
+.wside{display:grid;gap:28px}
+.wdet{min-height:150px;transition:opacity .3s}
+.key{display:grid;gap:12px;font-size:14px}
+.key div{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:center}
+@media (max-width:960px){.web{grid-template-columns:1fr}}
+
+/* faq */
+.faq{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(40px,8vw,140px)}
+.qa{border-top:1px solid var(--rule)}
+.qa:last-child{border-bottom:1px solid var(--rule)}
+.qa button{width:100%;text-align:left;display:flex;justify-content:space-between;gap:24px;padding:28px 0;font-size:clamp(1.05rem,1.4vw,1.2rem);color:var(--strong);letter-spacing:-.01em}
+.qa .pm{flex:none;width:14px;height:14px;position:relative;margin-top:7px}
+.qa .pm::before,.qa .pm::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--lo);transition:transform .5s var(--ease)}
+.qa .pm::after{transform:rotate(90deg)}
+.qa.open .pm::after{transform:rotate(0)}
+.qa .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--ease)}
+.qa.open .a{grid-template-rows:1fr}
+.qa .a>div{overflow:hidden}
+.qa .a p{padding-bottom:30px;max-width:60ch}
+@media (max-width:900px){.faq{grid-template-columns:1fr}}
+
+/* closing */
+.closing{position:relative;overflow:hidden;min-height:min(86svh,820px);display:flex;align-items:center;border-top:1px solid var(--rule);background:var(--edge)}
+.closing::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--void) 0%,rgba(6,8,10,0) 18%,rgba(6,8,10,0) 75%,var(--edge) 100%),linear-gradient(90deg,rgba(3,5,9,.78) 0%,rgba(3,5,9,.3) 48%,rgba(3,5,9,0) 75%);pointer-events:none}
+.cl{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(40px,7vw,120px);align-items:end;padding-block:clamp(110px,12vw,170px)}
+.cl-main{display:grid;gap:26px;max-width:620px}
+.cl-main .lede{color:#B2B9C6}
+.cl-pick{display:grid;gap:28px;justify-items:start;padding:34px;background:rgba(6,8,10,.55);border:1px solid rgba(150,158,172,.14);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.cl-chips{display:flex;flex-wrap:wrap;gap:10px}
+.cl-chips button{padding:11px 20px;border-radius:999px;border:1px solid var(--rule2);font-size:15px;color:var(--lo);transition:border-color .35s,color .35s,background .35s}
+.cl-chips button:hover{color:var(--hi);border-color:var(--lo)}
+.cl-chips button[aria-pressed="true"]{color:var(--hi);border-color:var(--blue);background:rgba(0,97,243,.12)}
+.cl-cta{display:flex;flex-wrap:wrap;align-items:center;gap:18px 24px}
+.cl-note{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.cl-hint{position:absolute;right:var(--gr);bottom:30px;z-index:2;margin:0;font-family:var(--f-mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--deep)}
+@media (max-width:960px){.cl{grid-template-columns:1fr;align-items:start}.cl-hint{display:none}}
+.closing .wrap{position:relative;z-index:2;width:100%}
+
+/* team */
+.people{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:clamp(64px,8vw,100px)}
+.person{border:1px solid var(--rule);background:var(--soft);padding:34px 32px;display:grid;gap:18px;align-content:start;text-align:left;width:100%;transition:border-color .4s,background .4s}
+.person:hover{border-color:var(--rule2);background:var(--soft2)}
+.person .tile{width:72px;height:72px;border:1px solid var(--rule2);display:grid;place-items:center;font-size:1.8rem;letter-spacing:-.03em;color:var(--lo);position:relative}
+.person .tile::after{content:"";position:absolute;left:-1px;right:-1px;bottom:-1px;height:2px;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.person:hover .tile::after,.person.open .tile::after{transform:scaleX(1)}
+.person .more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s var(--ease)}
+.person.open .more{grid-template-rows:1fr}
+.person .more>div{overflow:hidden}
+.person ul{list-style:none;margin:0;padding:16px 0 0;border-top:1px solid var(--rule);display:grid;gap:8px;font-size:15px}
+.person .tg{font-size:14px;color:var(--blue-l)}
+.pend{justify-self:start;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--deep);border:1px dashed var(--rule2);padding:5px 9px}
+@media (max-width:1000px){.people{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.people{grid-template-columns:1fr}}
+.cols4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(24px,3vw,44px);margin-top:clamp(56px,7vw,90px)}
+.cols4>div{display:grid;gap:14px;align-content:start;padding-top:24px;border-top:1px solid var(--rule)}
+.cols4 p{font-size:15.5px}
+@media (max-width:1000px){.cols4{grid-template-columns:1fr 1fr;row-gap:48px}}
+@media (max-width:560px){.cols4{grid-template-columns:1fr}}
+
+/* work */
+.aud{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:clamp(56px,7vw,90px)}
+.aud>div{border:1px solid var(--rule);padding:36px 32px;display:grid;gap:18px;align-content:start;background:var(--soft)}
+@media (max-width:1000px){.aud{grid-template-columns:1fr}}
+.formgrid{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:clamp(40px,7vw,120px)}
+@media (max-width:960px){.formgrid{grid-template-columns:1fr}}
+form.req{display:grid;grid-template-columns:1fr 1fr;gap:34px 28px}
+.f{display:grid;gap:8px;min-width:0}
+.f.full{grid-column:1/-1}
+.f>label,.f .fl{font-family:var(--f-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.f input:not([type=checkbox]),.f select,.f textarea{background:transparent;border:0;border-bottom:1px solid var(--rule2);color:var(--hi);font:inherit;font-size:17px;padding:10px 0 12px;outline:none;width:100%;border-radius:0;transition:border-color .4s}
+.f input:focus,.f select:focus,.f textarea:focus{border-bottom-color:var(--blue)}
+.f select option{background:var(--void)}
+.f textarea{resize:vertical;min-height:120px}
+.checks{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.checks label{border-radius:999px;display:inline-flex;align-items:center;gap:10px;white-space:nowrap;border:1px solid var(--rule2);padding:10px 16px;font-size:14.5px;color:var(--lo);cursor:pointer;transition:border-color .3s,color .3s}
+.checks input{width:auto;margin:0;accent-color:var(--blue)}
+.checks label:has(input:checked){border-color:var(--blue);color:var(--hi)}
+.fend{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:22px;padding-top:10px}
+.fend p{font-size:13px;color:var(--deep);max-width:52ch}
+.done{border-left:2px solid var(--blue);padding:10px 0 10px 32px;display:grid;gap:16px;animation:rise .8s var(--ease) both}
+@media (max-width:620px){form.req{grid-template-columns:1fr}}
+.limits{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(24px,3vw,40px);margin-top:clamp(56px,7vw,90px)}
+.limits>div{display:grid;gap:12px;align-content:start;padding-top:22px;border-top:1px solid var(--rule)}
+.limits p{font-size:15px}
+
+
+/* team bench */
+.bench{margin-top:clamp(56px,7vw,96px);border-top:1px solid var(--rule)}
+.brow{position:relative;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr) minmax(0,.9fr);gap:clamp(20px,4vw,64px);align-items:baseline;padding:clamp(28px,3.2vw,44px) 0;border-bottom:1px solid var(--rule);transition:background .5s}
+.brow::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:0;background:var(--blue);box-shadow:0 0 12px var(--glow);transition:width .8s var(--ease)}
+.brow:hover::before{width:100%}
+.brow h3{transition:transform .6s var(--ease)}
+.brow:hover h3{transform:translateX(8px)}
+.brow ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+@media (max-width:900px){.brow{grid-template-columns:1fr;gap:12px}}
+.netband{margin-top:clamp(56px,7vw,90px);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,2.2fr);gap:clamp(24px,4vw,64px);padding:28px 30px;border:1px solid var(--rule);background:var(--soft)}
+.nb-head{display:grid;gap:10px;align-content:start}
+.nb-head p:last-child{font-size:14px}
+.nb-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.nb-list li{display:grid;gap:4px;font-size:13.5px;line-height:1.5}
+.nb-list b{font-size:14px}
+@media (max-width:1000px){.netband{grid-template-columns:1fr}.nb-list{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.nb-list{grid-template-columns:1fr}}
+
+/* introduction builder */
+.ib{border:1px solid var(--rule);background:linear-gradient(180deg,var(--soft),var(--void) 80%);position:relative;overflow:hidden}
+.ib::before{content:"";position:absolute;left:0;top:0;height:1px;width:100%;background:linear-gradient(90deg,rgba(78,134,232,.55),rgba(78,134,232,0) 70%);transform:scaleX(0);transform-origin:left;transition:transform 1s var(--ease)}
+.ib.open::before{transform:scaleX(1)}
+.ib-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:28px;padding:clamp(28px,4vw,56px)}
+.ib-head .stack{max-width:640px}
+.ib.open .ib-open{display:none}
+.ib-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .9s var(--ease)}
+.ib.open .ib-body{grid-template-rows:1fr}
+.ib-body>div{overflow:hidden}
+.ib-inner{padding:0 clamp(28px,4vw,56px) clamp(28px,4vw,56px);display:grid;gap:30px}
+.ib-meta{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;padding-top:26px;border-top:1px solid var(--rule)}
+.ib-meta .cnt{font-family:var(--f-mono);font-size:11px;letter-spacing:.2em;color:var(--strong)}
+.ib-track{flex:1 1 200px;max-width:320px;height:1px;background:var(--rule2);position:relative}
+.ib-track i{position:absolute;left:0;top:-1px;height:3px;background:var(--blue);box-shadow:0 0 10px var(--glow);transition:width .7s var(--ease);width:20%}
+.ib-sum{display:flex;flex-wrap:wrap;gap:8px}
+.ib-sum span{font-size:13px;color:var(--lo);border:1px solid var(--rule2);border-radius:999px;padding:5px 12px;animation:rise .5s var(--ease) both}
+.step{display:grid;gap:26px;min-height:230px;align-content:start}
+.step.in{animation:stepin .7s var(--ease) both}
+@keyframes stepin{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
+.q{font-size:clamp(1.6rem,3vw,2.5rem);letter-spacing:-.03em;line-height:1.1;color:var(--hi);margin:0;font-weight:300}
+.q small{display:block;font-size:15px;letter-spacing:0;color:var(--mute);margin-top:12px}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.opt{position:relative;cursor:pointer}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt span{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border:1px solid var(--rule2);border-radius:999px;font-size:15.5px;color:var(--lo);transition:border-color .35s,color .35s,background .35s,transform .35s var(--ease)}
+.opt:hover span{color:var(--hi);border-color:var(--lo);transform:translateY(-2px)}
+.opt input:checked+span{color:var(--void);background:var(--hi);border-color:var(--hi)}
+.opt input:focus-visible+span{outline:1px solid var(--blue-l);outline-offset:3px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:30px 28px;max-width:860px}
+@media (max-width:620px){.fields{grid-template-columns:1fr}}
+.ib-nav{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.ib-nav .back{font-size:15px;color:var(--lo);padding:8px 0;border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+.ib-nav .back:hover{color:var(--hi);border-color:var(--rule2)}
+.ib-nav .back[hidden]{display:inline-block!important;visibility:hidden}
+.ib-err{font-size:14px;color:var(--blue-l);min-height:1.4em}
+.ib-fine{font-size:13px;color:var(--deep);max-width:60ch}
+
+
+/* two arms */
+.arms{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin-top:clamp(56px,7vw,90px)}
+.arm{position:relative;display:grid;gap:14px;align-content:start;padding:34px 32px 30px;border-top:1px solid var(--rule2);background:linear-gradient(180deg,rgba(17,22,31,.6),transparent)}
+.arm-c{border-top-color:var(--blue);box-shadow:0 -1px 14px -6px var(--glow)}
+.arm p:not(.label){max-width:52ch}
+.arm-tag{justify-self:start;margin-top:6px;font-size:12.5px;color:var(--lo);border:1px solid var(--rule2);border-radius:999px;padding:5px 14px}
+.arm-c .arm-tag{color:var(--blue-l);border-color:rgba(78,134,232,.45)}
+.arms+.roles{margin-top:20px}
+.role .ent-c{color:var(--blue-l)}
+@media (max-width:860px){.arms{grid-template-columns:1fr}}
+
+/* footer */
+footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90px calc(40px + env(safe-area-inset-bottom,0px))}
+.fg{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:44px}
+.fg h4{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);font-weight:400;margin-bottom:16px}
+.fg nav a,.fg .lst span{display:block;padding:5px 0;font-size:14.5px;color:var(--lo);transition:color .3s}
+.fg nav a:hover{color:var(--hi)}
+.vis{font-size:14px;white-space:nowrap}
+.vis a{color:var(--lo);border-bottom:1px solid var(--rule2)}
+.vis a:hover{color:var(--hi)}
+.fine{margin-top:70px;padding-top:30px;border-top:1px solid var(--rule);display:grid;gap:14px;font-size:12.5px;line-height:1.7;color:var(--deep)}
+.fine .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+@media (max-width:900px){.fg{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.fg{grid-template-columns:1fr}}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.word b:not(.on){display:none}}
+</style>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="chr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2F5FA"/><stop offset=".45" stop-color="#B9C0CC"/><stop offset=".55" stop-color="#7E8694"/><stop offset="1" stop-color="#C9CFD9"/></linearGradient>
+  <symbol id="vmark" viewBox="0 0 120 106">
+    <path d="M4 6 L30 6 L58 72 L48 96 Z" fill="url(#chr)" stroke="#0061F3" stroke-width="1.6"/>
+    <path d="M48 96 L58 72 L80 22 L94 22 L64 96 Z" fill="url(#chr)" stroke="#0061F3" stroke-width="1.6"/>
+    <path d="M86 4 L116 4 L104 30 L92 30 Z" fill="url(#chr)" stroke="#0061F3" stroke-width="1.6"/>
+  </symbol>
+</defs></svg>
+
+<div class="veil" id="veil" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#home" data-route="home" class="brand" aria-label="Vestrium Global home"><svg><use href="#vmark"/></svg><span>Vestrium Global</span></a>
+    <nav class="links" aria-label="Primary">
+      <a class="nl" href="#home" data-route="home">Home</a>
+      <a class="nl" href="#team" data-route="team">Team</a>
+      <a class="nl" href="#work" data-route="work">Work with us</a>
+      <a class="btn btn-solid" href="#work" data-route="work" data-target="request">Enquire</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+<div class="sheet" id="sheet">
+  <a href="#home" data-route="home">Home</a>
+  <a href="#team" data-route="team">Team</a>
+  <a href="#work" data-route="work">Work with us</a>
+  <a href="#work" data-route="work" data-target="request" style="color:var(--blue-l)">Enquire</a>
+</div>
+
+<!-- ================= HOME ================= -->
+<main data-page="home" id="p-home">
+  <section class="hero" id="top">
+    <canvas class="film" id="heroFilm" aria-hidden="true"></canvas>
+    <div class="wrap intro-in">
+      <h1 class="d1">Generational wealth, built for <span class="word" id="word" aria-hidden="true"></span><span class="sr">athletes in every sport</span></h1>
+      <p class="lede">A private institution for the athlete beyond the game. We shape the name, build the enterprise around it, and remain to steward both for the decades that follow.</p>
+      <div class="hrow">
+        <a class="btn btn-solid" href="#work" data-route="work" data-target="request">Start a conversation <span class="ar">→</span></a>
+        <a class="tlink" href="#approach" data-scroll="approach">Our approach <span>↓</span></a>
+      </div>
+      <div class="hfoot">
+        <span class="caption" id="heroCap"><span class="bar"><i id="heroBar"></i></span><span id="heroCapT"></span></span>
+        <span class="label">A private business institution</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap split">
+      <h2 class="d2 rv">Talent opens the door.<br>Structure keeps it open.</h2>
+      <div class="stack rv">
+        <span class="rule-b"></span>
+        <p class="lede">The years in which a name carries the most value are seldom the years with the most around it. Vestrium brings the discipline of a private office to a career still being written: a considered personal brand, a properly constituted enterprise, and ownership that endures long after the final whistle.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="approach">
+    <div class="wrap">
+      <div class="split">
+        <div class="stack"><p class="label b">The Vestrium practice</p><h2 class="d2 rv">One house. Every discipline.</h2></div>
+        <p class="lede rv">Everything an athlete needs to build a life of substance beyond the field, brought under one roof and held to a single standard.</p>
+      </div>
+      <div class="arms rv">
+        <div class="arm arm-c">
+          <p class="label b">Vestrium Global Consulting</p>
+          <h3 class="d3">Advisory, on retainer.</h3>
+          <p>The services we provide day to day: infrastructure, brand and NIL operations, governance and personal brand. Consulting is engaged on a retainer, and that retainer is the only fee it receives.</p>
+          <span class="arm-tag">Retainer</span>
+        </div>
+        <div class="arm">
+          <p class="label">Vestrium Global Collective</p>
+          <h3 class="d3">Shared ownership.</h3>
+          <p>Where we help create a venture, a business or the infrastructure behind it, the Collective holds equity alongside you, on terms agreed and disclosed in writing before you decide.</p>
+          <span class="arm-tag">Equity</span>
+        </div>
+      </div>
+      <div class="roles">
+        <article class="role rv">
+          <svg viewBox="0 0 300 150" aria-hidden="true"><rect x="40" y="20" width="220" height="110"/><rect x="60" y="40" width="80" height="70"/><rect x="160" y="40" width="80" height="30"/><rect x="160" y="80" width="80" height="30"/><line class="acc" x1="20" y1="130" x2="280" y2="130"/></svg>
+          <p class="label b">Infrastructure</p>
+          <h3 class="d3">An enterprise worthy of the name.</h3>
+          <p>Companies constituted with licensed counsel, income received into entities you own, and affairs administered with the rigor of a private office.</p>
+          <ul><li>Entity design, formed by counsel</li><li>Partnership administration</li><li>Monthly accounts and reporting</li></ul>
+          <span class="ent ent-c">Retainer · Vestrium Global Consulting</span>
+        </article>
+        <article class="role rv">
+          <svg viewBox="0 0 300 150" aria-hidden="true"><line x1="40" y1="130" x2="40" y2="70"/><line x1="100" y1="130" x2="100" y2="50"/><line x1="160" y1="130" x2="160" y2="34"/><line class="acc" x1="220" y1="130" x2="220" y2="16"/><path d="M40 70 100 50 160 34 220 16 270 8"/><line x1="20" y1="130" x2="280" y2="130"/></svg>
+          <p class="label b">Ventures</p>
+          <h3 class="d3">Ownership, not merely endorsement.</h3>
+          <p>When the moment is right, we conceive, launch and operate businesses alongside you, built to be held rather than traded. The Collective takes its share as equity, not fees.</p>
+          <ul><li>Venture conception and launch</li><li>Operating partners</li><li>Equity terms agreed in writing</li></ul>
+          <span class="ent">Equity · Vestrium Global Collective</span>
+        </article>
+        <article class="role rv">
+          <svg viewBox="0 0 300 150" aria-hidden="true"><rect x="70" y="60" width="160" height="40"/><circle cx="100" cy="40" r="10"/><circle cx="150" cy="40" r="10"/><circle class="acc" cx="200" cy="40" r="10"/><circle cx="100" cy="120" r="10"/><circle cx="150" cy="120" r="10"/><circle cx="200" cy="120" r="10"/></svg>
+          <p class="label b">Governance</p>
+          <h3 class="d3">A considered seat at the table.</h3>
+          <p>Preparation for board service and ownership roles, so that when the invitation comes, you arrive ready.</p>
+          <ul><li>Board readiness</li><li>Governance fundamentals</li><li>Placement by introduction</li></ul>
+          <span class="ent ent-c">Retainer · Vestrium Global Consulting</span>
+        </article>
+        <article class="role rv">
+          <svg viewBox="0 0 300 150" aria-hidden="true"><circle class="acc" cx="150" cy="75" r="16"/><circle cx="150" cy="75" r="36"/><circle cx="150" cy="75" r="56"/><circle cx="150" cy="75" r="74"/></svg>
+          <p class="label b">Personal brand</p>
+          <h3 class="d3">The athlete, beyond the athlete.</h3>
+          <p>Positioning, narrative and partnerships shaped with intent, so that your name stands for something enduring and opens doors well beyond sport.</p>
+          <ul><li>Positioning and narrative</li><li>Partnership and media strategy</li><li>Life beyond competition</li></ul>
+          <span class="ent ent-c">Retainer · Vestrium Global Consulting</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="sports">
+    <div class="wrap">
+      <div class="split">
+        <div class="stack"><p class="label b">Sport by sport</p><h2 class="d2 rv">Each sport keeps its own clock.</h2></div>
+        <p class="lede rv">The length of a career, the shape of its contracts and the reach of a name differ from one sport to the next. Our advice is shaped accordingly.</p>
+      </div>
+      <div class="sports">
+        <div class="slist" id="slist" role="group" aria-label="Choose a sport"></div>
+        <div class="stage">
+          <h3 class="sp-title" id="spTitle"><span class="label b">Our advice for</span><span id="spName">basketball players</span></h3>
+          <div class="notes" id="notes"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="method">
+    <div class="wrap">
+      <div class="split">
+        <div class="stack"><p class="label b">Our approach</p><h2 class="d2 rv">Protection precedes optimization.</h2></div>
+        <p class="lede rv">A disciplined sequence, observed without exception. Each phase is complete before the next begins.</p>
+      </div>
+      <div class="phases">
+        <span class="prog" aria-hidden="true"></span>
+        <div class="phase rv"><span class="n">01</span><p class="label b">Understand</p><h3 class="d3">See the whole picture.</h3><p>A complete account of every agreement, obligation and relationship that bears your name.</p></div>
+        <div class="phase rv"><span class="n">02</span><p class="label b">Protect</p><h3 class="d3">Secure the foundations.</h3><p>Agreements reviewed by counsel, name and likeness registered, and coverage examined by licensed specialists.</p></div>
+        <div class="phase rv"><span class="n">03</span><p class="label b">Build</p><h3 class="d3">Constitute the enterprise.</h3><p>Counsel forms the structures we design together. Accounts are opened in your name, and income is received where it belongs.</p></div>
+        <div class="phase rv"><span class="n">04</span><p class="label b">Steward</p><h3 class="d3">Hold for the long term.</h3><p>The enterprise run month by month, the brand cultivated, and ventures pursued when the moment is right.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="structure">
+    <div class="wrap">
+      <div class="split">
+        <div class="stack"><p class="label b">How it fits together</p><h2 class="d2 rv">You own it. We run it.</h2></div>
+        <p class="lede rv">An illustrative arrangement rather than a prescription. Select any element to see its role.</p>
+      </div>
+      <div class="web rv">
+        <div class="webfig">
+          <svg viewBox="0 0 640 420" role="img" aria-label="Illustrative structure: you at the top, your holding company beneath, then brand, intellectual property, ventures and property companies, with Vestrium operating across them.">
+            <line class="t-own" x1="320" y1="70" x2="320" y2="146"/>
+            <path class="t-own" d="M320 196V238M95 238H545M95 238V296M245 238V296M395 238V296M545 238V296"/>
+            <line class="t-frame" x1="20" y1="376" x2="620" y2="376"/>
+            <path class="t-ben" d="M95 346C95 290 22 262 22 160C22 74 226 48 256 48"/>
+            <path class="t-ben" d="M545 346C545 290 618 262 618 160C618 74 414 48 384 48"/>
+            <g class="node" data-k="you" tabindex="0"><rect x="256" y="26" width="128" height="44"/><text x="320" y="53" text-anchor="middle">You</text></g>
+            <g class="node" data-k="hold" tabindex="0"><rect x="205" y="146" width="230" height="50"/><text x="320" y="168" text-anchor="middle">Your holding company</text><text class="s" x="320" y="185" text-anchor="middle">Owned by you</text></g>
+            <g class="node" data-k="brand" tabindex="0"><rect x="30" y="296" width="130" height="50"/><text x="95" y="318" text-anchor="middle">Brand and NIL</text><text class="s" x="95" y="335" text-anchor="middle">Deals, content</text></g>
+            <g class="node" data-k="ip" tabindex="0"><rect x="180" y="296" width="130" height="50"/><text x="245" y="318" text-anchor="middle">Name and IP</text><text class="s" x="245" y="335" text-anchor="middle">Marks, likeness</text></g>
+            <g class="node" data-k="ventures" tabindex="0"><rect x="330" y="296" width="130" height="50"/><text x="395" y="318" text-anchor="middle">Ventures</text><text class="s" x="395" y="335" text-anchor="middle">Companies you own</text></g>
+            <g class="node" data-k="property" tabindex="0"><rect x="480" y="296" width="130" height="50"/><text x="545" y="318" text-anchor="middle">Property</text><text class="s" x="545" y="335" text-anchor="middle">Real assets</text></g>
+            <g class="node" data-k="frame" tabindex="0"><rect x="240" y="392" width="160" height="26" style="fill:#06080A;stroke:#0061F3"/><text x="320" y="410" text-anchor="middle" style="fill:#4E86E8;font-size:12px">Vestrium operates</text></g>
+          </svg>
+        </div>
+        <div class="wside">
+          <div class="wdet" id="wdet"></div>
+          <div class="key">
+            <div><svg viewBox="0 0 40 6" width="40" height="6"><line class="t-own" x1="0" y1="3" x2="40" y2="3"/></svg><span>Ownership stays with you</span></div>
+            <div><svg viewBox="0 0 40 6" width="40" height="6"><line class="t-frame" x1="0" y1="3" x2="40" y2="3"/></svg><span>The operating frame Vestrium runs</span></div>
+            <div><svg viewBox="0 0 40 6" width="40" height="6"><line class="t-ben" x1="0" y1="3" x2="40" y2="3"/></svg><span>Benefit flows back to you</span></div>
+          </div>
+          <p style="font-size:13px;color:var(--deep)">Illustrative only. Every structure is designed for one person, formed by licensed counsel and reviewed by a CPA.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap faq">
+      <div class="stack"><p class="label b">Questions</p><h2 class="d2 rv">Questions we are often asked.</h2></div>
+      <div id="faq"></div>
+    </div>
+  </section>
+
+  <section class="closing" id="closing">
+    <canvas class="film" id="closeFilm" aria-hidden="true"></canvas>
+    <div class="wrap cl">
+      <div class="cl-main">
+        <p class="label b">By introduction</p>
+        <h2 class="d2">Build what lasts, while the window is open.</h2>
+        <p class="lede">Every relationship begins with a conversation. Tell us your sport, and we will take it from there.</p>
+      </div>
+      <div class="cl-pick">
+        <div class="cl-chips" id="clChips" role="group" aria-label="Your sport"></div>
+        <div class="cl-cta">
+          <a class="btn btn-solid" id="clGo" href="#work" data-route="work" data-target="request" data-sport="Basketball">Introduce yourself <span class="ar">→</span></a>
+          <span class="cl-note" id="clNote">Basketball</span>
+        </div>
+      </div>
+    </div>
+    <p class="cl-hint" aria-hidden="true">Hover to light the court</p>
+  </section>
+</main>
+
+<!-- ================= TEAM ================= -->
+<main data-page="team" id="p-team" hidden>
+  <section class="hero short">
+    <canvas class="film" id="teamFilm" aria-hidden="true"></canvas>
+    <div class="wrap intro-in">
+      <p class="label b">The team</p>
+      <h1 class="d1" style="max-width:14ch">A bench assembled around one athlete.</h1>
+      <p class="lede">A small, permanent team that knows your affairs intimately, supported by licensed professionals who answer to you.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="split">
+        <div class="stack"><p class="label b">The bench</p><h2 class="d2 rv">Six disciplines. One standard.</h2></div>
+        <p class="lede rv">Your bench is a small, permanent team drawn from across the house. Each discipline is led by a principal who knows your affairs and reports to you plainly, and every one answers to the same standard.</p>
+      </div>
+      <div class="bench">
+        <div class="brow rv">
+          <h3 class="d3">Personal brand</h3>
+          <p>Positioning, narrative, partnerships and media, shaped so that your name carries meaning well beyond the scoreboard.</p>
+          <ul><li>Positioning and narrative</li><li>Partnership strategy</li><li>Media and public profile</li></ul>
+        </div>
+        <div class="brow rv">
+          <h3 class="d3">Infrastructure</h3>
+          <p>The companies and accounts behind your career, designed with us and formed by licensed counsel.</p>
+          <ul><li>Entity design</li><li>Accounts in your name</li><li>Annual structure review</li></ul>
+        </div>
+        <div class="brow rv">
+          <h3 class="d3">NIL and brand operations</h3>
+          <p>The day-to-day administration of your name as a business: agreements, licensing, obligations and renewals.</p>
+          <ul><li>Partnership administration</li><li>Licensing and content rights</li><li>Obligations calendar</li></ul>
+        </div>
+        <div class="brow rv">
+          <h3 class="d3">Operations and reporting</h3>
+          <p>Payments, accounts and deadlines handled monthly, and a clear account of where everything stands.</p>
+          <ul><li>Monthly accounts</li><li>Payments and renewals</li><li>Your monthly report</li></ul>
+        </div>
+        <div class="brow rv">
+          <h3 class="d3">Ventures</h3>
+          <p>Businesses conceived, launched and operated alongside you, with any Vestrium interest disclosed in writing first.</p>
+          <ul><li>Venture conception</li><li>Operating partners</li><li>Written disclosure</li></ul>
+        </div>
+        <div class="brow rv">
+          <h3 class="d3">Governance</h3>
+          <p>Preparation for board service and ownership, so that when a seat is offered, you are ready to take it.</p>
+          <ul><li>Board readiness</li><li>Governance fundamentals</li><li>Placement by introduction</li></ul>
+        </div>
+      </div>
+      <div class="netband rv">
+        <div class="nb-head"><p class="label b">Licensed and independent</p><p>Where advice requires a license, it comes from professionals engaged by you directly. We coordinate their work; we never direct their advice.</p></div>
+        <ul class="nb-list">
+          <li><b>Counsel</b><span>Formation, agreements, name and likeness</span></li>
+          <li><b>Accountants</b><span>Returns and tax review of every structure</span></li>
+          <li><b>Registered investment advisers</b><span>Selected by you, if investment advice is wanted</span></li>
+          <li><b>Insurance specialists</b><span>Disability, liability and property coverage</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="split">
+        <div class="stack"><p class="label b">Standards</p><h2 class="d2 rv">How we conduct ourselves.</h2></div>
+        <span></span>
+      </div>
+      <div class="cols4">
+        <div class="rv"><p class="label b">Discretion</p><h3 class="d3">Quiet by default.</h3><p>We do not speak of clients, agreements or structures. Your name is yours alone to use.</p></div>
+        <div class="rv"><p class="label b">Permanence</p><h3 class="d3">Built for decades.</h3><p>Seats are held for the long term, so your affairs are never explained twice.</p></div>
+        <div class="rv"><p class="label b">Clarity</p><h3 class="d3">Readable reporting.</h3><p>A monthly account you can read in five minutes, with the detail close at hand.</p></div>
+        <div class="rv"><p class="label b">Candor</p><h3 class="d3">Conflicts in writing.</h3><p>Any interest Vestrium holds alongside you is disclosed before you decide.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap split">
+      <h2 class="d2 rv">We appoint rarely, and deliberately.</h2>
+      <div class="stack rv"><p class="lede">Attorneys, accountants, operators and brand specialists who share these standards are welcome to introduce themselves.</p><a class="tlink" href="#work" data-route="work" data-target="request" data-aud="pro" style="justify-self:start">Introduce yourself <span>→</span></a></div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= WORK ================= -->
+<main data-page="work" id="p-work" hidden>
+  <section class="hero short">
+    <canvas class="film" id="workFilm" aria-hidden="true"></canvas>
+    <div class="wrap intro-in">
+      <p class="label b">Work with us</p>
+      <h1 class="d1" style="max-width:12ch">By introduction.</h1>
+      <p class="lede">We accept a small number of clients each year. Most are introduced by someone they trust; where that is not yet the case, a direct enquiry is equally welcome.</p>
+      <div class="hrow"><a class="btn btn-solid" href="#request" data-scroll="request" data-open="1">Introduce yourself <span class="ar">↓</span></a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="request" style="padding-top:clamp(40px,5vw,70px)">
+    <div class="wrap">
+      <div class="ib" id="ib">
+        <div class="ib-head">
+          <div class="stack"><p class="label b">Introduce yourself</p><h2 class="d2">Tell us where you stand.</h2><p class="lede">Five brief questions, a minute or two of your time.</p></div>
+          <button class="btn btn-solid ib-open" id="ibOpen" type="button">Begin <span class="ar">→</span></button>
+        </div>
+        <div class="ib-body"><div>
+          <div id="formwrap" class="ib-inner">
+            <div class="ib-meta"><span class="cnt" id="ibCnt">01 / 05</span><span class="ib-track"><i id="ibBar"></i></span><span class="ib-sum" id="ibSum"></span></div>
+            <form class="req" id="req" name="request" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+              <input type="hidden" name="form-name" value="request">
+              <p hidden><label>Leave this empty <input name="bot-field" id="f-bot"></label></p>
+              <div class="step" role="group" aria-labelledby="q0"><p class="q" id="q0">Which sport do you play?</p><div class="opts"><label class="opt"><input type="radio" name="sport" value="Basketball" id="sport-0"><span>Basketball</span></label><label class="opt"><input type="radio" name="sport" value="Football" id="sport-1"><span>Football</span></label><label class="opt"><input type="radio" name="sport" value="Baseball" id="sport-2"><span>Baseball</span></label><label class="opt"><input type="radio" name="sport" value="Soccer" id="sport-3"><span>Soccer</span></label><label class="opt"><input type="radio" name="sport" value="Track and field" id="sport-4"><span>Track and field</span></label><label class="opt"><input type="radio" name="sport" value="Volleyball" id="sport-5"><span>Volleyball</span></label><label class="opt"><input type="radio" name="sport" value="Softball" id="sport-6"><span>Softball</span></label><label class="opt"><input type="radio" name="sport" value="Hockey" id="sport-7"><span>Hockey</span></label><label class="opt"><input type="radio" name="sport" value="Other" id="sport-8"><span>Other</span></label></div></div>
+              <div class="step" role="group" aria-labelledby="q1" hidden><p class="q" id="q1">Where does your career stand today?</p><div class="opts"><label class="opt"><input type="radio" name="stage" value="College, NIL active" id="stage-0"><span>College, NIL active</span></label><label class="opt"><input type="radio" name="stage" value="Entering the draft or turning pro" id="stage-1"><span>Entering the draft or turning pro</span></label><label class="opt"><input type="radio" name="stage" value="Professional" id="stage-2"><span>Professional</span></label><label class="opt"><input type="radio" name="stage" value="Recently retired" id="stage-3"><span>Recently retired</span></label><label class="opt"><input type="radio" name="stage" value="Writing on behalf of an athlete" id="stage-4"><span>Writing on behalf of an athlete</span></label><label class="opt"><input type="radio" name="stage" value="Professional joining the network" id="stage-5"><span>Professional joining the network</span></label></div></div>
+              <div class="step" role="group" aria-labelledby="q2" hidden><p class="q" id="q2">Who is already on your team?<small>Select all that apply.</small></p><div class="opts"><label class="opt"><input type="checkbox" name="team" value="Agent" id="team-0"><span>Agent</span></label><label class="opt"><input type="checkbox" name="team" value="Attorney" id="team-1"><span>Attorney</span></label><label class="opt"><input type="checkbox" name="team" value="CPA" id="team-2"><span>CPA</span></label><label class="opt"><input type="checkbox" name="team" value="Financial adviser" id="team-3"><span>Financial adviser</span></label><label class="opt"><input type="checkbox" name="team" value="Family member" id="team-4"><span>Family member</span></label><label class="opt"><input type="checkbox" name="team" value="No one yet" id="team-5"><span>No one yet</span></label></div></div>
+              <div class="step" role="group" aria-labelledby="q3" hidden><p class="q" id="q3">How should we address you?</p>
+                <div class="fields">
+                  <div class="f"><label for="f-name">Full name</label><input id="f-name" name="name" autocomplete="name" required></div>
+                  <div class="f"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+                  <div class="f"><label for="f-school">School or team</label><input id="f-school" name="school"></div>
+                  <div class="f"><label for="f-intro">Introduced by</label><input id="f-intro" name="intro" placeholder="Name, if anyone"></div>
+                </div></div>
+              <div class="step" role="group" aria-labelledby="q4" hidden><p class="q" id="q4">What would you like to build?<small>Optional. A sentence or two is plenty.</small></p>
+                <div class="f" style="max-width:860px"><label for="f-msg">In your words</label><textarea id="f-msg" name="msg"></textarea></div></div>
+              <p class="ib-err" id="ferr" aria-live="polite"></p>
+              <div class="ib-nav">
+                <button type="button" class="back" id="ibBack" hidden>← Back</button>
+                <button type="button" class="btn btn-solid" id="ibNext">Continue <span class="ar">→</span></button>
+              </div>
+              <p class="ib-fine">An enquiry does not create a client relationship. Vestrium does not provide legal, tax or investment advice.</p>
+            </form>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="split">
+        <div class="stack"><p class="label b">Who we hear from</p><h2 class="d2 rv">How relationships begin.</h2></div>
+        <span></span>
+      </div>
+      <div class="aud">
+        <div class="rv"><p class="label b">Athletes</p><h3 class="d3">When your name has become an enterprise.</h3><p>Tell us your sport and where your career stands. We will arrange a private conversation, with whomever you wish present.</p></div>
+        <div class="rv"><p class="label b">Families and agents</p><h3 class="d3">When you can see what is needed.</h3><p>Introductions from parents, agents and coaches are welcome. The athlete is always included directly.</p></div>
+        <div class="rv"><p class="label b">Professionals</p><h3 class="d3">When you serve athletes professionally.</h3><p>Attorneys, accountants, insurance specialists and registered advisers are invited to join our network. Operators may introduce themselves for permanent roles.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="split">
+        <div class="stack"><p class="label b">The engagement</p><h2 class="d2 rv">From introduction to engagement.</h2></div>
+        <span></span>
+      </div>
+      <div class="phases" style="padding-top:44px">
+        <span class="prog" aria-hidden="true"></span>
+        <div class="phase rv"><span class="n">01</span><p class="label b">Introduction</p><p>A brief note, or a word from someone you trust. Every enquiry receives a personal reply.</p></div>
+        <div class="phase rv"><span class="n">02</span><p class="label b">Conversation</p><p>A private conversation, in which we listen far more than we speak.</p></div>
+        <div class="phase rv"><span class="n">03</span><p class="label b">Architecture brief</p><p>A written account of what we would build, who would hold each part, and what it requires.</p></div>
+        <div class="phase rv"><span class="n">04</span><p class="label b">Engagement</p><p>A retainer agreement, a named team, and the work begins.</p></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fg">
+      <div style="display:grid;gap:22px;align-content:start">
+        <a href="#home" data-route="home" class="brand"><svg><use href="#vmark"/></svg><span>Vestrium Global</span></a>
+        <p style="font-size:15px;max-width:30ch">A private business institution. We build what lasts.</p>
+        <p class="vis">A <a href="https://vis10n.netlify.app" target="_blank" rel="noopener">VIS10N Holdings</a> company</p>
+      </div>
+      <div><h4>Site</h4><nav><a href="#home" data-route="home">Home</a><a href="#team" data-route="team">Team</a><a href="#work" data-route="work">Work with us</a></nav></div>
+      <div class="lst"><h4>Institution</h4><span>Vestrium Global Holdings</span><span>Vestrium Global Consulting</span><span>Vestrium Global Collective</span></div>
+      <div><h4>Contact</h4><nav><a href="#work" data-route="work" data-target="request">Enquire</a><a href="#work" data-route="work" data-target="request" data-aud="pro">For professionals</a></nav></div>
+    </div>
+    <div class="fine">
+      <p>Vestrium Global does not provide legal, tax, or investment advice. Formation, tax opinions, and drafting are performed by licensed counsel and CPAs.</p>
+      <p>Vestrium Global is not a registered investment adviser or broker-dealer and does not manage, hold, or direct client assets. Nothing on this site is an offer to sell, or a solicitation of an offer to buy, any security, or a recommendation about any investment. Descriptions of structures are illustrative and general; outcomes depend on individual circumstances. Athletes should confirm NIL activity with their institution's compliance office and applicable state law.</p>
+      <div class="row"><span>© 2026 Vestrium Global Holdings. All rights reserved.</span><span>Privacy · Terms</span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ================= scene geometry (real field dimensions, meters) ================= */
+function geo(build){
+  const paths=[],panels=[];
+  const sub=(pts,step=.6)=>{const o=[pts[0]];for(let i=1;i<pts.length;i++){const a=pts[i-1],b=pts[i],d=Math.hypot(b[0]-a[0],b[1]-a[1],b[2]-a[2]),n=Math.max(1,Math.ceil(d/step));for(let k=1;k<=n;k++){const t=k/n;o.push([a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,a[2]+(b[2]-a[2])*t])}}return o};
+  const L={
+    p(pts,o={}){paths.push({pts:sub(pts),blue:!!o.blue,w:o.w||1})},
+    g(x1,z1,x2,z2,o){L.p([[x1,0,z1],[x2,0,z2]],o)},
+    arc(cx,cz,r,a0,a1,o,y=0){const n=Math.max(12,Math.ceil(Math.abs(a1-a0)*r/.5)),pts=[];for(let i=0;i<=n;i++){const a=a0+(a1-a0)*i/n;pts.push([cx+r*Math.cos(a),y,cz+r*Math.sin(a)])}L.p(pts,o)},
+    rect(x1,z1,x2,z2,o){L.p([[x1,0,z1],[x2,0,z1],[x2,0,z2],[x1,0,z2],[x1,0,z1]],o)},
+    panel(pts,a=.92){panels.push({pts,a})},
+  };
+  build(L);paths.panels=panels;paths.forEach(p=>p.up=p.pts.some(q=>q[1]>.05));return paths;
+}
+const PI=Math.PI;
+const SCENES=[
+ {k:'Basketball',word:'basketball players',cam:{x:-4.6,y:1.8,z:6.5,look:[0,3.2,18.8],u:.68,v:.3,f:.95,hy:.5},pools:[[0,15,8,1],[0,7,7,.4]],beams:[[.62,.5],[.85,.4]],
+  paths:geo(L=>{const B=20,bc=B-1.575,bz=B-1.2;
+   L.g(-7.5,0,-7.5,B);L.g(7.5,0,7.5,B);L.g(-7.5,B,7.5,B);L.g(-7.5,6,7.5,6);
+   L.rect(-2.45,B-5.8,2.45,B);L.arc(0,B-5.8,1.8,PI,2*PI);
+   const ph=Math.asin(6.6/6.75),zm=bc-6.75*Math.cos(ph);
+   L.g(-6.6,zm,-6.6,B,{blue:1});L.g(6.6,zm,6.6,B,{blue:1});L.arc(0,bc,6.75,-PI/2-ph,-PI/2+ph,{blue:1});
+   L.arc(0,bc,1.25,PI,2*PI);
+   L.panel([[-.9,2.9,bz],[.9,2.9,bz],[.9,3.95,bz],[-.9,3.95,bz]],.96);
+   L.p([[-.9,2.9,bz],[.9,2.9,bz],[.9,3.95,bz],[-.9,3.95,bz],[-.9,2.9,bz]]);
+   L.p([[-.3,3.05,bz],[.3,3.05,bz],[.3,3.5,bz],[-.3,3.5,bz],[-.3,3.05,bz]]);
+   L.arc(0,bc,.23,0,2*PI,{blue:1},3.05);
+   L.p([[0,0,B+1.2],[0,2.75,B+1.2]]);
+  })},
+ {k:'Football',word:'football players',cam:{x:-12,y:5.5,z:-2,look:[0,5.2,37.5],u:.66,v:.36,f:.85,hy:.5},pools:[[0,26,16,1],[0,10,12,.45]],beams:[[.6,.55],[.88,.4]],
+  paths:geo(L=>{const Y=.9144,G=30*Y,E=G+10*Y,P=E+.4;
+   L.g(-24.4,-4,-24.4,E);L.g(24.4,-4,24.4,E);
+   for(let y=0;y<30;y+=5)L.g(-24.4,y*Y,24.4,y*Y);
+   L.g(-24.4,G,24.4,G,{blue:1});L.g(-24.4,E,24.4,E);
+   L.p([[0,0,P+1],[0,3.05,P+1],[0,3.05,P]]);
+   L.p([[-2.82,3.05,P],[2.82,3.05,P]]);
+   L.p([[-2.82,3.05,P],[-2.82,10,P]]);L.p([[2.82,3.05,P],[2.82,10,P]]);
+  })},
+ {k:'Baseball',word:'baseball players',cam:{x:-6,y:24,z:-34,look:[0,0,30],u:.7,v:.36,f:.82,hy:.5},pools:[[0,22,24,1],[0,62,40,.55],[0,0,7,.6]],beams:[[.6,.6],[.88,.45]],
+  paths:geo(L=>{const s=19.4,F=72;
+   L.g(0,0,F,F);L.g(0,0,-F,F);
+   L.p([[0,0,0],[s,0,s],[0,0,2*s],[-s,0,s],[0,0,0]],{blue:1});
+   L.arc(0,18.44,2.74,0,2*PI);
+   L.arc(0,18.44,29,PI/4-.05,3*PI/4+.05);
+   L.arc(0,0,100,PI/4,3*PI/4);
+   L.rect(-1.98,-.9,-.76,.9);L.rect(.76,-.9,1.98,.9);
+   L.p([[-.45,0,.45],[.45,0,.45],[.45,0,0],[0,0,-.45],[-.45,0,0],[-.45,0,.45]]);
+   [[s,s],[0,2*s],[-s,s]].forEach(([x,z])=>L.p([[x,0,z-.55],[x+.55,0,z],[x,0,z+.55],[x-.55,0,z],[x,0,z-.55]]));
+   L.arc(0,0,4,0,2*PI);
+  })},
+ {k:'Soccer',word:'soccer players',cam:{x:-13,y:2.4,z:31,look:[0,1.2,52.5],u:.66,v:.35,f:1.15,hy:.5},pools:[[0,44,14,1],[0,30,16,.5]],beams:[[.62,.5],[.86,.4]],
+  paths:geo(L=>{const G=52.5,D=2;
+   L.g(-34,14,-34,G);L.g(34,14,34,G);L.g(-34,G,34,G);
+   L.p([[-20.16,0,G],[-20.16,0,G-16.5],[20.16,0,G-16.5],[20.16,0,G]]);
+   L.p([[-9.16,0,G],[-9.16,0,G-5.5],[9.16,0,G-5.5],[9.16,0,G]]);
+   const a=Math.acos(5.5/9.15);L.arc(0,G-11,9.15,-PI/2-a,-PI/2+a,{blue:1});
+   L.arc(0,G-11,.15,0,2*PI);
+   L.panel([[-3.66,2.44,G],[3.66,2.44,G],[3.66,0,G+D],[-3.66,0,G+D]],.8);
+   L.panel([[-3.66,0,G],[-3.66,2.44,G],[-3.66,0,G+D]],.8);L.panel([[3.66,0,G],[3.66,2.44,G],[3.66,0,G+D]],.8);
+   for(let x=-2.66;x<=2.7;x+=1)L.p([[x,2.44,G],[x,0,G+D]]);
+   L.p([[-3.66,0,G],[-3.66,2.44,G],[3.66,2.44,G],[3.66,0,G]]);
+   L.p([[-3.66,2.44,G],[-3.66,0,G+D],[3.66,0,G+D],[3.66,2.44,G]]);
+  })},
+ {k:'Track and field',word:'track athletes',cam:{x:10,y:7,z:46,look:[-24,0,110],u:.62,v:.4,f:.9,hy:.5},pools:[[4,70,26,1],[-20,100,30,.6]],beams:[[.6,.5],[.85,.45]],
+  paths:geo(L=>{const S=84.39,R=36.5;
+   for(let i=0;i<=8;i++){const x=i*1.22,r=R+x;L.g(x,20,x,S);L.arc(-R,S,r,0,PI*.62)}
+   L.g(0,S,9.76,S,{blue:1});
+  })},
+ {k:'Volleyball',word:'volleyball players',cam:{x:-12,y:2,z:2.2,look:[0,1.9,9],u:.66,v:.28,f:1.05,hy:.5},pools:[[0,9,7,1],[0,4,6,.5]],beams:[[.62,.45],[.85,.4]],
+  paths:geo(L=>{L.rect(-4.5,0,4.5,18);L.g(-4.5,9,4.5,9);L.g(-4.5,6,4.5,6);L.g(-4.5,12,4.5,12);
+   L.panel([[-5.1,1.43,9],[5.1,1.43,9],[5.1,2.43,9],[-5.1,2.43,9]],.72);
+   L.p([[-5.1,2.43,9],[5.1,2.43,9]],{blue:1});L.p([[-5.1,1.43,9],[5.1,1.43,9]]);
+   for(let x=-5;x<=5.01;x+=.5)L.p([[x,1.43,9],[x,2.43,9]]);[1.68,1.93,2.18].forEach(y=>L.p([[-5.1,y,9],[5.1,y,9]]));
+   L.p([[-5.1,0,9],[-5.1,2.55,9]]);L.p([[5.1,0,9],[5.1,2.55,9]]);
+  })},
+];
+SCENES.forEach(s=>s.paths.forEach(p=>p.lit=p.pts.map(([x,,z])=>Math.min(1,s.pools.reduce((a,[px,pz,r,i])=>a+i*Math.exp(-((x-px)**2+(z-pz)**2)/(r*r)),0)))));
+
+/* ================= film renderer ================= */
+const grain=(()=>{const c=document.createElement('canvas');c.width=c.height=160;const g=c.getContext('2d'),d=g.createImageData(160,160);for(let i=0;i<d.data.length;i+=4){const v=Math.random()*255;d.data[i]=d.data[i+1]=d.data[i+2]=v;d.data[i+3]=22}g.putImageData(d,0,0);return c})();
+class Film{
+  constructor(cv,o={}){this.cv=cv;this.ctx=cv.getContext('2d');this.o=o;this.i=o.start||0;this.prev=-1;this.mix=1;this.t0=performance.now();this.ts=this.t0;this.px=0;this.py=0;this.tx=0;this.ty=0;this.cx=-1e4;this.cy=-1e4;this.sx=-1e4;this.sy=-1e4;this.hl=0;this.hlT=0;this.vis=false;this.raf=0;
+    this.size();addEventListener('resize',()=>{this.size();this.paint(performance.now())});
+    const host=o.host||cv.parentElement;host.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();this.cx=e.clientX-r.left;this.cy=e.clientY-r.top;if(this.sx<-1e3){this.sx=this.cx;this.sy=this.cy}this.hlT=1;if(o.parallax){this.tx=this.cx/r.width-.5;this.ty=this.cy/r.height-.5}});host.addEventListener('pointerleave',()=>{this.tx=this.ty=0;this.hlT=0});
+    new IntersectionObserver(es=>{this.vis=es[0].isIntersecting;this.vis?this.play():this.stop()},{threshold:.02}).observe(cv);
+  }
+  size(){const d=Math.min(1.6,devicePixelRatio||1);this.W=this.cv.offsetWidth;this.H=this.cv.offsetHeight;if(!this.W)return;this.cv.width=this.W*d;this.cv.height=this.H*d;this.ctx.setTransform(d,0,0,d,0,0)}
+  set(i){if(i===this.i)return;const n=performance.now();this.pt=(n-this.ts)/1000;this.prev=this.i;this.i=i;this.mix=0;this.ts=n;this.o.onChange&&this.o.onChange(i);if(RM||this.o.still)this.paint(performance.now())}
+  play(){if(RM||this.o.still){this.size();this.paint(performance.now());return}if(this.raf)return;const loop=n=>{this.paint(n);this.raf=requestAnimationFrame(loop)};this.raf=requestAnimationFrame(loop)}
+  stop(){cancelAnimationFrame(this.raf);this.raf=0}
+  paint(now){
+    if(!this.W){this.size();if(!this.W)return}
+    const c=this.ctx,W=this.W,H=this.H;
+    if(this.o.auto&&!RM&&now-this.ts>this.o.auto){this.set((this.i+1)%this.o.scenes.length)}
+    this.mix=Math.min(1,this.mix+(RM?1:1/42));
+    this.px+=(this.tx-this.px)*.022;this.py+=(this.ty-this.py)*.022;this.sx+=(this.cx-this.sx)*.09;this.sy+=(this.cy-this.sy)*.09;this.hl+=(this.hlT-this.hl)*.05;
+    c.globalAlpha=1;c.globalCompositeOperation='source-over';
+    const bg=c.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#05070C');bg.addColorStop(1,'#030509');c.fillStyle=bg;c.fillRect(0,0,W,H);
+    const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2,m=ease(this.mix);
+    if(this.prev>=0&&m<1)this.scene(this.o.scenes[this.prev],(this.pt||0)+(now-this.ts)/1000,1-m);
+    this.scene(this.o.scenes[this.i],(now-this.ts)/1000,this.prev<0?1:m);
+    // grain, vignette
+    c.globalAlpha=1;const p=c.createPattern(grain,'repeat');c.save();c.fillStyle=p;c.fillRect(-160,-160,W+320,H+320);c.restore();
+    const v=c.createRadialGradient(W/2,H*.48,Math.min(W,H)*.25,W/2,H*.5,Math.max(W,H)*.75);v.addColorStop(0,'rgba(3,5,9,0)');v.addColorStop(1,'rgba(3,5,9,.85)');c.fillStyle=v;c.fillRect(0,0,W,H);
+  }
+  scene(s,t,a){
+    const c=this.ctx,W=this.W,H=this.H,k=s.cam,f=k.f*Math.max(W,H*1.35),wide=W/H>1.15;
+    let yaw=k.yaw||0,pitch=k.pitch||0;
+    if(k.look){const[tx,ty,tz]=k.look,u=wide?k.u:.5,v=wide?k.v:Math.min(k.v,.3),dx=tx-k.x,dy=ty-k.y,dz=tz-k.z;
+      yaw=Math.atan2(dx,dz)-Math.atan((u-.5)*W/f);pitch=Math.atan((k.hy-v)*H/f)-Math.atan2(dy,Math.hypot(dx,dz))}
+    const hy=H*k.hy,cy=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch);
+    const pr=(x,y,z)=>{x-=k.x;y-=k.y;z-=k.z;const x1=x*cy-z*sy,z1=x*sy+z*cy,y2=y*cp+z1*sp,z2=-y*sp+z1*cp;return z2<.4?null:[W/2+x1*f/z2,hy-y2*f/z2,z2]};
+    // soft overhead light
+    s.beams.forEach(([bx,bw])=>{const x=W*(wide?bx:.5),r=Math.max(W,H)*(.35+bw*.4),g=c.createRadialGradient(x,-H*.08,0,x,-H*.08,r);g.addColorStop(0,`rgba(170,190,230,${.12*a})`);g.addColorStop(.5,`rgba(90,110,160,${.035*a})`);g.addColorStop(1,'rgba(90,110,160,0)');c.fillStyle=g;c.fillRect(0,0,W,H)});
+    const P=s.pools[0],pp=pr(P[0],0,P[1]);
+    if(pp){c.save();c.translate(pp[0],pp[1]);c.scale(1,.32);const r=Math.min(W*.6,P[2]*f/pp[2]*1.6),g=c.createRadialGradient(0,0,0,0,0,r);g.addColorStop(0,`rgba(32,44,72,${.55*a})`);g.addColorStop(1,'rgba(32,44,72,0)');c.fillStyle=g;c.fillRect(-r,-r,2*r,2*r);c.restore()}
+    const hl=this.hl,ux=this.sx,uy=this.sy,R=Math.max(140,Math.min(W,H)*.24),R2=R*R,NB=10;
+    const draw=up=>{const buckets=[[],[],[]].map(()=>Array.from({length:NB},()=>[]));
+      for(const p of s.paths){if(p.up!==up)continue;const pts=p.pts,lit=p.lit;let prev=null;
+        for(let i=0;i<pts.length;i++){const q=pr(pts[i][0],pts[i][1],pts[i][2]);
+          if(q&&prev){const z=(q[2]+prev[2])/2,fade=Math.max(0,1-z/110),al=Math.min(1,(.16+1.05*lit[i])*fade*(up?1.15:1));
+            let al2=al,col=p.blue?1:0;if(hl>.01&&fade>0){const mx=(q[0]+prev[0])/2-ux,my=(q[1]+prev[1])/2-uy,bo=hl*Math.exp(-(mx*mx+my*my)/R2);if(bo>.02){al2=Math.min(1,al+bo*.95);if(bo>.3)col=2}}
+            const b=Math.min(NB-1,al2*NB|0);if(b>0)buckets[col][b].push(prev[0],prev[1],q[0],q[1])}
+          prev=q}}
+      c.lineCap='round';c.lineJoin='round';
+      for(let col=0;col<3;col++)for(let b=1;b<NB;b++){const seg=buckets[col][b];if(!seg.length)continue;const al=b/NB*a,rgb=col===1?'78,134,232':col===2?'150,186,250':'226,232,242';
+        c.beginPath();for(let i=0;i<seg.length;i+=4){c.moveTo(seg[i],seg[i+1]);c.lineTo(seg[i+2],seg[i+3])}
+        c.strokeStyle=`rgba(${rgb},${al*.12})`;c.lineWidth=col?5:4;c.stroke();
+        c.strokeStyle=`rgba(${rgb},${al*.85})`;c.lineWidth=col?1.5:1.1;c.stroke()}};
+    draw(false);
+    for(const pn of s.paths.panels){const q=pn.pts.map(v=>pr(v[0],v[1],v[2]));if(q.some(v=>!v))continue;c.beginPath();q.forEach((v,i)=>i?c.lineTo(v[0],v[1]):c.moveTo(v[0],v[1]));c.closePath();c.fillStyle=`rgba(5,7,12,${pn.a*a})`;c.fill()}
+    draw(true);
+    if(hl>.01){const g=c.createRadialGradient(ux,uy,0,ux,uy,R*1.3);g.addColorStop(0,`rgba(0,97,243,${.13*hl*a})`);g.addColorStop(1,'rgba(0,97,243,0)');c.fillStyle=g;c.fillRect(ux-R*1.3,uy-R*1.3,R*2.6,R*2.6)}
+  }
+}
+
+/* ================= content ================= */
+const NOTES=[
+ [['A name that travels','Rights to your name and likeness held in a single entity, so they are licensed on the same terms at home, abroad or in the professional ranks.'],['A brand beyond the jersey','Audience, content and partnerships owned by your brand company rather than borrowed from a program of the moment.'],['Prepared for the next contract','Structures, accounts and counsel settled well before a professional or overseas offer arrives.']],
+ [['Protection first','Exposure to injury and disability reviewed by licensed specialists before anything further is built.'],['Rooted ownership','Regional standing translated into businesses you own: camps, franchises and community enterprises.'],['A single administration','Many partnerships administered through one company, with accounts kept to a private-office standard.']],
+ [['Ready before the draft','Company, counsel and accountant in place before a draft decision sets the timetable.'],['Steady through the seasons','Affairs arranged for a career in which income arrives unevenly and the road is long.'],['A name kept in view','Partnerships and presence sustained through the development years.']],
+ [['Built to cross borders','Structures considered with counsel who understand where a career may lead next.'],['An international following, owned','Content and community held by your brand company as recognition grows abroad.'],['Clear lines between parties','Club, country and personal partnerships kept distinct and properly ordered.']],
+ [['Paced to the cycle','Brand and affairs arranged around championship and Olympic years.'],['A company sponsors respect','Sponsorship and appearance income contracted through an enterprise you own.'],['Beyond the final race','Ventures and relationships begun while recognition is at its height.']],
+ [['Audience as an asset','Following and content treated as a line of business, with ownership made clear.'],['Ready as leagues emerge','Structures and counsel in place as professional opportunities widen.'],['Partnerships on proper terms','Agreements administered through your company and reviewed by counsel.']],
+];
+const WEB={you:['You','Everything in the structure is owned by you, directly or through your holding company. Vestrium runs it and never takes title to what is yours.'],hold:['Your holding company','A company you own that sits above your operating businesses. Counsel designs it for your state and situation; your CPA reviews how it is taxed.'],brand:['Brand and NIL','Where deals are signed and income lands. One set of books, one contract file, every renewal tracked.'],ip:['Name and IP','Your marks, likeness rights and content, held separately and licensed to the brand company on written terms.'],ventures:['Ventures','Businesses you build and own over time. Vestrium can build and operate them with you; any Vestrium interest is disclosed first.'],property:['Property','Homes and real assets, held the way counsel designs for protection and privacy.'],frame:['The Vestrium frame','The operating layer across everything: books, payments, reporting, brand operations and coordination with your licensed advisers. Paid by retainer.']};
+const FAQ=[
+ ['Is Vestrium a financial adviser?','No. Vestrium designs and administers business infrastructure and advises on personal brand. We do not manage money, recommend investments or hold assets. Where investment advice is wanted, it should come from a registered investment adviser of your choosing, with whom we coordinate as with any other member of your team.'],
+ ['For whom is Vestrium intended?','Athletes whose NIL and partnership income has become a genuine enterprise, typically in the mid six figures a year, and who intend to own what they build. We act for collegiate athletes, those turning professional, and established professionals.'],
+ ['Where are my assets held?','In accounts in your name or in the name of your company, at institutions you select. Vestrium may be granted operating access to administer payments and accounts, never ownership.'],
+ ['Does Vestrium replace my agent?','No. Your agent negotiates on your behalf. We build and administer the enterprise those agreements flow into, and ensure your whole team works from the same picture.'],
+ ['How does NIL compliance fit in?','Your institution\'s compliance office and the rules of your state continue to apply. We keep a complete record of every agreement and work alongside compliance staff whenever information is required.'],
+ ['How is Vestrium remunerated?','In two distinct ways, kept deliberately apart. Vestrium Global Consulting is paid by retainer for its advisory and operating services, and accepts no commissions on products. Vestrium Global Collective holds equity in the ventures, businesses and infrastructure it helps create, on terms agreed and disclosed in writing before you decide.'],
+];
+
+/* ================= hero ================= */
+const wordEl=$('#word');
+wordEl.innerHTML=SCENES.map((s,i)=>`<b${i?'':' class="on"'}>${s.word}.</b>`).join('');
+const words=[...wordEl.children];let wi=0;
+function setWord(n){if(n===wi)return;const o=words[wi],w=words[n];o.className='out';w.className='reset';void w.offsetWidth;w.className='on';setTimeout(()=>{if(o.className==='out'){o.className='reset';void o.offsetWidth;o.className=''}},750);wi=n}
+const HOLD=3800,hbar=$('#heroBar');
+function cap(i){$('#heroCapT').textContent=SCENES[i].k;hbar.classList.remove('run');void hbar.offsetWidth;if(!RM)hbar.classList.add('run')}
+document.documentElement.style.setProperty('--dur',HOLD+'ms');
+const hero=new Film($('#heroFilm'),{scenes:SCENES,auto:HOLD,parallax:true,onChange:i=>{setWord(i);cap(i)}});
+cap(0);
+
+/* ================= sports ================= */
+const slist=$('#slist'),notes=$('#notes');
+slist.innerHTML=SCENES.map((s,i)=>`<button aria-pressed="${!i}" data-i="${i}"><span>${s.k}</span><span class="ln"></span></button>`).join('');
+function renderNotes(i){notes.innerHTML=NOTES[i].map(n=>`<div><h4>${n[0]}</h4><p>${n[1]}</p></div>`).join('');$('#spName').textContent=SCENES[i].word}
+let spI=0;function pickSport(i){if(i===spI)return;spI=i;const t=$('#spTitle');notes.classList.add('fade');t.classList.add('fade');setTimeout(()=>{renderNotes(i);notes.classList.remove('fade');t.classList.remove('fade')},350)}
+renderNotes(0);
+slist.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const i=+b.dataset.i;$$('#slist button').forEach(x=>x.setAttribute('aria-pressed',x===b));pickSport(i)});
+
+/* ================= other films ================= */
+const clChips=$('#clChips'),clGo=$('#clGo'),clNote=$('#clNote');
+clChips.innerHTML=SCENES.map((s,i)=>`<button aria-pressed="${!i}" data-i="${i}">${s.k}</button>`).join('');
+function clMark(i){$$('#clChips button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.i===i));clGo.dataset.sport=SCENES[i].k;clNote.textContent=SCENES[i].k}
+const close=new Film($('#closeFilm'),{scenes:SCENES,auto:3800,parallax:true,host:$('#closing'),onChange:clMark});
+clChips.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;close.o.auto=0;close.set(+b.dataset.i);clMark(+b.dataset.i)});
+new Film($('#teamFilm'),{scenes:SCENES,start:4,parallax:true});
+new Film($('#workFilm'),{scenes:SCENES,start:5,parallax:true});
+
+/* ================= structure ================= */
+const wdet=$('#wdet');
+function node(k){$$('.node').forEach(n=>n.classList.toggle('on',n.dataset.k===k));wdet.style.opacity=0;setTimeout(()=>{wdet.innerHTML=`<p class="label b" style="margin-bottom:14px">${WEB[k][0]}</p><p class="lede" style="font-size:1.08rem">${WEB[k][1]}</p>`;wdet.style.opacity=1},200)}
+$$('.node').forEach(n=>{n.addEventListener('click',()=>node(n.dataset.k));n.addEventListener('mouseenter',()=>node(n.dataset.k));n.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();node(n.dataset.k)}})});
+node('you');
+
+/* ================= faq ================= */
+$('#faq').innerHTML=FAQ.map((f,i)=>`<div class="qa${i?'':' open'}"><button aria-expanded="${!i}"><span>${f[0]}</span><span class="pm"></span></button><div class="a"><div><p>${f[1]}</p></div></div></div>`).join('');
+$$('.qa button').forEach(b=>b.onclick=()=>{const q=b.parentElement,o=!q.classList.contains('open');q.classList.toggle('open',o);b.setAttribute('aria-expanded',o)});
+
+/* ================= team ================= */
+/* ================= form ================= */
+const form=$('#req'),ib=$('#ib'),steps=$$('#req .step'),nextB=$('#ibNext'),backB=$('#ibBack'),ferr=$('#ferr');let st=0;
+function openIB(){if(!ib.classList.contains('open')){ib.classList.add('open');show(st)}}
+$('#ibOpen').onclick=openIB;
+function val(n){return(form.querySelector(`input[name="${n}"]:checked`)||{}).value}
+function summary(){const t=[...form.querySelectorAll('input[name=team]:checked')].map(x=>x.value);$('#ibSum').innerHTML=[val('sport'),val('stage'),t.length?t.join(', '):null].filter(Boolean).map(x=>`<span>${x}</span>`).join('')}
+function show(n){steps.forEach((x,k)=>{x.hidden=k!==n;x.classList.toggle('in',k===n)});st=n;$('#ibCnt').textContent=`0${n+1} / 05`;$('#ibBar').style.width=((n+1)/5*100)+'%';backB.hidden=n===0;nextB.firstChild.textContent=n===4?'Introduce yourself ':'Continue ';ferr.textContent='';summary();
+  const f=steps[n].querySelector('input:checked,input:not([type=hidden]),textarea');if(f&&ib.classList.contains('open'))setTimeout(()=>f.focus({preventScroll:true}),350)}
+function ok(n){if(n===0&&!val('sport')){ferr.textContent='Please choose a sport to continue.';return false}
+  if(n===1&&!val('stage')){ferr.textContent='Please choose the option closest to where you are.';return false}
+  if(n===3){const nm=$('#f-name'),em=$('#f-email');if(!nm.value.trim()){ferr.textContent='Please add your name.';nm.focus();return false}if(!/^\S+@\S+\.\S+$/.test(em.value)){ferr.textContent='Please add a valid email address so we can reply.';em.focus();return false}}
+  return true}
+nextB.onclick=()=>{if(!ok(st))return;if(st<4)show(st+1);else submitIB()};
+backB.onclick=()=>{if(st>0)show(st-1)};
+form.addEventListener('change',e=>{summary();if(e.target.type==='radio'&&(st===0||st===1)){ferr.textContent='';setTimeout(()=>{if(st<2)show(st+1)},380)}});
+form.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.tagName==='INPUT'){e.preventDefault();nextB.click()}});
+form.addEventListener('submit',e=>{e.preventDefault();nextB.click()});
+async function submitIB(){
+ const first=$('#f-name').value.trim().split(' ')[0].replace(/[<>&"]/g,'');
+ const fd=new FormData(form),team=fd.getAll('team');fd.delete('team');if(team.length)fd.append('team',team.join(', '));
+ nextB.disabled=true;nextB.firstChild.textContent='Sending ';
+ const done=(h,p)=>{$('#formwrap').innerHTML=`<div class="done" role="status" style="margin-top:10px"><p class="label b">${h}</p><h3 class="d2">Thank you, ${first}.</h3><p class="lede">${p}</p></div>`};
+ try{const r=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd).toString()});if(!r.ok)throw 0;
+  done('Introduction received','A member of the Vestrium team will reply to you personally, usually within two business days.')}
+ catch(_){if(/claude|usercontent|localhost/.test(location.hostname)||!location.hostname){done('Preview only','This preview cannot send introductions. On the live site, this goes directly to the Vestrium team.');return}
+  nextB.disabled=false;nextB.firstChild.textContent='Introduce yourself ';ferr.textContent='Your introduction did not go through. Please check your connection and try again.'}
+}
+function preset(sport,aud){if(sport){const r=form.querySelector(`input[name=sport][value="${sport}"]`);if(r){r.checked=true;if(st===0)show(1)}}
+  if(aud==='pro'){const r=form.querySelector('input[name=stage][value="Professional joining the network"]');if(r){r.checked=true;show(2)}}summary()}
+
+/* ================= routing ================= */
+const pages={home:$('#p-home'),team:$('#p-team'),work:$('#p-work')};let cur=null;
+function go(r,target,aud,anim=true){if(!pages[r])r='home';
+ const swap=()=>{Object.entries(pages).forEach(([k,el])=>el.hidden=k!==r);cur=r;
+  $$('.links a.nl').forEach(a=>a.classList.toggle('on',a.dataset.route===r));
+  document.body.classList.remove('open');$('#burger').setAttribute('aria-expanded','false');
+  if(target==='request'){openIB();preset(null,aud)}
+  dispatchEvent(new Event('resize'));
+  if(target)requestAnimationFrame(()=>document.getElementById(target)?.scrollIntoView({behavior:'instant'}));else scrollTo(0,0);onScroll()};
+ if(!anim||RM||cur===null||cur===r&&target){if(cur===r&&target){document.getElementById(target)?.scrollIntoView({behavior:RM?'auto':'smooth'});openIB();preset(null,aud);return}swap();return}
+ const v=$('#veil');v.classList.add('on');setTimeout(()=>{swap();v.classList.remove('on')},420)}
+document.addEventListener('click',e=>{const a=e.target.closest('[data-route]');if(a){e.preventDefault();if(a.dataset.sport)preset(a.dataset.sport);try{history.replaceState(null,'','#'+a.dataset.route)}catch(_){}go(a.dataset.route,a.dataset.target,a.dataset.aud)}
+ const s=e.target.closest('[data-scroll]');if(s){e.preventDefault();if(s.dataset.open)openIB();document.getElementById(s.dataset.scroll)?.scrollIntoView({behavior:RM?'auto':'smooth'})}});
+$('#burger').onclick=()=>{const o=!document.body.classList.contains('open');document.body.classList.toggle('open',o);$('#burger').setAttribute('aria-expanded',o)};
+function onScroll(){$('#nav').classList.toggle('solid',scrollY>40)}
+addEventListener('scroll',onScroll,{passive:true});
+go((location.hash||'#home').slice(1),null,null,false);
+})();
+</script>
+
+</body>
+</html>
