@@ -488,7 +488,7 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
       <div class="sports">
         <div class="slist" id="slist" role="group" aria-label="Choose a sport"></div>
         <div class="stage">
-          <h3 class="sp-title" id="spTitle"><span class="label b">Our advice for</span><span id="spName">basketball players</span></h3>
+          <h3 class="sp-title" id="spTitle"><span class="label b">Our advice for</span><span id="spName">Basketball Players</span></h3>
           <div class="notes" id="notes"></div>
         </div>
       </div>
@@ -933,7 +933,7 @@ cap(0);
 /* ================= sports ================= */
 const slist=$('#slist'),notes=$('#notes');
 slist.innerHTML=SCENES.map((s,i)=>`<button aria-pressed="${!i}" data-i="${i}"><span>${s.k}</span><span class="ln"></span></button>`).join('');
-function renderNotes(i){notes.innerHTML=NOTES[i].map(n=>`<div><h4>${n[0]}</h4><p>${n[1]}</p></div>`).join('');$('#spName').textContent=SCENES[i].word}
+function renderNotes(i){notes.innerHTML=NOTES[i].map(n=>`<div><h4>${n[0]}</h4><p>${n[1]}</p></div>`).join('');$('#spName').textContent=SCENES[i].word.replace(/\b\w/g,c=>c.toUpperCase())}
 let spI=0;function pickSport(i){if(i===spI)return;spI=i;const t=$('#spTitle');notes.classList.add('fade');t.classList.add('fade');setTimeout(()=>{renderNotes(i);notes.classList.remove('fade');t.classList.remove('fade')},350)}
 renderNotes(0);
 slist.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const i=+b.dataset.i;$$('#slist button').forEach(x=>x.setAttribute('aria-pressed',x===b));pickSport(i)});
