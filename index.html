@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="Vestrium Global builds and runs the business infrastructure behind NIL athletes: companies, brand operations, protection and ventures. A private business institution.">
-<meta name="theme-color" content="#06080A">
+<meta name="theme-color" content="#07080A">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%2306080A'/%3E%3Cpath d='M12 20h24l26 62-9 22z M53 104l9-22 20-46h13L66 104z M88 18h26l-11 24H92z' fill='%23C9CFD9' stroke='%230061F3' stroke-width='2'/%3E%3C/svg%3E">
 <title>Vestrium Global</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -13,10 +13,10 @@
 <style>
 /* Layout: cinematic. Full-bleed sport scenes lit from above, light mixed-case type, wide margins, one blue line per screen. */
 :root{
-  --edge:#030509; --void:#06080A; --lift:#101421; --rule:#1A202D; --rule2:#252D3C;
-  --soft:#0B0F16; --soft2:#11161F;
-  --blue:#0061F3; --blue-l:#4E86E8; --glow:rgba(0,97,243,.6);
-  --hi:#E6EBF4; --lo:#969EAC; --body:#9AA2B0; --strong:#D6DCE7; --mute:#6D7684; --deep:#4A5260;
+  --edge:#040506; --void:#07080A; --lift:#131417; --rule:#1E2024; --rule2:#2A2D33;
+  --soft:#0D0E11; --soft2:#131418;
+  --blue:#E6EBF4; --blue-l:#C3C8D0; --glow:rgba(230,235,244,.22);
+  --hi:#ECEDEF; --lo:#9A9DA4; --body:#A2A5AC; --strong:#DCDEE2; --mute:#71757D; --deep:#4C5058;
   --f-sans:"Helvetica Neue","Inter",Helvetica,Arial,sans-serif;
   --f-mono:"SF Mono",Menlo,"JetBrains Mono",ui-monospace,monospace;
   --gl:max(clamp(20px,6vw,88px), env(safe-area-inset-left,0px));
@@ -95,7 +95,7 @@ b,strong{font-weight:400;color:var(--strong)}
 /* hero */
 .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:var(--edge)}
 .hero.short{min-height:min(78svh,760px)}
-.hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(3,5,9,.55) 0%,rgba(3,5,9,0) 28%,rgba(3,5,9,0) 48%,rgba(6,8,10,.86) 82%,var(--void) 100%),linear-gradient(90deg,rgba(3,5,9,.7) 0%,rgba(3,5,9,0) 62%)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(4,5,6,.55) 0%,rgba(4,5,6,0) 28%,rgba(4,5,6,0) 48%,rgba(6,8,10,.86) 82%,var(--void) 100%),linear-gradient(90deg,rgba(4,5,6,.7) 0%,rgba(4,5,6,0) 62%)}
 .hero .wrap{position:relative;z-index:2;width:100%;padding-block:0 clamp(24px,3vw,44px);display:grid;gap:34px}
 .hero h1{max-width:13ch}
 .hero h1.hero-h{max-width:none;font-size:clamp(2rem,4.9vw,4.7rem);line-height:1.04}
@@ -155,7 +155,7 @@ b,strong{font-weight:400;color:var(--strong)}
 .slist button[aria-pressed="true"] .ln{width:48px}
 .stage{display:grid;gap:44px;min-width:0;align-content:start}
 .screen{position:relative;aspect-ratio:16/9;max-width:100%;border:1px solid var(--rule);overflow:hidden;background:var(--edge)}
-.screen::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(3,5,9,.75));pointer-events:none}
+.screen::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(4,5,6,.75));pointer-events:none}
 .screen .caption{position:absolute;left:24px;bottom:20px;z-index:2}
 .sp-title{display:grid;gap:18px;margin:0;font-size:clamp(2rem,3.6vw,3.2rem);font-weight:300;letter-spacing:-.03em;line-height:1.05;color:var(--hi);transition:opacity .4s,transform .5s var(--ease)}
 .sp-title.fade{opacity:0;transform:translateY(8px)}
@@ -215,7 +215,7 @@ b,strong{font-weight:400;color:var(--strong)}
 
 /* closing */
 .closing{position:relative;overflow:hidden;min-height:min(86svh,820px);display:flex;align-items:center;border-top:1px solid var(--rule);background:var(--edge)}
-.closing::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--void) 0%,rgba(6,8,10,0) 18%,rgba(6,8,10,0) 75%,var(--edge) 100%),linear-gradient(90deg,rgba(3,5,9,.78) 0%,rgba(3,5,9,.3) 48%,rgba(3,5,9,0) 75%);pointer-events:none}
+.closing::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--void) 0%,rgba(6,8,10,0) 18%,rgba(6,8,10,0) 75%,var(--edge) 100%),linear-gradient(90deg,rgba(4,5,6,.78) 0%,rgba(4,5,6,.3) 48%,rgba(4,5,6,0) 75%);pointer-events:none}
 .cl{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(40px,7vw,120px);align-items:end;padding-block:clamp(110px,12vw,170px)}
 .cl-main{display:grid;gap:26px;max-width:620px}
 .cl-main .lede{color:#B2B9C6}
@@ -223,7 +223,7 @@ b,strong{font-weight:400;color:var(--strong)}
 .cl-chips{display:flex;flex-wrap:wrap;gap:10px}
 .cl-chips button{padding:11px 20px;border-radius:999px;border:1px solid var(--rule2);font-size:15px;color:var(--lo);transition:border-color .35s,color .35s,background .35s}
 .cl-chips button:hover{color:var(--hi);border-color:var(--lo)}
-.cl-chips button[aria-pressed="true"]{color:var(--hi);border-color:var(--blue);background:rgba(0,97,243,.12)}
+.cl-chips button[aria-pressed="true"]{color:var(--hi);border-color:var(--blue);background:rgba(230,235,244,.12)}
 .cl-cta{display:flex;flex-wrap:wrap;align-items:center;gap:18px 24px}
 .cl-note{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
 .cl-hint{position:absolute;right:var(--gr);bottom:30px;z-index:2;margin:0;font-family:var(--f-mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--deep)}
@@ -298,7 +298,7 @@ form.req{display:grid;grid-template-columns:1fr 1fr;gap:34px 28px}
 
 /* introduction builder */
 .ib{border:1px solid var(--rule);background:linear-gradient(180deg,var(--soft),var(--void) 80%);position:relative;overflow:hidden}
-.ib::before{content:"";position:absolute;left:0;top:0;height:1px;width:100%;background:linear-gradient(90deg,rgba(78,134,232,.55),rgba(78,134,232,0) 70%);transform:scaleX(0);transform-origin:left;transition:transform 1s var(--ease)}
+.ib::before{content:"";position:absolute;left:0;top:0;height:1px;width:100%;background:linear-gradient(90deg,rgba(230,235,244,.55),rgba(230,235,244,0) 70%);transform:scaleX(0);transform-origin:left;transition:transform 1s var(--ease)}
 .ib.open::before{transform:scaleX(1)}
 .ib-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:28px;padding:clamp(28px,4vw,56px)}
 .ib-head .stack{max-width:640px}
@@ -341,10 +341,17 @@ form.req{display:grid;grid-template-columns:1fr 1fr;gap:34px 28px}
 .arm-c{border-top-color:var(--blue);box-shadow:0 -1px 14px -6px var(--glow)}
 .arm p:not(.label){max-width:52ch}
 .arm-tag{justify-self:start;margin-top:6px;font-size:12.5px;color:var(--lo);border:1px solid var(--rule2);border-radius:999px;padding:5px 14px}
-.arm-c .arm-tag{color:var(--blue-l);border-color:rgba(78,134,232,.45)}
+.arm-c .arm-tag{color:var(--blue-l);border-color:rgba(230,235,244,.45)}
 .arms+.roles{margin-top:20px}
 .role .ent-c{color:var(--blue-l)}
 @media (max-width:860px){.arms{grid-template-columns:1fr}}
+
+
+/* light bands */
+.light{--hi:#0C0D10;--body:#43464D;--strong:#15171B;--lo:#5C6068;--mute:#6C7078;--deep:#8C9098;--rule:#D3D5D9;--rule2:#BFC2C7;--soft:#E1E2E5;--soft2:#E6E7EA;--blue:#0C0D10;--blue-l:#0C0D10;--glow:rgba(0,0,0,0);background:#EDEDEE;color:var(--body);color-scheme:light}
+.light .phase .n{-webkit-text-stroke-color:#9A9EA6}
+.light .rule-b{box-shadow:none}
+.light ::selection{background:#0C0D10;color:#EDEDEE}
 
 /* footer */
 footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90px calc(40px + env(safe-area-inset-bottom,0px))}
@@ -369,9 +376,9 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
   <linearGradient id="chr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2F5FA"/><stop offset=".45" stop-color="#B9C0CC"/><stop offset=".55" stop-color="#7E8694"/><stop offset="1" stop-color="#C9CFD9"/></linearGradient>
   <symbol id="vmark" viewBox="0 0 120 106">
-    <path d="M4 6 L30 6 L58 72 L48 96 Z" fill="url(#chr)" stroke="#0061F3" stroke-width="1.6"/>
-    <path d="M48 96 L58 72 L80 22 L94 22 L64 96 Z" fill="url(#chr)" stroke="#0061F3" stroke-width="1.6"/>
-    <path d="M86 4 L116 4 L104 30 L92 30 Z" fill="url(#chr)" stroke="#0061F3" stroke-width="1.6"/>
+    <path d="M4 6 L30 6 L58 72 L48 96 Z" fill="url(#chr)" stroke="#C9CFD9" stroke-width="1.6"/>
+    <path d="M48 96 L58 72 L80 22 L94 22 L64 96 Z" fill="url(#chr)" stroke="#C9CFD9" stroke-width="1.6"/>
+    <path d="M86 4 L116 4 L104 30 L92 30 Z" fill="url(#chr)" stroke="#C9CFD9" stroke-width="1.6"/>
   </symbol>
 </defs></svg>
 
@@ -401,8 +408,8 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
   <section class="hero" id="top">
     <canvas class="film" id="heroFilm" aria-hidden="true"></canvas>
     <div class="wrap intro-in">
-      <h1 class="d1 hero-h">Generational wealth that outlasts <br><span class="word" id="word" aria-hidden="true"></span><span class="sr">the game, for athletes in every sport.</span></h1>
-      <p class="lede">A private institution for the athlete beyond the game. We shape the name, build the enterprise around it, and remain to steward both for the decades that follow.</p>
+      <h1 class="d1 hero-h">Where <span class="word" id="word" aria-hidden="true"></span><span class="sr">sport</span> <br>meets the boardroom.</h1>
+      <p class="lede">A private business institution at the meeting point of sport and enterprise. We build the companies, brands and partnerships that turn talent into ownership, for athletes and for the businesses and founders around them.</p>
       <div class="hrow">
         <a class="btn btn-solid" href="#work" data-route="work" data-target="request">Start a conversation <span class="ar">→</span></a>
         <a class="tlink" href="#approach" data-scroll="approach">Our approach <span>↓</span></a>
@@ -414,7 +421,7 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec light">
     <div class="wrap split">
       <h2 class="d2 rv">Talent opens the door.<br>Structure keeps it open.</h2>
       <div class="stack rv">
@@ -428,7 +435,7 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
     <div class="wrap">
       <div class="split">
         <div class="stack"><p class="label b">The Vestrium practice</p><h2 class="d2 rv">One house. Every discipline.</h2></div>
-        <p class="lede rv">Everything an athlete needs to build a life of substance beyond the field, brought under one roof and held to a single standard.</p>
+        <p class="lede rv">Everything required to build lasting enterprise between sport and business, brought under one roof and held to a single standard.</p>
       </div>
       <div class="arms rv">
         <div class="arm arm-c">
@@ -497,7 +504,7 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
     </div>
   </section>
 
-  <section class="sec" id="method">
+  <section class="sec light" id="method">
     <div class="wrap">
       <div class="split">
         <div class="stack"><p class="label b">Our approach</p><h2 class="d2 rv">Protection precedes optimization.</h2></div>
@@ -509,42 +516,6 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
         <div class="phase rv"><span class="n">02</span><p class="label b">Protect</p><h3 class="d3">Secure the foundations.</h3><p>Agreements reviewed by counsel, name and likeness registered, and coverage examined by licensed specialists.</p></div>
         <div class="phase rv"><span class="n">03</span><p class="label b">Build</p><h3 class="d3">Constitute the enterprise.</h3><p>Counsel forms the structures we design together. Accounts are opened in your name, and income is received where it belongs.</p></div>
         <div class="phase rv"><span class="n">04</span><p class="label b">Steward</p><h3 class="d3">Hold for the long term.</h3><p>The enterprise run month by month, the brand cultivated, and ventures pursued when the moment is right.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="structure">
-    <div class="wrap">
-      <div class="split">
-        <div class="stack"><p class="label b">How it fits together</p><h2 class="d2 rv">You own it. We run it.</h2></div>
-        <p class="lede rv">An illustrative arrangement rather than a prescription. Select any element to see its role.</p>
-      </div>
-      <div class="web rv">
-        <div class="webfig">
-          <svg viewBox="0 0 640 420" role="img" aria-label="Illustrative structure: you at the top, your holding company beneath, then brand, intellectual property, ventures and property companies, with Vestrium operating across them.">
-            <line class="t-own" x1="320" y1="70" x2="320" y2="146"/>
-            <path class="t-own" d="M320 196V238M95 238H545M95 238V296M245 238V296M395 238V296M545 238V296"/>
-            <line class="t-frame" x1="20" y1="376" x2="620" y2="376"/>
-            <path class="t-ben" d="M95 346C95 290 22 262 22 160C22 74 226 48 256 48"/>
-            <path class="t-ben" d="M545 346C545 290 618 262 618 160C618 74 414 48 384 48"/>
-            <g class="node" data-k="you" tabindex="0"><rect x="256" y="26" width="128" height="44"/><text x="320" y="53" text-anchor="middle">You</text></g>
-            <g class="node" data-k="hold" tabindex="0"><rect x="205" y="146" width="230" height="50"/><text x="320" y="168" text-anchor="middle">Your holding company</text><text class="s" x="320" y="185" text-anchor="middle">Owned by you</text></g>
-            <g class="node" data-k="brand" tabindex="0"><rect x="30" y="296" width="130" height="50"/><text x="95" y="318" text-anchor="middle">Brand and NIL</text><text class="s" x="95" y="335" text-anchor="middle">Deals, content</text></g>
-            <g class="node" data-k="ip" tabindex="0"><rect x="180" y="296" width="130" height="50"/><text x="245" y="318" text-anchor="middle">Name and IP</text><text class="s" x="245" y="335" text-anchor="middle">Marks, likeness</text></g>
-            <g class="node" data-k="ventures" tabindex="0"><rect x="330" y="296" width="130" height="50"/><text x="395" y="318" text-anchor="middle">Ventures</text><text class="s" x="395" y="335" text-anchor="middle">Companies you own</text></g>
-            <g class="node" data-k="property" tabindex="0"><rect x="480" y="296" width="130" height="50"/><text x="545" y="318" text-anchor="middle">Property</text><text class="s" x="545" y="335" text-anchor="middle">Real assets</text></g>
-            <g class="node" data-k="frame" tabindex="0"><rect x="240" y="392" width="160" height="26" style="fill:#06080A;stroke:#0061F3"/><text x="320" y="410" text-anchor="middle" style="fill:#4E86E8;font-size:12px">Vestrium operates</text></g>
-          </svg>
-        </div>
-        <div class="wside">
-          <div class="wdet" id="wdet"></div>
-          <div class="key">
-            <div><svg viewBox="0 0 40 6" width="40" height="6"><line class="t-own" x1="0" y1="3" x2="40" y2="3"/></svg><span>Ownership stays with you</span></div>
-            <div><svg viewBox="0 0 40 6" width="40" height="6"><line class="t-frame" x1="0" y1="3" x2="40" y2="3"/></svg><span>The operating frame Vestrium runs</span></div>
-            <div><svg viewBox="0 0 40 6" width="40" height="6"><line class="t-ben" x1="0" y1="3" x2="40" y2="3"/></svg><span>Benefit flows back to you</span></div>
-          </div>
-          <p style="font-size:13px;color:var(--deep)">Illustrative only. Every structure is designed for one person, formed by licensed counsel and reviewed by a CPA.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -582,7 +553,7 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
     <canvas class="film" id="teamFilm" aria-hidden="true"></canvas>
     <div class="wrap intro-in">
       <p class="label b">The team</p>
-      <h1 class="d1" style="max-width:14ch">A bench assembled around one athlete.</h1>
+      <h1 class="d1" style="max-width:14ch">A bench assembled around every client.</h1>
       <p class="lede">A small, permanent team that knows your affairs intimately, supported by licensed professionals who answer to you.</p>
     </div>
   </section>
@@ -685,8 +656,8 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
             <form class="req" id="req" name="request" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
               <input type="hidden" name="form-name" value="request">
               <p hidden><label>Leave this empty <input name="bot-field" id="f-bot"></label></p>
-              <div class="step" role="group" aria-labelledby="q0"><p class="q" id="q0">Which sport do you play?</p><div class="opts"><label class="opt"><input type="radio" name="sport" value="Basketball" id="sport-0"><span>Basketball</span></label><label class="opt"><input type="radio" name="sport" value="Football" id="sport-1"><span>Football</span></label><label class="opt"><input type="radio" name="sport" value="Baseball" id="sport-2"><span>Baseball</span></label><label class="opt"><input type="radio" name="sport" value="Soccer" id="sport-3"><span>Soccer</span></label><label class="opt"><input type="radio" name="sport" value="Track and field" id="sport-4"><span>Track and field</span></label><label class="opt"><input type="radio" name="sport" value="Volleyball" id="sport-5"><span>Volleyball</span></label><label class="opt"><input type="radio" name="sport" value="Softball" id="sport-6"><span>Softball</span></label><label class="opt"><input type="radio" name="sport" value="Hockey" id="sport-7"><span>Hockey</span></label><label class="opt"><input type="radio" name="sport" value="Other" id="sport-8"><span>Other</span></label></div></div>
-              <div class="step" role="group" aria-labelledby="q1" hidden><p class="q" id="q1">Where does your career stand today?</p><div class="opts"><label class="opt"><input type="radio" name="stage" value="College, NIL active" id="stage-0"><span>College, NIL active</span></label><label class="opt"><input type="radio" name="stage" value="Entering the draft or turning pro" id="stage-1"><span>Entering the draft or turning pro</span></label><label class="opt"><input type="radio" name="stage" value="Professional" id="stage-2"><span>Professional</span></label><label class="opt"><input type="radio" name="stage" value="Recently retired" id="stage-3"><span>Recently retired</span></label><label class="opt"><input type="radio" name="stage" value="Writing on behalf of an athlete" id="stage-4"><span>Writing on behalf of an athlete</span></label><label class="opt"><input type="radio" name="stage" value="Professional joining the network" id="stage-5"><span>Professional joining the network</span></label></div></div>
+              <div class="step" role="group" aria-labelledby="q0"><p class="q" id="q0">Which sport is closest to your work?</p><div class="opts"><label class="opt"><input type="radio" name="sport" value="Basketball" id="sport-0"><span>Basketball</span></label><label class="opt"><input type="radio" name="sport" value="Football" id="sport-1"><span>Football</span></label><label class="opt"><input type="radio" name="sport" value="Baseball" id="sport-2"><span>Baseball</span></label><label class="opt"><input type="radio" name="sport" value="Soccer" id="sport-3"><span>Soccer</span></label><label class="opt"><input type="radio" name="sport" value="Track and field" id="sport-4"><span>Track and field</span></label><label class="opt"><input type="radio" name="sport" value="Volleyball" id="sport-5"><span>Volleyball</span></label><label class="opt"><input type="radio" name="sport" value="Softball" id="sport-6"><span>Softball</span></label><label class="opt"><input type="radio" name="sport" value="Hockey" id="sport-7"><span>Hockey</span></label><label class="opt"><input type="radio" name="sport" value="Across sports" id="sport-8"><span>Across sports</span></label></div></div>
+              <div class="step" role="group" aria-labelledby="q1" hidden><p class="q" id="q1">Where does your career stand today?</p><div class="opts"><label class="opt"><input type="radio" name="stage" value="College, NIL active" id="stage-0"><span>College, NIL active</span></label><label class="opt"><input type="radio" name="stage" value="Entering the draft or turning pro" id="stage-1"><span>Entering the draft or turning pro</span></label><label class="opt"><input type="radio" name="stage" value="Professional" id="stage-2"><span>Professional</span></label><label class="opt"><input type="radio" name="stage" value="Recently retired" id="stage-3"><span>Recently retired</span></label><label class="opt"><input type="radio" name="stage" value="A business or founder" id="stage-6"><span>A business or founder</span></label><label class="opt"><input type="radio" name="stage" value="Writing on behalf of an athlete" id="stage-4"><span>Writing on behalf of an athlete</span></label><label class="opt"><input type="radio" name="stage" value="Professional joining the network" id="stage-5"><span>Professional joining the network</span></label></div></div>
               <div class="step" role="group" aria-labelledby="q2" hidden><p class="q" id="q2">Who is already on your team?<small>Select all that apply.</small></p><div class="opts"><label class="opt"><input type="checkbox" name="team" value="Agent" id="team-0"><span>Agent</span></label><label class="opt"><input type="checkbox" name="team" value="Attorney" id="team-1"><span>Attorney</span></label><label class="opt"><input type="checkbox" name="team" value="CPA" id="team-2"><span>CPA</span></label><label class="opt"><input type="checkbox" name="team" value="Financial adviser" id="team-3"><span>Financial adviser</span></label><label class="opt"><input type="checkbox" name="team" value="Family member" id="team-4"><span>Family member</span></label><label class="opt"><input type="checkbox" name="team" value="No one yet" id="team-5"><span>No one yet</span></label></div></div>
               <div class="step" role="group" aria-labelledby="q3" hidden><p class="q" id="q3">How should we address you?</p>
                 <div class="fields">
@@ -718,8 +689,8 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
       </div>
       <div class="aud">
         <div class="rv"><p class="label b">Athletes</p><h3 class="d3">When your name has become an enterprise.</h3><p>Tell us your sport and where your career stands. We will arrange a private conversation, with whomever you wish present.</p></div>
-        <div class="rv"><p class="label b">Families and agents</p><h3 class="d3">When you can see what is needed.</h3><p>Introductions from parents, agents and coaches are welcome. The athlete is always included directly.</p></div>
-        <div class="rv"><p class="label b">Professionals</p><h3 class="d3">When you serve athletes professionally.</h3><p>Attorneys, accountants, insurance specialists and registered advisers are invited to join our network. Operators may introduce themselves for permanent roles.</p></div>
+        <div class="rv"><p class="label b">Businesses and founders</p><h3 class="d3">When your enterprise meets sport.</h3><p>Companies and founders working with athletes, or entering the business of sport, engage us to structure partnerships, ventures and brand programs with the same discipline.</p></div>
+        <div class="rv"><p class="label b">Families, agents and advisers</p><h3 class="d3">When you represent someone who matters.</h3><p>Introductions from parents, agents and coaches are welcome, as are licensed professionals who wish to join our network.</p></div>
       </div>
     </div>
   </section>
@@ -864,7 +835,7 @@ class Film{
     this.mix=Math.min(1,this.mix+(RM?1:1/34));
     this.px+=(this.tx-this.px)*.022;this.py+=(this.ty-this.py)*.022;this.sx+=(this.cx-this.sx)*.09;this.sy+=(this.cy-this.sy)*.09;this.hl+=(this.hlT-this.hl)*.05;
     c.globalAlpha=1;c.globalCompositeOperation='source-over';
-    const bg=c.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#05070C');bg.addColorStop(1,'#030509');c.fillStyle=bg;c.fillRect(0,0,W,H);
+    const bg=c.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#08090B');bg.addColorStop(1,'#040506');c.fillStyle=bg;c.fillRect(0,0,W,H);
     const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2,m=ease(this.mix);
     if(this.prev>=0&&m<1)this.scene(this.o.scenes[this.prev],(this.pt||0)+(now-this.ts)/1000,1-m);
     this.scene(this.o.scenes[this.i],(now-this.ts)/1000,this.prev<0?1:m);
@@ -872,10 +843,10 @@ class Film{
       if(this.mk!==key){const m=this.mc||(this.mc=document.createElement('canvas'));m.width=W;m.height=H;const g=m.getContext('2d');
         const v=g.createLinearGradient(0,H*t0,0,H*t1);v.addColorStop(0,'rgba(0,0,0,0)');v.addColorStop(1,'rgba(0,0,0,.96)');g.fillStyle=v;g.fillRect(0,0,W,H);
         g.globalCompositeOperation='destination-in';const h=g.createLinearGradient(W*x0,0,W*x1,0);h.addColorStop(0,'rgba(0,0,0,1)');h.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=h;g.fillRect(0,0,W,H);this.mk=key}
-      c.save();c.globalCompositeOperation='destination-out';c.drawImage(this.mc,0,0,W,H);c.globalCompositeOperation='destination-over';c.fillStyle='#04060A';c.fillRect(0,0,W,H);c.restore()}
+      c.save();c.globalCompositeOperation='destination-out';c.drawImage(this.mc,0,0,W,H);c.globalCompositeOperation='destination-over';c.fillStyle='#050607';c.fillRect(0,0,W,H);c.restore()}
     // grain, vignette
     c.globalAlpha=1;const p=c.createPattern(grain,'repeat');c.save();c.fillStyle=p;c.fillRect(-160,-160,W+320,H+320);c.restore();
-    const v=c.createRadialGradient(W/2,H*.48,Math.min(W,H)*.25,W/2,H*.5,Math.max(W,H)*.75);v.addColorStop(0,'rgba(3,5,9,0)');v.addColorStop(1,'rgba(3,5,9,.85)');c.fillStyle=v;c.fillRect(0,0,W,H);
+    const v=c.createRadialGradient(W/2,H*.48,Math.min(W,H)*.25,W/2,H*.5,Math.max(W,H)*.75);v.addColorStop(0,'rgba(4,5,6,0)');v.addColorStop(1,'rgba(4,5,6,.85)');c.fillStyle=v;c.fillRect(0,0,W,H);
   }
   scene(s,t,a){
     const c=this.ctx,W=this.W,H=this.H,k=s.cam,f=k.f*Math.max(W,H*1.35),wide=W/H>1.15;
@@ -885,9 +856,9 @@ class Film{
     const hy=H*k.hy,cy=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch);
     const pr=(x,y,z)=>{x-=k.x;y-=k.y;z-=k.z;const x1=x*cy-z*sy,z1=x*sy+z*cy,y2=y*cp+z1*sp,z2=-y*sp+z1*cp;return z2<.4?null:[W/2+x1*f/z2,hy-y2*f/z2,z2]};
     // soft overhead light
-    s.beams.forEach(([bx,bw])=>{const x=W*(wide?bx:.5),r=Math.max(W,H)*(.35+bw*.4),g=c.createRadialGradient(x,-H*.08,0,x,-H*.08,r);g.addColorStop(0,`rgba(170,190,230,${.12*a})`);g.addColorStop(.5,`rgba(90,110,160,${.035*a})`);g.addColorStop(1,'rgba(90,110,160,0)');c.fillStyle=g;c.fillRect(0,0,W,H)});
+    s.beams.forEach(([bx,bw])=>{const x=W*(wide?bx:.5),r=Math.max(W,H)*(.35+bw*.4),g=c.createRadialGradient(x,-H*.08,0,x,-H*.08,r);g.addColorStop(0,`rgba(200,204,212,${.12*a})`);g.addColorStop(.5,`rgba(110,114,124,${.035*a})`);g.addColorStop(1,'rgba(110,114,124,0)');c.fillStyle=g;c.fillRect(0,0,W,H)});
     const P=s.pools[0],pp=pr(P[0],0,P[1]);
-    if(pp){c.save();c.translate(pp[0],pp[1]);c.scale(1,.32);const r=Math.min(W*.6,P[2]*f/pp[2]*1.6),g=c.createRadialGradient(0,0,0,0,0,r);g.addColorStop(0,`rgba(32,44,72,${.55*a})`);g.addColorStop(1,'rgba(32,44,72,0)');c.fillStyle=g;c.fillRect(-r,-r,2*r,2*r);c.restore()}
+    if(pp){c.save();c.translate(pp[0],pp[1]);c.scale(1,.32);const r=Math.min(W*.6,P[2]*f/pp[2]*1.6),g=c.createRadialGradient(0,0,0,0,0,r);g.addColorStop(0,`rgba(38,41,48,${.55*a})`);g.addColorStop(1,'rgba(38,41,48,0)');c.fillStyle=g;c.fillRect(-r,-r,2*r,2*r);c.restore()}
     const hl=this.hl,ux=this.sx,uy=this.sy,R=Math.max(140,Math.min(W,H)*.24),R2=R*R,NB=10;
     const draw=up=>{const buckets=[[],[],[]].map(()=>Array.from({length:NB},()=>[]));
       for(const p of s.paths){if(p.up!==up)continue;const pts=p.pts,lit=p.lit;let prev=null;
@@ -897,14 +868,14 @@ class Film{
             const b=Math.min(NB-1,al2*NB|0);if(b>0)buckets[col][b].push(prev[0],prev[1],q[0],q[1])}
           prev=q}}
       c.lineCap='round';c.lineJoin='round';
-      for(let col=0;col<3;col++)for(let b=1;b<NB;b++){const seg=buckets[col][b];if(!seg.length)continue;const al=b/NB*a,rgb=col===1?'78,134,232':col===2?'150,186,250':'226,232,242';
+      for(let col=0;col<3;col++)for(let b=1;b<NB;b++){const seg=buckets[col][b];if(!seg.length)continue;const al=b/NB*a,rgb=col===1?'255,255,255':col===2?'255,255,255':'226,232,242';
         c.beginPath();for(let i=0;i<seg.length;i+=4){c.moveTo(seg[i],seg[i+1]);c.lineTo(seg[i+2],seg[i+3])}
         c.strokeStyle=`rgba(${rgb},${al*.12})`;c.lineWidth=col?5:4;c.stroke();
         c.strokeStyle=`rgba(${rgb},${al*.85})`;c.lineWidth=col?1.5:1.1;c.stroke()}};
     draw(false);
     for(const pn of s.paths.panels){const q=pn.pts.map(v=>pr(v[0],v[1],v[2]));if(q.some(v=>!v))continue;c.beginPath();q.forEach((v,i)=>i?c.lineTo(v[0],v[1]):c.moveTo(v[0],v[1]));c.closePath();c.fillStyle=`rgba(5,7,12,${pn.a*a})`;c.fill()}
     draw(true);
-    if(hl>.01){const g=c.createRadialGradient(ux,uy,0,ux,uy,R*1.3);g.addColorStop(0,`rgba(0,97,243,${.13*hl*a})`);g.addColorStop(1,'rgba(0,97,243,0)');c.fillStyle=g;c.fillRect(ux-R*1.3,uy-R*1.3,R*2.6,R*2.6)}
+    if(hl>.01){const g=c.createRadialGradient(ux,uy,0,ux,uy,R*1.3);g.addColorStop(0,`rgba(230,235,244,${.06*hl*a})`);g.addColorStop(1,'rgba(230,235,244,0)');c.fillStyle=g;c.fillRect(ux-R*1.3,uy-R*1.3,R*2.6,R*2.6)}
   }
 }
 
@@ -917,10 +888,9 @@ const NOTES=[
  [['Paced to the cycle','Brand and affairs arranged around championship and Olympic years.'],['A company sponsors respect','Sponsorship and appearance income contracted through an enterprise you own.'],['Beyond the final race','Ventures and relationships begun while recognition is at its height.']],
  [['Audience as an asset','Following and content treated as a line of business, with ownership made clear.'],['Ready as leagues emerge','Structures and counsel in place as professional opportunities widen.'],['Partnerships on proper terms','Agreements administered through your company and reviewed by counsel.']],
 ];
-const WEB={you:['You','Everything in the structure is owned by you, directly or through your holding company. Vestrium runs it and never takes title to what is yours.'],hold:['Your holding company','A company you own that sits above your operating businesses. Counsel designs it for your state and situation; your CPA reviews how it is taxed.'],brand:['Brand and NIL','Where deals are signed and income lands. One set of books, one contract file, every renewal tracked.'],ip:['Name and IP','Your marks, likeness rights and content, held separately and licensed to the brand company on written terms.'],ventures:['Ventures','Businesses you build and own over time. Vestrium can build and operate them with you; any Vestrium interest is disclosed first.'],property:['Property','Homes and real assets, held the way counsel designs for protection and privacy.'],frame:['The Vestrium frame','The operating layer across everything: books, payments, reporting, brand operations and coordination with your licensed advisers. Paid by retainer.']};
 const FAQ=[
  ['Is Vestrium a financial adviser?','No. Vestrium designs and administers business infrastructure and advises on personal brand. We do not manage money, recommend investments or hold assets. Where investment advice is wanted, it should come from a registered investment adviser of your choosing, with whom we coordinate as with any other member of your team.'],
- ['For whom is Vestrium intended?','Athletes whose NIL and partnership income has become a genuine enterprise, typically in the mid six figures a year, and who intend to own what they build. We act for collegiate athletes, those turning professional, and established professionals.'],
+ ['For whom is Vestrium intended?','Athletes whose NIL and partnership income has become a genuine enterprise, typically in the mid six figures a year, and the businesses, founders and families who work alongside them. We act for collegiate and professional athletes, and for companies entering the business of sport.'],
  ['Where are my assets held?','In accounts in your name or in the name of your company, at institutions you select. Vestrium may be granted operating access to administer payments and accounts, never ownership.'],
  ['Does Vestrium replace my agent?','No. Your agent negotiates on your behalf. We build and administer the enterprise those agreements flow into, and ensure your whole team works from the same picture.'],
  ['How does NIL compliance fit in?','Your institution\'s compliance office and the rules of your state continue to apply. We keep a complete record of every agreement and work alongside compliance staff whenever information is required.'],
@@ -929,7 +899,7 @@ const FAQ=[
 
 /* ================= hero ================= */
 const wordEl=$('#word');
-wordEl.innerHTML=SCENES.map((s,i)=>`<b${i?'':' class="on"'}>${s.venue}.</b>`).join('');
+wordEl.innerHTML=SCENES.map((s,i)=>`<b${i?'':' class="on"'}>${s.venue}</b>`).join('');
 const words=[...wordEl.children];let wi=0;
 function setWord(n){if(n===wi)return;const o=words[wi],w=words[n];o.className='out';w.className='reset';void w.offsetWidth;w.className='on';setTimeout(()=>{if(o.className==='out'){o.className='reset';void o.offsetWidth;o.className=''}},750);wi=n}
 const HOLD=3200,hbar=$('#heroBar');
@@ -954,12 +924,6 @@ const close=new Film($('#closeFilm'),{scenes:SCENES,auto:3200,parallax:true,clea
 clChips.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;close.o.auto=0;close.set(+b.dataset.i);clMark(+b.dataset.i)});
 new Film($('#teamFilm'),{scenes:SCENES,start:4,parallax:true,clear:[.42,.52,.58,.82]});
 new Film($('#workFilm'),{scenes:SCENES,start:5,parallax:true,clear:[.42,.52,.58,.82]});
-
-/* ================= structure ================= */
-const wdet=$('#wdet');
-function node(k){$$('.node').forEach(n=>n.classList.toggle('on',n.dataset.k===k));wdet.style.opacity=0;setTimeout(()=>{wdet.innerHTML=`<p class="label b" style="margin-bottom:14px">${WEB[k][0]}</p><p class="lede" style="font-size:1.08rem">${WEB[k][1]}</p>`;wdet.style.opacity=1},200)}
-$$('.node').forEach(n=>{n.addEventListener('click',()=>node(n.dataset.k));n.addEventListener('mouseenter',()=>node(n.dataset.k));n.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();node(n.dataset.k)}})});
-node('you');
 
 /* ================= faq ================= */
 $('#faq').innerHTML=FAQ.map((f,i)=>`<div class="qa${i?'':' open'}"><button aria-expanded="${!i}"><span>${f[0]}</span><span class="pm"></span></button><div class="a"><div><p>${f[1]}</p></div></div></div>`).join('');
