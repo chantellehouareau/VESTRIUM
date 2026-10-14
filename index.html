@@ -98,9 +98,11 @@ b,strong{font-weight:400;color:var(--strong)}
 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(3,5,9,.55) 0%,rgba(3,5,9,0) 28%,rgba(3,5,9,0) 48%,rgba(6,8,10,.86) 82%,var(--void) 100%),linear-gradient(90deg,rgba(3,5,9,.7) 0%,rgba(3,5,9,0) 62%)}
 .hero .wrap{position:relative;z-index:2;width:100%;padding-block:0 clamp(56px,8vw,104px);display:grid;gap:34px}
 .hero h1{max-width:13ch}
+.hero h1.hero-h{max-width:none;font-size:clamp(2rem,4.9vw,4.7rem);line-height:1.04}
+@media (max-width:640px){.hero h1.hero-h br{display:none}}
 .hero .lede{color:#B2B9C6}
 .word{display:inline-grid;vertical-align:top;overflow:hidden}
-.word b{grid-area:1/1;padding-bottom:.14em;font-weight:300;color:var(--hi);white-space:nowrap;opacity:0;transform:translateY(40%);transition:opacity .4s ease,transform .5s var(--ease)}
+.word b{grid-area:1/1;padding-bottom:.14em;font-weight:300;color:var(--hi);white-space:nowrap;opacity:0;transform:translateY(40%);transition:opacity .55s ease,transform .7s var(--ease)}
 .word b.on{opacity:1;transform:none}
 .word b.out{opacity:0;transform:translateY(-40%)}
 .word b.reset{transition:none}
@@ -399,7 +401,7 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
   <section class="hero" id="top">
     <canvas class="film" id="heroFilm" aria-hidden="true"></canvas>
     <div class="wrap intro-in">
-      <h1 class="d1">Generational wealth that outlasts <span class="word" id="word" aria-hidden="true"></span><span class="sr">the game, for athletes in every sport.</span></h1>
+      <h1 class="d1 hero-h">Generational wealth that outlasts<br><span class="word" id="word" aria-hidden="true"></span><span class="sr">the game, for athletes in every sport.</span></h1>
       <p class="lede">A private institution for the athlete beyond the game. We shape the name, build the enterprise around it, and remain to steward both for the decades that follow.</p>
       <div class="hrow">
         <a class="btn btn-solid" href="#work" data-route="work" data-target="request">Start a conversation <span class="ar">→</span></a>
@@ -858,7 +860,7 @@ class Film{
     if(!this.W){this.size();if(!this.W)return}
     const c=this.ctx,W=this.W,H=this.H;
     if(this.o.auto&&!RM&&now-this.ts>this.o.auto){this.set((this.i+1)%this.o.scenes.length)}
-    this.mix=Math.min(1,this.mix+(RM?1:1/26));
+    this.mix=Math.min(1,this.mix+(RM?1:1/34));
     this.px+=(this.tx-this.px)*.022;this.py+=(this.ty-this.py)*.022;this.sx+=(this.cx-this.sx)*.09;this.sy+=(this.cy-this.sy)*.09;this.hl+=(this.hlT-this.hl)*.05;
     c.globalAlpha=1;c.globalCompositeOperation='source-over';
     const bg=c.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#05070C');bg.addColorStop(1,'#030509');c.fillStyle=bg;c.fillRect(0,0,W,H);
@@ -923,8 +925,8 @@ const FAQ=[
 const wordEl=$('#word');
 wordEl.innerHTML=SCENES.map((s,i)=>`<b${i?'':' class="on"'}>${s.venue}.</b>`).join('');
 const words=[...wordEl.children];let wi=0;
-function setWord(n){if(n===wi)return;const o=words[wi],w=words[n];o.className='out';w.className='reset';void w.offsetWidth;w.className='on';setTimeout(()=>{if(o.className==='out'){o.className='reset';void o.offsetWidth;o.className=''}},550);wi=n}
-const HOLD=2400,hbar=$('#heroBar');
+function setWord(n){if(n===wi)return;const o=words[wi],w=words[n];o.className='out';w.className='reset';void w.offsetWidth;w.className='on';setTimeout(()=>{if(o.className==='out'){o.className='reset';void o.offsetWidth;o.className=''}},750);wi=n}
+const HOLD=3200,hbar=$('#heroBar');
 function cap(i){$('#heroCapT').textContent=SCENES[i].k;hbar.classList.remove('run');void hbar.offsetWidth;if(!RM)hbar.classList.add('run')}
 document.documentElement.style.setProperty('--dur',HOLD+'ms');
 const hero=new Film($('#heroFilm'),{scenes:SCENES,auto:HOLD,parallax:true,onChange:i=>{setWord(i);cap(i)}});
@@ -942,7 +944,7 @@ slist.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)retu
 const clChips=$('#clChips'),clGo=$('#clGo'),clNote=$('#clNote');
 clChips.innerHTML=SCENES.map((s,i)=>`<button aria-pressed="${!i}" data-i="${i}">${s.k}</button>`).join('');
 function clMark(i){$$('#clChips button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.i===i));clGo.dataset.sport=SCENES[i].k;clNote.textContent=SCENES[i].k}
-const close=new Film($('#closeFilm'),{scenes:SCENES,auto:2400,parallax:true,host:$('#closing'),onChange:clMark});
+const close=new Film($('#closeFilm'),{scenes:SCENES,auto:3200,parallax:true,host:$('#closing'),onChange:clMark});
 clChips.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;close.o.auto=0;close.set(+b.dataset.i);clMark(+b.dataset.i)});
 new Film($('#teamFilm'),{scenes:SCENES,start:4,parallax:true});
 new Film($('#workFilm'),{scenes:SCENES,start:5,parallax:true});
