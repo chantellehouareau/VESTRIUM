@@ -96,7 +96,7 @@ b,strong{font-weight:400;color:var(--strong)}
 .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:var(--edge)}
 .hero.short{min-height:min(78svh,760px)}
 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(3,5,9,.55) 0%,rgba(3,5,9,0) 28%,rgba(3,5,9,0) 48%,rgba(6,8,10,.86) 82%,var(--void) 100%),linear-gradient(90deg,rgba(3,5,9,.7) 0%,rgba(3,5,9,0) 62%)}
-.hero .wrap{position:relative;z-index:2;width:100%;padding-block:0 clamp(56px,8vw,104px);display:grid;gap:34px}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-block:0 clamp(24px,3vw,44px);display:grid;gap:34px}
 .hero h1{max-width:13ch}
 .hero h1.hero-h{max-width:none;font-size:clamp(2rem,4.9vw,4.7rem);line-height:1.04}
 @media (max-width:640px){.hero h1.hero-h br{display:none}}
@@ -401,7 +401,7 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
   <section class="hero" id="top">
     <canvas class="film" id="heroFilm" aria-hidden="true"></canvas>
     <div class="wrap intro-in">
-      <h1 class="d1 hero-h">Generational wealth that outlasts<br><span class="word" id="word" aria-hidden="true"></span><span class="sr">the game, for athletes in every sport.</span></h1>
+      <h1 class="d1 hero-h">Generational wealth that outlasts <br><span class="word" id="word" aria-hidden="true"></span><span class="sr">the game, for athletes in every sport.</span></h1>
       <p class="lede">A private institution for the athlete beyond the game. We shape the name, build the enterprise around it, and remain to steward both for the decades that follow.</p>
       <div class="hrow">
         <a class="btn btn-solid" href="#work" data-route="work" data-target="request">Start a conversation <span class="ar">→</span></a>
@@ -782,9 +782,10 @@ function geo(build){
 }
 const PI=Math.PI;
 const SCENES=[
- {k:'Basketball',word:'basketball players',venue:'the hardwood',cam:{x:-4.6,y:1.8,z:6.5,look:[0,3.2,18.8],u:.68,v:.3,f:.95,hy:.5},pools:[[0,15,8,1],[0,7,7,.4]],beams:[[.62,.5],[.85,.4]],
+ {k:'Basketball',word:'basketball players',venue:'the hardwood',cam:{x:8.5,y:5.5,z:3,look:[-3,1,19],u:.7,v:.34,f:.9,hy:.5},pools:[[0,16,9,1],[3,9,8,.5]],beams:[[.66,.5],[.88,.4]],
   paths:geo(L=>{const B=20,bc=B-1.575,bz=B-1.2;
-   L.g(-7.5,0,-7.5,B);L.g(7.5,0,7.5,B);L.g(-7.5,B,7.5,B);L.g(-7.5,6,7.5,6);
+   for(let x=-7.25;x<=7.3;x+=.5)L.g(x,-2,x,B,{w:.32});
+   L.g(-7.5,-2,-7.5,B);L.g(7.5,-2,7.5,B);L.g(-7.5,B,7.5,B);
    L.rect(-2.45,B-5.8,2.45,B);L.arc(0,B-5.8,1.8,PI,2*PI);
    const ph=Math.asin(6.6/6.75),zm=bc-6.75*Math.cos(ph);
    L.g(-6.6,zm,-6.6,B,{blue:1});L.g(6.6,zm,6.6,B,{blue:1});L.arc(0,bc,6.75,-PI/2-ph,-PI/2+ph,{blue:1});
@@ -793,52 +794,52 @@ const SCENES=[
    L.p([[-.9,2.9,bz],[.9,2.9,bz],[.9,3.95,bz],[-.9,3.95,bz],[-.9,2.9,bz]]);
    L.p([[-.3,3.05,bz],[.3,3.05,bz],[.3,3.5,bz],[-.3,3.5,bz],[-.3,3.05,bz]]);
    L.arc(0,bc,.23,0,2*PI,{blue:1},3.05);
-   L.p([[0,0,B+1.2],[0,2.75,B+1.2]]);
   })},
- {k:'Football',word:'football players',venue:'the gridiron',cam:{x:-12,y:5.5,z:-2,look:[0,5.2,37.5],u:.66,v:.36,f:.85,hy:.5},pools:[[0,26,16,1],[0,10,12,.45]],beams:[[.6,.55],[.88,.4]],
+ {k:'Football',word:'football players',venue:'the gridiron',cam:{x:24,y:9,z:0,look:[-4,3,38],u:.7,v:.38,f:.85,hy:.5},pools:[[0,30,18,1],[10,12,14,.5]],beams:[[.64,.55],[.88,.4]],
   paths:geo(L=>{const Y=.9144,G=30*Y,E=G+10*Y,P=E+.4;
-   L.g(-24.4,-4,-24.4,E);L.g(24.4,-4,24.4,E);
-   for(let y=0;y<30;y+=5)L.g(-24.4,y*Y,24.4,y*Y);
+   L.g(-24.4,-8,-24.4,E);L.g(24.4,-8,24.4,E);
+   for(let x of[-2.82,2.82,-8.8,8.8])L.g(x,-8,x,G,{w:.3});
+   for(let y=-5;y<30;y+=5)L.g(-24.4,y*Y,24.4,y*Y);
    L.g(-24.4,G,24.4,G,{blue:1});L.g(-24.4,E,24.4,E);
    L.p([[0,0,P+1],[0,3.05,P+1],[0,3.05,P]]);
    L.p([[-2.82,3.05,P],[2.82,3.05,P]]);
    L.p([[-2.82,3.05,P],[-2.82,10,P]]);L.p([[2.82,3.05,P],[2.82,10,P]]);
   })},
- {k:'Baseball',word:'baseball players',venue:'the diamond',cam:{x:-6,y:24,z:-34,look:[0,0,30],u:.7,v:.36,f:.82,hy:.5},pools:[[0,22,24,1],[0,62,40,.55],[0,0,7,.6]],beams:[[.6,.6],[.88,.45]],
+ {k:'Baseball',word:'baseball players',venue:'the diamond',cam:{x:14,y:24,z:-28,look:[0,0,30],u:.74,v:.3,f:.72,hy:.5},pools:[[0,26,26,1],[0,70,45,.6]],beams:[[.64,.6],[.88,.45]],
   paths:geo(L=>{const s=19.4,F=72;
-   L.g(0,0,F,F);L.g(0,0,-F,F);
+   L.g(0,0,F*1.38,F*1.38);L.g(0,0,-F*1.38,F*1.38);
+   for(let r=46;r<=118;r+=6)L.arc(0,0,r,PI/4,3*PI/4,{w:r>110?.9:.5});
    L.p([[0,0,0],[s,0,s],[0,0,2*s],[-s,0,s],[0,0,0]],{blue:1});
    L.arc(0,18.44,2.74,0,2*PI);
    L.arc(0,18.44,29,PI/4-.05,3*PI/4+.05);
-   L.arc(0,0,100,PI/4,3*PI/4);
-   L.rect(-1.98,-.9,-.76,.9);L.rect(.76,-.9,1.98,.9);
    L.p([[-.45,0,.45],[.45,0,.45],[.45,0,0],[0,0,-.45],[-.45,0,0],[-.45,0,.45]]);
    [[s,s],[0,2*s],[-s,s]].forEach(([x,z])=>L.p([[x,0,z-.55],[x+.55,0,z],[x,0,z+.55],[x-.55,0,z],[x,0,z-.55]]));
    L.arc(0,0,4,0,2*PI);
   })},
- {k:'Soccer',word:'soccer players',venue:'the pitch',cam:{x:-13,y:2.4,z:31,look:[0,1.2,52.5],u:.66,v:.35,f:1.15,hy:.5},pools:[[0,44,14,1],[0,30,16,.5]],beams:[[.62,.5],[.86,.4]],
+ {k:'Soccer',word:'soccer players',venue:'the pitch',cam:{x:24,y:8,z:22,look:[-2,1,50],u:.7,v:.3,f:.95,hy:.5},pools:[[0,44,16,1],[8,28,16,.55]],beams:[[.64,.5],[.88,.4]],
   paths:geo(L=>{const G=52.5,D=2;
-   L.g(-34,14,-34,G);L.g(34,14,34,G);L.g(-34,G,34,G);
+   for(let x=-29.5;x<=30;x+=4.5)L.g(x,4,x,G,{w:.26});
+   L.g(-34,4,-34,G);L.g(34,4,34,G);L.g(-34,G,34,G);
    L.p([[-20.16,0,G],[-20.16,0,G-16.5],[20.16,0,G-16.5],[20.16,0,G]]);
    L.p([[-9.16,0,G],[-9.16,0,G-5.5],[9.16,0,G-5.5],[9.16,0,G]]);
    const a=Math.acos(5.5/9.15);L.arc(0,G-11,9.15,-PI/2-a,-PI/2+a,{blue:1});
-   L.arc(0,G-11,.15,0,2*PI);
    L.panel([[-3.66,2.44,G],[3.66,2.44,G],[3.66,0,G+D],[-3.66,0,G+D]],.8);
    L.panel([[-3.66,0,G],[-3.66,2.44,G],[-3.66,0,G+D]],.8);L.panel([[3.66,0,G],[3.66,2.44,G],[3.66,0,G+D]],.8);
-   for(let x=-2.66;x<=2.7;x+=1)L.p([[x,2.44,G],[x,0,G+D]]);
+   for(let x=-2.66;x<=2.7;x+=1)L.p([[x,2.44,G],[x,0,G+D]],{w:.6});
    L.p([[-3.66,0,G],[-3.66,2.44,G],[3.66,2.44,G],[3.66,0,G]]);
    L.p([[-3.66,2.44,G],[-3.66,0,G+D],[3.66,0,G+D],[3.66,2.44,G]]);
   })},
- {k:'Track and field',word:'track athletes',venue:'the track',cam:{x:10,y:7,z:46,look:[-24,0,110],u:.62,v:.4,f:.9,hy:.5},pools:[[4,70,26,1],[-20,100,30,.6]],beams:[[.6,.5],[.85,.45]],
+ {k:'Track and field',word:'track athletes',venue:'the track',cam:{x:10,y:7,z:46,look:[-24,0,110],u:.68,v:.3,f:.9,hy:.5},pools:[[4,70,26,1],[-20,100,30,.6]],beams:[[.6,.5],[.85,.45]],
   paths:geo(L=>{const S=84.39,R=36.5;
    for(let i=0;i<=8;i++){const x=i*1.22,r=R+x;L.g(x,20,x,S);L.arc(-R,S,r,0,PI*.62)}
    L.g(0,S,9.76,S,{blue:1});
   })},
- {k:'Volleyball',word:'volleyball players',venue:'the court',cam:{x:-12,y:2,z:2.2,look:[0,1.9,9],u:.66,v:.28,f:1.05,hy:.5},pools:[[0,9,7,1],[0,4,6,.5]],beams:[[.62,.45],[.85,.4]],
-  paths:geo(L=>{L.rect(-4.5,0,4.5,18);L.g(-4.5,9,4.5,9);L.g(-4.5,6,4.5,6);L.g(-4.5,12,4.5,12);
+ {k:'Volleyball',word:'volleyball players',venue:'the court',cam:{x:8,y:4,z:-2.5,look:[-1,1.7,10],u:.7,v:.28,f:.95,hy:.5},pools:[[0,9,7,1],[0,4,6,.5]],beams:[[.64,.45],[.88,.4]],
+  paths:geo(L=>{for(let x=-4.25;x<=4.3;x+=.5)L.g(x,-3,x,18,{w:.26});
+   L.rect(-4.5,0,4.5,18);L.g(-4.5,9,4.5,9);L.g(-4.5,6,4.5,6);L.g(-4.5,12,4.5,12);
    L.panel([[-5.1,1.43,9],[5.1,1.43,9],[5.1,2.43,9],[-5.1,2.43,9]],.72);
    L.p([[-5.1,2.43,9],[5.1,2.43,9]],{blue:1});L.p([[-5.1,1.43,9],[5.1,1.43,9]]);
-   for(let x=-5;x<=5.01;x+=.5)L.p([[x,1.43,9],[x,2.43,9]]);[1.68,1.93,2.18].forEach(y=>L.p([[-5.1,y,9],[5.1,y,9]]));
+   for(let x=-5;x<=5.01;x+=.5)L.p([[x,1.43,9],[x,2.43,9]],{w:.8});[1.68,1.93,2.18].forEach(y=>L.p([[-5.1,y,9],[5.1,y,9]],{w:.8}));
    L.p([[-5.1,0,9],[-5.1,2.55,9]]);L.p([[5.1,0,9],[5.1,2.55,9]]);
   })},
 ];
@@ -867,6 +868,11 @@ class Film{
     const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2,m=ease(this.mix);
     if(this.prev>=0&&m<1)this.scene(this.o.scenes[this.prev],(this.pt||0)+(now-this.ts)/1000,1-m);
     this.scene(this.o.scenes[this.i],(now-this.ts)/1000,this.prev<0?1:m);
+    if(this.o.clear){const wide=W/H>1.15,[t0,t1,x0,x1]=wide?this.o.clear:[.3,.42,1.2,1.4],key=W+'x'+H+wide;
+      if(this.mk!==key){const m=this.mc||(this.mc=document.createElement('canvas'));m.width=W;m.height=H;const g=m.getContext('2d');
+        const v=g.createLinearGradient(0,H*t0,0,H*t1);v.addColorStop(0,'rgba(0,0,0,0)');v.addColorStop(1,'rgba(0,0,0,.96)');g.fillStyle=v;g.fillRect(0,0,W,H);
+        g.globalCompositeOperation='destination-in';const h=g.createLinearGradient(W*x0,0,W*x1,0);h.addColorStop(0,'rgba(0,0,0,1)');h.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=h;g.fillRect(0,0,W,H);this.mk=key}
+      c.save();c.globalCompositeOperation='destination-out';c.drawImage(this.mc,0,0,W,H);c.globalCompositeOperation='destination-over';c.fillStyle='#04060A';c.fillRect(0,0,W,H);c.restore()}
     // grain, vignette
     c.globalAlpha=1;const p=c.createPattern(grain,'repeat');c.save();c.fillStyle=p;c.fillRect(-160,-160,W+320,H+320);c.restore();
     const v=c.createRadialGradient(W/2,H*.48,Math.min(W,H)*.25,W/2,H*.5,Math.max(W,H)*.75);v.addColorStop(0,'rgba(3,5,9,0)');v.addColorStop(1,'rgba(3,5,9,.85)');c.fillStyle=v;c.fillRect(0,0,W,H);
@@ -886,7 +892,7 @@ class Film{
     const draw=up=>{const buckets=[[],[],[]].map(()=>Array.from({length:NB},()=>[]));
       for(const p of s.paths){if(p.up!==up)continue;const pts=p.pts,lit=p.lit;let prev=null;
         for(let i=0;i<pts.length;i++){const q=pr(pts[i][0],pts[i][1],pts[i][2]);
-          if(q&&prev){const z=(q[2]+prev[2])/2,fade=Math.max(0,1-z/110),al=Math.min(1,(.16+1.05*lit[i])*fade*(up?1.15:1));
+          if(q&&prev){const z=(q[2]+prev[2])/2,fade=Math.max(0,1-z/110),al=Math.min(1,(.16+1.05*lit[i])*fade*(up?1.15:1)*p.w);
             let al2=al,col=p.blue?1:0;if(hl>.01&&fade>0){const mx=(q[0]+prev[0])/2-ux,my=(q[1]+prev[1])/2-uy,bo=hl*Math.exp(-(mx*mx+my*my)/R2);if(bo>.02){al2=Math.min(1,al+bo*.95);if(bo>.3)col=2}}
             const b=Math.min(NB-1,al2*NB|0);if(b>0)buckets[col][b].push(prev[0],prev[1],q[0],q[1])}
           prev=q}}
@@ -929,7 +935,7 @@ function setWord(n){if(n===wi)return;const o=words[wi],w=words[n];o.className='o
 const HOLD=3200,hbar=$('#heroBar');
 function cap(i){$('#heroCapT').textContent=SCENES[i].k;hbar.classList.remove('run');void hbar.offsetWidth;if(!RM)hbar.classList.add('run')}
 document.documentElement.style.setProperty('--dur',HOLD+'ms');
-const hero=new Film($('#heroFilm'),{scenes:SCENES,auto:HOLD,parallax:true,onChange:i=>{setWord(i);cap(i)}});
+const hero=new Film($('#heroFilm'),{scenes:SCENES,auto:HOLD,parallax:true,clear:[.4,.5,.72,.97],onChange:i=>{setWord(i);cap(i)}});
 cap(0);
 
 /* ================= sports ================= */
@@ -944,10 +950,10 @@ slist.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)retu
 const clChips=$('#clChips'),clGo=$('#clGo'),clNote=$('#clNote');
 clChips.innerHTML=SCENES.map((s,i)=>`<button aria-pressed="${!i}" data-i="${i}">${s.k}</button>`).join('');
 function clMark(i){$$('#clChips button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.i===i));clGo.dataset.sport=SCENES[i].k;clNote.textContent=SCENES[i].k}
-const close=new Film($('#closeFilm'),{scenes:SCENES,auto:3200,parallax:true,host:$('#closing'),onChange:clMark});
+const close=new Film($('#closeFilm'),{scenes:SCENES,auto:3200,parallax:true,clear:[.12,.22,.44,.6],host:$('#closing'),onChange:clMark});
 clChips.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;close.o.auto=0;close.set(+b.dataset.i);clMark(+b.dataset.i)});
-new Film($('#teamFilm'),{scenes:SCENES,start:4,parallax:true});
-new Film($('#workFilm'),{scenes:SCENES,start:5,parallax:true});
+new Film($('#teamFilm'),{scenes:SCENES,start:4,parallax:true,clear:[.42,.52,.58,.82]});
+new Film($('#workFilm'),{scenes:SCENES,start:5,parallax:true,clear:[.42,.52,.58,.82]});
 
 /* ================= structure ================= */
 const wdet=$('#wdet');
