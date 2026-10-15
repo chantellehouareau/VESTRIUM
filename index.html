@@ -27,7 +27,7 @@
 }
 *{box-sizing:border-box}
 html{background:var(--edge);scroll-behavior:smooth}
-body{margin:0;background:var(--void);color:var(--body);font-family:var(--f-sans);font-weight:300;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;background:var(--void);color:var(--body);font-family:var(--f-sans);font-weight:300;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
 p{margin:0}
@@ -60,8 +60,13 @@ b,strong{font-weight:400;color:var(--strong)}
 .btn-solid:hover{box-shadow:0 0 30px -8px var(--glow)}
 .btn-line{border-color:var(--rule2)}
 
-.tlink{display:inline-flex;gap:10px;align-items:center;font-size:15px;color:var(--strong);padding-block:6px;border-bottom:1px solid var(--rule2);transition:border-color .4s}
-.tlink:hover{border-color:var(--blue-l)}
+.tlink{position:relative;display:inline-flex;gap:10px;align-items:center;font-size:15px;color:var(--strong);padding-block:6px;transition:color .4s}
+.tlink::before,.tlink::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px}
+.tlink::before{background:var(--rule2)}
+.tlink::after{background:linear-gradient(90deg,rgba(255,255,255,.2),var(--hi) 45%,#fff);box-shadow:0 0 12px rgba(255,255,255,.35);transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease)}
+.tlink:hover,.tlink:focus-visible{color:var(--hi)}
+.tlink:hover::after,.tlink:focus-visible::after{transform:scaleX(1)}
+
 
 /* nav */
 .nav{position:fixed;inset:0 0 auto 0;z-index:40;padding-top:env(safe-area-inset-top,0px);transition:background .5s,border-color .5s;border-bottom:1px solid transparent}
@@ -131,7 +136,7 @@ b,strong{font-weight:400;color:var(--strong)}
 
 /* roles */
 .roles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:20px;row-gap:20px;margin-top:clamp(64px,8vw,110px)}
-.role{position:relative;padding:36px 30px;display:grid;grid-template-rows:subgrid;grid-row:span 6;row-gap:22px;align-content:start;border:1px solid var(--rule);background:linear-gradient(180deg,var(--soft2) 0%,var(--void) 70%);overflow:hidden;transition:border-color .5s,transform .7s var(--ease)}
+.role{position:relative;padding:36px 30px;display:grid;grid-template-rows:subgrid;grid-row:span 5;row-gap:22px;align-content:start;border:1px solid var(--rule);background:linear-gradient(180deg,var(--soft2) 0%,var(--void) 70%);overflow:hidden;transition:border-color .5s,transform .7s var(--ease)}
 .role:hover{border-color:var(--rule2);transform:translateY(-6px)}
 .role svg{width:100%;height:150px;margin-bottom:10px}
 .role svg *{fill:none;stroke:#3a4354;stroke-width:1;transition:stroke .6s}
@@ -353,6 +358,88 @@ form.req{display:grid;grid-template-columns:1fr 1fr;gap:34px 28px}
 .light .rule-b{box-shadow:none}
 .light ::selection{background:#0C0D10;color:#EDEDEE}
 
+
+/* approach: interactive phases */
+.ap{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(36px,6vw,100px);margin-top:clamp(56px,7vw,96px);align-items:stretch}
+.ap-list{display:grid;align-content:start;border-top:1px solid var(--rule)}
+.ap-row{position:relative;display:grid;grid-template-columns:56px 1fr;align-items:baseline;gap:12px;text-align:left;padding:28px 0 30px;border-bottom:1px solid var(--rule);color:var(--deep);transition:color .5s}
+.ap-row:hover{color:var(--lo)}
+.ap-row.on{color:var(--hi)}
+.ap-n{font-family:var(--f-mono);font-size:11px;letter-spacing:.2em;color:var(--mute)}
+.ap-t{font-size:clamp(1.9rem,3.6vw,3.2rem);letter-spacing:-.035em;line-height:1;transition:transform .7s var(--ease)}
+.ap-row.on .ap-t{transform:translateX(10px)}
+.ap-bar{position:absolute;left:0;right:0;bottom:-1px;height:1px;overflow:hidden}
+.ap-bar i{position:absolute;inset:0;background:var(--hi);transform:scaleX(0);transform-origin:left}
+.ap-row.on .ap-bar i{animation:apfill var(--apdur,6s) linear forwards}
+.ap.paused .ap-row.on .ap-bar i{animation-play-state:paused}
+@keyframes apfill{to{transform:scaleX(1)}}
+.ap-stage{position:relative;min-height:420px;border:1px solid var(--rule);background:radial-gradient(120% 90% at 85% 0%,rgba(230,235,244,.06),transparent 60%),linear-gradient(180deg,var(--soft2),var(--void));overflow:hidden}
+.ap-pane{position:absolute;inset:0;padding:clamp(30px,4vw,56px);display:flex;flex-direction:column;justify-content:flex-end;gap:18px;opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .9s var(--ease);pointer-events:none}
+.ap-pane.on{opacity:1;transform:none;pointer-events:auto}
+.ap-big{position:absolute;right:clamp(20px,3vw,44px);top:clamp(16px,2.4vw,34px);font-size:clamp(5.5rem,10vw,9.5rem);line-height:1;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px rgba(230,235,244,.14)}
+.ap-h{font-size:clamp(1.7rem,2.8vw,2.5rem);letter-spacing:-.03em;line-height:1.08;max-width:16ch}
+.ap-p{max-width:46ch;font-size:16.5px}
+.ap-tags{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);padding-top:16px;border-top:1px solid var(--rule)}
+@media (max-width:900px){.ap{grid-template-columns:1fr}.ap-stage{min-height:340px}}
+
+
+/* closing: letter of introduction */
+.closing{min-height:0;display:block;padding-block:var(--sec);background:radial-gradient(70% 60% at 50% 40%,#16171A 0%,var(--void) 70%)}
+.closing::after{display:none}
+.invite{position:relative;max-width:1140px;margin:0 auto;padding:clamp(30px,5vw,70px);background:#EDEDEE;border-radius:2px;overflow:hidden;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  box-shadow:0 50px 90px -40px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.05);
+  transform:perspective(1600px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .6s var(--ease);will-change:transform}
+.inv-sheen{position:absolute;inset:0;pointer-events:none;background:radial-gradient(520px circle at var(--mx,25%) var(--my,15%),rgba(255,255,255,.75),rgba(255,255,255,0) 55%);mix-blend-mode:soft-light;opacity:.9}
+.inv-mark{position:absolute;right:-3%;bottom:-14%;width:min(460px,44%);aspect-ratio:120/106;height:auto;opacity:.06;filter:grayscale(1) contrast(.6);pointer-events:none}
+.inv-head,.inv-foot{position:relative;display:flex;justify-content:space-between;gap:20px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
+.inv-head{padding-bottom:22px;border-bottom:1px solid var(--rule)}
+.inv-foot{padding-top:22px;border-top:1px solid var(--rule)}
+.inv-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(30px,5vw,80px);padding-block:clamp(40px,6vw,84px);align-items:end}
+.invite .cl-main{display:grid;gap:24px;max-width:none}
+.invite .cl-main .lede{color:var(--body)}
+.invite .cl-pick{background:none;border:0;padding:0 0 0 clamp(0px,3vw,40px);border-left:1px solid var(--rule);backdrop-filter:none;-webkit-backdrop-filter:none;display:grid;gap:22px;justify-items:start}
+.invite .cl-chips button{color:var(--lo);border-color:var(--rule2)}
+.invite .cl-chips button:hover{color:var(--hi);border-color:var(--hi)}
+.invite .cl-chips button[aria-pressed="true"]{background:#0C0D10;color:#EDEDEE;border-color:#0C0D10}
+@media (max-width:900px){.inv-grid{grid-template-columns:1fr;align-items:start}.invite .cl-pick{border-left:0;padding-left:0}}
+
+
+/* closing (plain) */
+.closing.sec{min-height:0;display:block;background:var(--void)}
+.cl2{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(40px,8vw,140px);align-items:end}
+.cl2-pick{display:grid;gap:26px;justify-items:start}
+.tlink.xl{font-size:clamp(1.7rem,3vw,2.6rem);letter-spacing:-.025em;gap:18px;padding-block:10px 14px;color:var(--hi)}
+.tlink.xl::after{height:1px}
+@media (max-width:900px){.cl2{grid-template-columns:1fr;align-items:start}}
+
+
+/* approach: scroll story */
+.story{position:relative;height:calc(100svh * 4.4);border-top:1px solid var(--rule);background:var(--void)}
+.st-pin{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;align-items:stretch}
+.st-in{width:100%;display:grid;grid-template-rows:auto 1fr auto;padding-block:calc(110px + env(safe-area-inset-top,0px)) clamp(28px,4vw,52px)}
+.st-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.st-title{margin-top:12px;font-size:clamp(1.05rem,1.6vw,1.35rem);color:var(--strong);letter-spacing:-.01em}
+.st-count{font-family:var(--f-mono);font-size:11px;letter-spacing:.22em;color:var(--lo);font-variant-numeric:tabular-nums}
+.st-stage{position:relative;min-height:0}
+.st-pane{position:absolute;inset:0;display:grid;align-content:center;gap:clamp(20px,3vw,40px);opacity:0;transform:translateY(60px);transition:opacity .8s ease,transform 1s var(--ease);pointer-events:none}
+.st-pane.past{transform:translateY(-60px)}
+.st-pane.on{opacity:1;transform:none}
+.st-word{margin:0;font-size:clamp(4.2rem,15vw,15rem);line-height:.86;letter-spacing:-.055em;font-weight:300;color:var(--hi);overflow:hidden;padding-bottom:.06em}
+.st-word span{display:inline-block;transform:translateY(100%);transition:transform 1.1s var(--ease)}
+.st-pane.on .st-word span{transform:none}
+.st-copy{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(20px,4vw,64px);align-items:baseline;max-width:1100px;padding-top:clamp(18px,2vw,26px);border-top:1px solid var(--rule)}
+.st-h{font-size:clamp(1.25rem,2vw,1.7rem);color:var(--hi);letter-spacing:-.02em;line-height:1.2}
+.st-p{max-width:52ch;font-size:clamp(1rem,1.2vw,1.1rem)}
+.st-rail{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.st-seg{position:relative;padding-top:14px;cursor:pointer}
+.st-seg::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--rule2)}
+.st-fill{position:absolute;left:0;top:0;height:1px;width:100%;background:var(--hi);transform:scaleX(0);transform-origin:left}
+.st-lbl{font-family:var(--f-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--deep);transition:color .4s}
+.st-seg.on .st-lbl{color:var(--hi)}
+@media (max-width:760px){.st-copy{grid-template-columns:1fr}.st-lbl{font-size:9px;letter-spacing:.12em}}
+@media (prefers-reduced-motion:reduce){.story{height:auto}.st-pin{position:relative;height:auto}.st-stage{display:grid;gap:60px}.st-pane{position:relative;opacity:1;transform:none}.st-word span{transform:none}}
+
 /* footer */
 footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90px calc(40px + env(safe-area-inset-bottom,0px))}
 .fg{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:44px}
@@ -408,7 +495,7 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
   <section class="hero" id="top">
     <canvas class="film" id="heroFilm" aria-hidden="true"></canvas>
     <div class="wrap intro-in">
-      <h1 class="d1 hero-h">Where <span class="word" id="word" aria-hidden="true"></span><span class="sr">sport</span> <br>meets the boardroom.</h1>
+      <h1 class="d1 hero-h">Where <span class="word" id="word" aria-hidden="true"></span><span class="sr">sport meets business.</span> <br><span aria-hidden="true">meets </span><span class="word" id="word2" aria-hidden="true"></span></h1>
       <p class="lede">A private business institution at the meeting point of sport and enterprise. We build the companies, brands and partnerships that turn talent into ownership, for athletes and for the businesses and founders around them.</p>
       <div class="hrow">
         <a class="btn btn-solid" href="#work" data-route="work" data-target="request">Start a conversation <span class="ar">→</span></a>
@@ -437,20 +524,6 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
         <div class="stack"><p class="label b">The Vestrium practice</p><h2 class="d2 rv">One house. Every discipline.</h2></div>
         <p class="lede rv">Everything required to build lasting enterprise between sport and business, brought under one roof and held to a single standard.</p>
       </div>
-      <div class="arms rv">
-        <div class="arm arm-c">
-          <p class="label b">Vestrium Global Consulting</p>
-          <h3 class="d3">Advisory, on retainer.</h3>
-          <p>The services we provide day to day: infrastructure, brand and NIL operations, governance and personal brand. Consulting is engaged on a retainer, and that retainer is the only fee it receives.</p>
-          <span class="arm-tag">Retainer</span>
-        </div>
-        <div class="arm">
-          <p class="label">Vestrium Global Collective</p>
-          <h3 class="d3">Shared ownership.</h3>
-          <p>Where we help create a venture, a business or the infrastructure behind it, the Collective holds equity alongside you, on terms agreed and disclosed in writing before you decide.</p>
-          <span class="arm-tag">Equity</span>
-        </div>
-      </div>
       <div class="roles">
         <article class="role rv">
           <svg viewBox="0 0 300 150" aria-hidden="true"><rect x="40" y="20" width="220" height="110"/><rect x="60" y="40" width="80" height="70"/><rect x="160" y="40" width="80" height="30"/><rect x="160" y="80" width="80" height="30"/><line class="acc" x1="20" y1="130" x2="280" y2="130"/></svg>
@@ -458,7 +531,6 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
           <h3 class="d3">An enterprise worthy of the name.</h3>
           <p>Companies constituted with licensed counsel, income received into entities you own, and affairs administered with the rigor of a private office.</p>
           <ul><li>Entity design, formed by counsel</li><li>Partnership administration</li><li>Monthly accounts and reporting</li></ul>
-          <span class="ent ent-c">Retainer · Vestrium Global Consulting</span>
         </article>
         <article class="role rv">
           <svg viewBox="0 0 300 150" aria-hidden="true"><rect x="70" y="60" width="160" height="40"/><circle cx="100" cy="40" r="10"/><circle cx="150" cy="40" r="10"/><circle class="acc" cx="200" cy="40" r="10"/><circle cx="100" cy="120" r="10"/><circle cx="150" cy="120" r="10"/><circle cx="200" cy="120" r="10"/></svg>
@@ -466,7 +538,6 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
           <h3 class="d3">A considered seat at the table.</h3>
           <p>Preparation for board service and ownership roles, so that when the invitation comes, you arrive ready.</p>
           <ul><li>Board readiness</li><li>Governance fundamentals</li><li>Placement by introduction</li></ul>
-          <span class="ent ent-c">Retainer · Vestrium Global Consulting</span>
         </article>
         <article class="role rv">
           <svg viewBox="0 0 300 150" aria-hidden="true"><circle class="acc" cx="150" cy="75" r="16"/><circle cx="150" cy="75" r="36"/><circle cx="150" cy="75" r="56"/><circle cx="150" cy="75" r="74"/></svg>
@@ -474,15 +545,13 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
           <h3 class="d3">The athlete, beyond the athlete.</h3>
           <p>Positioning, narrative and partnerships shaped with intent, so that your name stands for something enduring and opens doors well beyond sport.</p>
           <ul><li>Positioning and narrative</li><li>Partnership and media strategy</li><li>Life beyond competition</li></ul>
-          <span class="ent ent-c">Retainer · Vestrium Global Consulting</span>
         </article>
         <article class="role rv">
           <svg viewBox="0 0 300 150" aria-hidden="true"><line x1="40" y1="130" x2="40" y2="70"/><line x1="100" y1="130" x2="100" y2="50"/><line x1="160" y1="130" x2="160" y2="34"/><line class="acc" x1="220" y1="130" x2="220" y2="16"/><path d="M40 70 100 50 160 34 220 16 270 8"/><line x1="20" y1="130" x2="280" y2="130"/></svg>
           <p class="label b">Ventures</p>
           <h3 class="d3">Ownership, not merely endorsement.</h3>
-          <p>When the moment is right, we conceive, launch and operate businesses alongside you, built to be held rather than traded. The Collective takes its share as equity, not fees.</p>
-          <ul><li>Venture conception and launch</li><li>Operating partners</li><li>Equity terms agreed in writing</li></ul>
-          <span class="ent">Equity · Vestrium Global Collective</span>
+          <p>When the moment is right, we conceive, launch and operate businesses alongside you, built to be held rather than traded. Where we take part in a venture, our interest is agreed in writing before you decide.</p>
+          <ul><li>Venture conception and launch</li><li>Operating partners</li><li>Terms agreed in writing</li></ul>
         </article>
       </div>
     </div>
@@ -504,18 +573,32 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
     </div>
   </section>
 
-  <section class="sec light" id="method">
-    <div class="wrap">
-      <div class="split">
-        <div class="stack"><p class="label b">Our approach</p><h2 class="d2 rv">Protection precedes optimization.</h2></div>
-        <p class="lede rv">A disciplined sequence, observed without exception. Each phase is complete before the next begins.</p>
-      </div>
-      <div class="phases">
-        <span class="prog" aria-hidden="true"></span>
-        <div class="phase rv"><span class="n">01</span><p class="label b">Understand</p><h3 class="d3">See the whole picture.</h3><p>A complete account of every agreement, obligation and relationship that bears your name.</p></div>
-        <div class="phase rv"><span class="n">02</span><p class="label b">Protect</p><h3 class="d3">Secure the foundations.</h3><p>Agreements reviewed by counsel, name and likeness registered, and coverage examined by licensed specialists.</p></div>
-        <div class="phase rv"><span class="n">03</span><p class="label b">Build</p><h3 class="d3">Constitute the enterprise.</h3><p>Counsel forms the structures we design together. Accounts are opened in your name, and income is received where it belongs.</p></div>
-        <div class="phase rv"><span class="n">04</span><p class="label b">Steward</p><h3 class="d3">Hold for the long term.</h3><p>The enterprise run month by month, the brand cultivated, and ventures pursued when the moment is right.</p></div>
+  <section class="story" id="method" aria-label="Our approach">
+    <div class="st-pin">
+      <div class="wrap st-in">
+        <div class="st-top">
+          <div><p class="label b">Our approach</p><p class="st-title">Protection precedes optimization.</p></div>
+          <span class="st-count" id="stCount">01 / 04</span>
+        </div>
+        <div class="st-stage">
+          <div class="st-pane on" data-i="0">
+            <h3 class="st-word"><span>Understand</span></h3>
+            <div class="st-copy"><p class="st-h">See the whole picture.</p><p class="st-p">A complete account of every agreement, obligation and relationship that bears your name, gathered into a single view before anything is changed.</p></div>
+          </div>
+          <div class="st-pane" data-i="1">
+            <h3 class="st-word"><span>Protect</span></h3>
+            <div class="st-copy"><p class="st-h">Secure the foundations.</p><p class="st-p">Agreements reviewed by counsel, name and likeness registered, and coverage examined by licensed specialists. Nothing is built on an exposed footing.</p></div>
+          </div>
+          <div class="st-pane" data-i="2">
+            <h3 class="st-word"><span>Build</span></h3>
+            <div class="st-copy"><p class="st-h">Constitute the enterprise.</p><p class="st-p">Counsel forms what we design together. Accounts are opened in your name, and income is received where it belongs.</p></div>
+          </div>
+          <div class="st-pane" data-i="3">
+            <h3 class="st-word"><span>Steward</span></h3>
+            <div class="st-copy"><p class="st-h">Hold for the long term.</p><p class="st-p">The enterprise run month by month, the brand cultivated, and ventures pursued when the moment is right.</p></div>
+          </div>
+        </div>
+        <div class="st-rail"><div class="st-seg" data-i="0"><span class="st-fill"></span><span class="st-lbl">01 · Understand</span></div><div class="st-seg" data-i="1"><span class="st-fill"></span><span class="st-lbl">02 · Protect</span></div><div class="st-seg" data-i="2"><span class="st-fill"></span><span class="st-lbl">03 · Build</span></div><div class="st-seg" data-i="3"><span class="st-fill"></span><span class="st-lbl">04 · Steward</span></div></div>
       </div>
     </div>
   </section>
@@ -527,23 +610,20 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
     </div>
   </section>
 
-  <section class="closing" id="closing">
-    <canvas class="film" id="closeFilm" aria-hidden="true"></canvas>
-    <div class="wrap cl">
-      <div class="cl-main">
+  <section class="sec closing" id="closing">
+    <div class="wrap cl2">
+      <div class="stack">
         <p class="label b">By introduction</p>
-        <h2 class="d2">Build what lasts, while the window is open.</h2>
-        <p class="lede">Every relationship begins with a conversation. Tell us your sport, and we will take it from there.</p>
+        <h2 class="d2 rv">Build what lasts, while the window is open.</h2>
+        <p class="lede rv">Every relationship begins with a conversation. Tell us your sport, and we will take it from there.</p>
       </div>
-      <div class="cl-pick">
+      <div class="cl2-pick">
+        <p class="label">Your sport</p>
         <div class="cl-chips" id="clChips" role="group" aria-label="Your sport"></div>
-        <div class="cl-cta">
-          <a class="btn btn-solid" id="clGo" href="#work" data-route="work" data-target="request" data-sport="Basketball">Introduce yourself <span class="ar">→</span></a>
-          <span class="cl-note" id="clNote">Basketball</span>
-        </div>
+        <a class="tlink xl" id="clGo" href="#work" data-route="work" data-target="request" data-sport="Basketball">Introduce yourself <span>→</span></a>
+        <span class="cl-note" id="clNote" hidden>Basketball</span>
       </div>
     </div>
-    <p class="cl-hint" aria-hidden="true">Hover to light the court</p>
   </section>
 </main>
 
@@ -722,13 +802,13 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
         <p class="vis">A <a href="https://vis10n.netlify.app" target="_blank" rel="noopener">VIS10N Holdings</a> company</p>
       </div>
       <div><h4>Site</h4><nav><a href="#home" data-route="home">Home</a><a href="#team" data-route="team">Team</a><a href="#work" data-route="work">Work with us</a></nav></div>
-      <div class="lst"><h4>Institution</h4><span>Vestrium Global Holdings</span><span>Vestrium Global Consulting</span><span>Vestrium Global Collective</span></div>
+      <div class="lst"><h4>Practice</h4><span>Infrastructure</span><span>Governance</span><span>Personal brand</span><span>Ventures</span></div>
       <div><h4>Contact</h4><nav><a href="#work" data-route="work" data-target="request">Enquire</a><a href="#work" data-route="work" data-target="request" data-aud="pro">For professionals</a></nav></div>
     </div>
     <div class="fine">
       <p>Vestrium Global does not provide legal, tax, or investment advice. Formation, tax opinions, and drafting are performed by licensed counsel and CPAs.</p>
       <p>Vestrium Global is not a registered investment adviser or broker-dealer and does not manage, hold, or direct client assets. Nothing on this site is an offer to sell, or a solicitation of an offer to buy, any security, or a recommendation about any investment. Descriptions of structures are illustrative and general; outcomes depend on individual circumstances. Athletes should confirm NIL activity with their institution's compliance office and applicable state law.</p>
-      <div class="row"><span>© 2026 Vestrium Global Holdings. All rights reserved.</span><span>Privacy · Terms</span></div>
+      <div class="row"><span>© 2026 Vestrium Global. All rights reserved.</span><span>Privacy · Terms</span></div>
     </div>
   </div>
 </footer>
@@ -843,7 +923,7 @@ class Film{
       if(this.mk!==key){const m=this.mc||(this.mc=document.createElement('canvas'));m.width=W;m.height=H;const g=m.getContext('2d');
         const v=g.createLinearGradient(0,H*t0,0,H*t1);v.addColorStop(0,'rgba(0,0,0,0)');v.addColorStop(1,'rgba(0,0,0,.96)');g.fillStyle=v;g.fillRect(0,0,W,H);
         g.globalCompositeOperation='destination-in';const h=g.createLinearGradient(W*x0,0,W*x1,0);h.addColorStop(0,'rgba(0,0,0,1)');h.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=h;g.fillRect(0,0,W,H);this.mk=key}
-      c.save();c.globalCompositeOperation='destination-out';c.drawImage(this.mc,0,0,W,H);c.globalCompositeOperation='destination-over';c.fillStyle='#050607';c.fillRect(0,0,W,H);c.restore()}
+      const sc=this.o.scenes,ma=(1-(sc[this.i].free||0))*(this.prev<0?1:m)+(this.prev>=0&&m<1?(1-(sc[this.prev].free||0))*(1-m):0);c.save();c.globalAlpha=Math.min(1,ma);c.globalCompositeOperation='destination-out';c.drawImage(this.mc,0,0,W,H);c.globalAlpha=1;c.globalCompositeOperation='destination-over';c.fillStyle='#050607';c.fillRect(0,0,W,H);c.restore()}
     // grain, vignette
     c.globalAlpha=1;const p=c.createPattern(grain,'repeat');c.save();c.fillStyle=p;c.fillRect(-160,-160,W+320,H+320);c.restore();
     const v=c.createRadialGradient(W/2,H*.48,Math.min(W,H)*.25,W/2,H*.5,Math.max(W,H)*.75);v.addColorStop(0,'rgba(4,5,6,0)');v.addColorStop(1,'rgba(4,5,6,.85)');c.fillStyle=v;c.fillRect(0,0,W,H);
@@ -890,22 +970,61 @@ const NOTES=[
 ];
 const FAQ=[
  ['Is Vestrium a financial adviser?','No. Vestrium designs and administers business infrastructure and advises on personal brand. We do not manage money, recommend investments or hold assets. Where investment advice is wanted, it should come from a registered investment adviser of your choosing, with whom we coordinate as with any other member of your team.'],
- ['For whom is Vestrium intended?','Athletes whose NIL and partnership income has become a genuine enterprise, typically in the mid six figures a year, and the businesses, founders and families who work alongside them. We act for collegiate and professional athletes, and for companies entering the business of sport.'],
+ ['For whom is Vestrium intended?','Athletes whose NIL and partnership income has become an enterprise in its own right, typically in the mid six figures a year, and the businesses, founders and families who work alongside them. We act for collegiate and professional athletes, and for companies entering the business of sport.'],
  ['Where are my assets held?','In accounts in your name or in the name of your company, at institutions you select. Vestrium may be granted operating access to administer payments and accounts, never ownership.'],
  ['Does Vestrium replace my agent?','No. Your agent negotiates on your behalf. We build and administer the enterprise those agreements flow into, and ensure your whole team works from the same picture.'],
  ['How does NIL compliance fit in?','Your institution\'s compliance office and the rules of your state continue to apply. We keep a complete record of every agreement and work alongside compliance staff whenever information is required.'],
- ['How is Vestrium remunerated?','In two distinct ways, kept deliberately apart. Vestrium Global Consulting is paid by retainer for its advisory and operating services, and accepts no commissions on products. Vestrium Global Collective holds equity in the ventures, businesses and infrastructure it helps create, on terms agreed and disclosed in writing before you decide.'],
+ ['How is Vestrium remunerated?','Our advisory and operating work is retained on a fee basis, and we accept no commissions on products. Where we help create a venture and take part in it, our interest is agreed and disclosed in writing before you decide.'],
 ];
 
 /* ================= hero ================= */
 const wordEl=$('#word');
 wordEl.innerHTML=SCENES.map((s,i)=>`<b${i?'':' class="on"'}>${s.venue}</b>`).join('');
-const words=[...wordEl.children];let wi=0;
-function setWord(n){if(n===wi)return;const o=words[wi],w=words[n];o.className='out';w.className='reset';void w.offsetWidth;w.className='on';setTimeout(()=>{if(o.className==='out'){o.className='reset';void o.offsetWidth;o.className=''}},750);wi=n}
+const BIZ=['the boardroom.','the balance sheet.','the term sheet.','the cap table.','the ledger.','the deal table.'];
+const word2=$('#word2');word2.innerHTML=BIZ.map((w,i)=>`<b${i?'':' class="on"'}>${w}</b>`).join('');
+const words=[...wordEl.children],words2=[...word2.children];let wi=0;
+function swapIn(list,from,to,delay){setTimeout(()=>{const o=list[from],w=list[to];o.className='out';w.className='reset';void w.offsetWidth;w.className='on';setTimeout(()=>{if(o.className==='out'){o.className='reset';void o.offsetWidth;o.className=''}},750)},delay)}
+function setWord(n){if(n===wi)return;swapIn(words,wi,n,0);swapIn(words2,wi%words2.length,n%words2.length,1600);wi=n}
 const HOLD=3200,hbar=$('#heroBar');
 function cap(i){$('#heroCapT').textContent=SCENES[i].k;hbar.classList.remove('run');void hbar.offsetWidth;if(!RM)hbar.classList.add('run')}
 document.documentElement.style.setProperty('--dur',HOLD+'ms');
-const hero=new Film($('#heroFilm'),{scenes:SCENES,auto:HOLD,parallax:true,clear:[.4,.5,.72,.97],onChange:i=>{setWord(i);cap(i)}});
+/* ================= etched hero: one fine-line pattern per sport ================= */
+function sportPattern(g,k,W,H){const wide=W/H>1.15,cx=wide?W*.74:W*.5,cy=wide?H*.42:H*.3,M=Math.hypot(W,H),x0=wide?W*.34:0;g.beginPath();
+  if(k===0){const by=H*1.08;for(let r=60;r<M;r+=9){g.moveTo(cx+r,by);g.arc(cx,by,r,Math.PI,2*Math.PI)}}
+  else if(k===1){for(let y=H*.06,n=0;y<=H;y+=12,n++){g.moveTo(x0,y);g.lineTo(W,y)}g.stroke();g.beginPath();for(let y=H*.06;y<=H;y+=12){for(const hx of[cx-W*.09,cx+W*.09]){g.moveTo(hx,y-3);g.lineTo(hx,y+3)}}g.stroke();g.beginPath();g.lineWidth=1.3;for(let y=H*.06;y<=H;y+=60){g.moveTo(x0,y);g.lineTo(W,y)}}
+  else if(k===2){for(let d=18;d<M*.6;d+=10){g.moveTo(cx,cy-d);g.lineTo(cx+d,cy);g.lineTo(cx,cy+d);g.lineTo(cx-d,cy);g.closePath()}}
+  else if(k===3){let x=x0,b=0;while(x<W){const bw=64,st=b%2?15:6;for(let xx=x;xx<Math.min(W,x+bw);xx+=st){g.moveTo(xx,0);g.lineTo(xx,H)}x+=bw;b++}}
+  else if(k===4){const L=W*.2;for(let r=26;r<M*.5;r+=9){g.moveTo(cx-L/2,cy-r);g.lineTo(cx+L/2,cy-r);g.arc(cx+L/2,cy,r,-Math.PI/2,Math.PI/2);g.lineTo(cx-L/2,cy+r);g.arc(cx-L/2,cy,r,Math.PI/2,Math.PI*1.5)}}
+  else{const st=16;for(let c=-H;c<W+H;c+=st){g.moveTo(c,0);g.lineTo(c+H,H);g.moveTo(c+H,0);g.lineTo(c,H)}}
+  g.stroke()}
+class EtchShow{
+  constructor(cv,o){this.cv=cv;this.c=cv.getContext('2d');this.o=o;this.n=o.count;this.i=0;this.prev=-1;this.m=1;this.bases=[];this.t=document.createElement('canvas');this.mx=-1e4;this.my=-1e4;this.sx=-1e4;this.sy=-1e4;this.h=0;this.ht=0;this.raf=0;this.ts=performance.now();
+    const host=cv.parentElement;host.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();this.mx=e.clientX-r.left;this.my=e.clientY-r.top;if(this.sx<-1e3){this.sx=this.mx;this.sy=this.my}this.ht=1;this.kick()});
+    host.addEventListener('pointerleave',()=>{this.ht=0;this.kick()});
+    addEventListener('resize',()=>this.build());new IntersectionObserver(es=>{this.vis=es[0].isIntersecting;if(this.vis)this.build()}).observe(cv);
+    if(!RM)setInterval(()=>{if(this.vis&&!document.hidden)this.set((this.i+1)%this.n)},o.hold);this.build()}
+  build(){const d=Math.min(1.6,devicePixelRatio||1),W=this.cv.offsetWidth,H=this.cv.offsetHeight;if(!W)return;this.W=W;this.H=H;this.d=d;
+    this.cv.width=this.t.width=W*d;this.cv.height=this.t.height=H*d;
+    this.bases=Array.from({length:this.n},(_,k)=>{const b=document.createElement('canvas');b.width=W*d;b.height=H*d;const g=b.getContext('2d');g.setTransform(d,0,0,d,0,0);g.strokeStyle='#fff';g.lineWidth=.8;sportPattern(g,k,W,H);return b});
+    const wide=W/H>1.15;this.lx=wide?W*.74:W*.5;this.ly=wide?H*.4:H*.3;this.draw()}
+  set(k){if(k===this.i)return;this.prev=this.i;this.i=k;this.m=0;this.o.onChange&&this.o.onChange(k);this.kick()}
+  kick(){if(this.raf||RM){if(RM)this.draw();return}this.raf=requestAnimationFrame(()=>{this.raf=0;this.sx+=(this.mx-this.sx)*.14;this.sy+=(this.my-this.sy)*.14;this.h+=(this.ht-this.h)*.1;this.m=Math.min(1,this.m+.03);this.draw();
+    if(this.m<1||Math.abs(this.mx-this.sx)>.5||Math.abs(this.my-this.sy)>.5||Math.abs(this.ht-this.h)>.01)this.kick()})}
+  lit(base,a){const W=this.W,H=this.H,d=this.d,t=this.t.getContext('2d'),c=this.c;
+    c.globalAlpha=.09*a;c.drawImage(base,0,0);c.globalAlpha=1;
+    const pass=(x,y,r,al)=>{t.setTransform(1,0,0,1,0,0);t.globalCompositeOperation='source-over';t.clearRect(0,0,W*d,H*d);t.drawImage(base,0,0);t.globalCompositeOperation='destination-in';t.setTransform(d,0,0,d,0,0);const g=t.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,`rgba(0,0,0,${al})`);g.addColorStop(1,'rgba(0,0,0,0)');t.fillStyle=g;t.fillRect(0,0,W,H);c.globalAlpha=a;c.drawImage(this.t,0,0);c.globalAlpha=1};
+    pass(this.lx,this.ly,Math.max(W,H)*.45,.7);
+    if(this.h>.01)pass(this.sx,this.sy,Math.max(220,Math.min(W,H)*.3),this.h)}
+  draw(){if(!this.W||!this.bases.length)return;const c=this.c,W=this.W,H=this.H,d=this.d,e=this.m<.5?2*this.m*this.m:1-Math.pow(-2*this.m+2,2)/2;
+    c.setTransform(1,0,0,1,0,0);c.globalCompositeOperation='source-over';c.clearRect(0,0,W*d,H*d);
+    if(this.prev>=0&&e<1)this.lit(this.bases[this.prev],1-e);
+    this.lit(this.bases[this.i],this.prev<0?1:e);
+    c.setTransform(d,0,0,d,0,0);c.globalCompositeOperation='destination-out';
+    if(W/H>1.15){const m=c.createLinearGradient(W*.4,0,W*.62,0);m.addColorStop(0,'rgba(0,0,0,1)');m.addColorStop(1,'rgba(0,0,0,0)');c.fillStyle=m;c.fillRect(0,0,W,H)}
+    else{const v=c.createLinearGradient(0,H*.35,0,H*.5);v.addColorStop(0,'rgba(0,0,0,0)');v.addColorStop(1,'rgba(0,0,0,1)');c.fillStyle=v;c.fillRect(0,0,W,H)}
+    c.globalCompositeOperation='source-over'}
+}
+const hero=new EtchShow($('#heroFilm'),{count:SCENES.length,hold:HOLD,onChange:i=>{setWord(i);cap(i)}});
 cap(0);
 
 /* ================= sports ================= */
@@ -920,10 +1039,58 @@ slist.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)retu
 const clChips=$('#clChips'),clGo=$('#clGo'),clNote=$('#clNote');
 clChips.innerHTML=SCENES.map((s,i)=>`<button aria-pressed="${!i}" data-i="${i}">${s.k}</button>`).join('');
 function clMark(i){$$('#clChips button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.i===i));clGo.dataset.sport=SCENES[i].k;clNote.textContent=SCENES[i].k}
-const close=new Film($('#closeFilm'),{scenes:SCENES,auto:3200,parallax:true,clear:[.12,.22,.44,.6],host:$('#closing'),onChange:clMark});
-clChips.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;close.o.auto=0;close.set(+b.dataset.i);clMark(+b.dataset.i)});
-new Film($('#teamFilm'),{scenes:SCENES,start:4,parallax:true,clear:[.42,.52,.58,.82]});
-new Film($('#workFilm'),{scenes:SCENES,start:5,parallax:true,clear:[.42,.52,.58,.82]});
+const inv=$('#invite');
+if(inv&&!RM&&matchMedia('(pointer:fine)').matches){$('#closing').addEventListener('pointermove',e=>{const r=inv.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;inv.style.setProperty('--ry',((x-.5)*5).toFixed(2)+'deg');inv.style.setProperty('--rx',((.5-y)*4).toFixed(2)+'deg');inv.style.setProperty('--mx',(x*100).toFixed(1)+'%');inv.style.setProperty('--my',(y*100).toFixed(1)+'%')});
+ $('#closing').addEventListener('pointerleave',()=>{inv.style.setProperty('--rx','0deg');inv.style.setProperty('--ry','0deg')})}
+clChips.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;clMark(+b.dataset.i)});
+/* ================= etched headers (team: pinstripe, work: guilloche) ================= */
+class Etch{
+  constructor(cv,mode){this.cv=cv;this.c=cv.getContext('2d');this.mode=mode;this.b=document.createElement('canvas');this.t=document.createElement('canvas');this.mx=-1e4;this.my=-1e4;this.sx=-1e4;this.sy=-1e4;this.h=0;this.ht=0;this.raf=0;
+    const host=cv.parentElement;host.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();this.mx=e.clientX-r.left;this.my=e.clientY-r.top;if(this.sx<-1e3){this.sx=this.mx;this.sy=this.my}this.ht=1;this.kick()});
+    host.addEventListener('pointerleave',()=>{this.ht=0;this.kick()});
+    addEventListener('resize',()=>this.build());new IntersectionObserver(es=>{if(es[0].isIntersecting){this.build()}}).observe(cv);this.build()}
+  build(){const d=Math.min(1.6,devicePixelRatio||1),W=this.cv.offsetWidth,H=this.cv.offsetHeight;if(!W)return;this.W=W;this.H=H;this.d=d;
+    for(const k of[this.cv,this.b,this.t]){k.width=W*d;k.height=H*d}
+    const g=this.b.getContext('2d');g.setTransform(d,0,0,d,0,0);g.strokeStyle='#fff';g.lineWidth=.8;g.beginPath();
+    if(this.mode==='stripe'){for(let x=W*.3;x<=W+2;x+=11){g.moveTo(x,0);g.lineTo(x,H)}g.stroke();g.lineWidth=.5;g.beginPath();for(let x=W*.3+5.5;x<=W;x+=44){g.moveTo(x,0);g.lineTo(x,H)}}
+    else{const cx=W*(W/H>1.15?.76:.5),cy=H*.42,R=Math.min(W,H)*.25,r=R*.42,N=72;
+      for(let k=0;k<N;k++){const a=k/N*Math.PI*2;g.moveTo(cx+r*Math.cos(a)+R,cy+r*Math.sin(a));g.arc(cx+r*Math.cos(a),cy+r*Math.sin(a),R,0,Math.PI*2)}
+      for(let q=1;q<=4;q++){const rr=R+r+q*14;g.moveTo(cx+rr,cy);g.arc(cx,cy,rr,0,Math.PI*2)}}
+    g.stroke();this.cx=this.mode==='stripe'?W*.78:W*(W/H>1.15?.76:.5);this.cy=H*.4;this.draw()}
+  kick(){if(!this.raf&&!RM)this.raf=requestAnimationFrame(()=>{this.raf=0;this.sx+=(this.mx-this.sx)*.14;this.sy+=(this.my-this.sy)*.14;this.h+=(this.ht-this.h)*.1;this.draw();if(Math.abs(this.mx-this.sx)>.5||Math.abs(this.ht-this.h)>.01)this.kick()})}
+  draw(){if(!this.W)return;const c=this.c,W=this.W,H=this.H,d=this.d,t=this.t.getContext('2d');
+    c.setTransform(1,0,0,1,0,0);c.clearRect(0,0,W*d,H*d);c.globalAlpha=.09;c.drawImage(this.b,0,0);c.globalAlpha=1;
+    t.setTransform(1,0,0,1,0,0);t.globalCompositeOperation='source-over';t.clearRect(0,0,W*d,H*d);t.drawImage(this.b,0,0);t.globalCompositeOperation='destination-in';t.setTransform(d,0,0,d,0,0);
+    const L=(x,y,r,a)=>{const g=t.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,`rgba(0,0,0,${a})`);g.addColorStop(1,'rgba(0,0,0,0)');return g};
+    t.fillStyle=L(this.cx,this.cy,Math.max(W,H)*.42,.7);t.fillRect(0,0,W,H);
+    c.drawImage(this.t,0,0);
+    if(this.h>.01){t.setTransform(1,0,0,1,0,0);t.globalCompositeOperation='source-over';t.clearRect(0,0,W*d,H*d);t.drawImage(this.b,0,0);t.globalCompositeOperation='destination-in';t.setTransform(d,0,0,d,0,0);t.fillStyle=L(this.sx,this.sy,Math.max(220,Math.min(W,H)*.3),this.h);t.fillRect(0,0,W,H);c.drawImage(this.t,0,0)}
+    c.setTransform(d,0,0,d,0,0);c.globalCompositeOperation='destination-out';const m=c.createLinearGradient(W*(W/H>1.15?.42:0),0,W*(W/H>1.15?.62:0),0);m.addColorStop(0,'rgba(0,0,0,1)');m.addColorStop(1,'rgba(0,0,0,0)');
+    if(W/H>1.15){c.fillStyle=m;c.fillRect(0,0,W,H)}else{const v=c.createLinearGradient(0,H*.35,0,H*.5);v.addColorStop(0,'rgba(0,0,0,0)');v.addColorStop(1,'rgba(0,0,0,1)');c.fillStyle=v;c.fillRect(0,0,W,H)}
+    c.globalCompositeOperation='source-over'}
+}
+new Etch($('#teamFilm'),'stripe');
+new Etch($('#workFilm'),'rosette');
+
+
+/* ================= approach ================= */
+(()=>{const ap=$('#ap');if(!ap)return;const rows=[...ap.querySelectorAll('.ap-row')],panes=[...ap.querySelectorAll('.ap-pane')],D=6000;let k=0,t=null;
+ ap.style.setProperty('--apdur',D+'ms');
+ const set=n=>{k=n;rows.forEach((r,i)=>{r.classList.toggle('on',i===n);r.setAttribute('aria-pressed',i===n)});panes.forEach((p,i)=>p.classList.toggle('on',i===n));const bar=rows[n].querySelector('.ap-bar i');bar.style.animation='none';void bar.offsetWidth;bar.style.animation=''};
+ const run=()=>{clearInterval(t);if(!RM)t=setInterval(()=>{if(!ap.classList.contains('paused'))set((k+1)%rows.length)},D)};
+ rows.forEach((r,i)=>{r.addEventListener('click',()=>{set(i);run()});r.addEventListener('mouseenter',()=>{set(i);run()})});
+ ap.addEventListener('mouseenter',()=>ap.classList.add('paused'));ap.addEventListener('mouseleave',()=>{ap.classList.remove('paused');run()});
+ run()})();
+
+
+/* ================= approach scroll story ================= */
+(()=>{const st=$('#method');if(!st||!st.classList.contains('story')||RM)return;const panes=[...st.querySelectorAll('.st-pane')],segs=[...st.querySelectorAll('.st-seg')],fills=segs.map(x=>x.querySelector('.st-fill')),N=panes.length;let cur=-1;
+ function tick(){if(!st.offsetParent)return;const r=st.getBoundingClientRect(),span=r.height-innerHeight,p=Math.min(.9999,Math.max(0,-r.top/span)),k=Math.floor(p*N);
+  fills.forEach((f,i)=>f.style.transform=`scaleX(${Math.min(1,Math.max(0,p*N-i))})`);
+  if(k!==cur){cur=k;panes.forEach((x,i)=>{x.classList.toggle('on',i===k);x.classList.toggle('past',i<k)});segs.forEach((x,i)=>x.classList.toggle('on',i===k));$('#stCount').textContent=`0${k+1} / 0${N}`}}
+ addEventListener('scroll',()=>requestAnimationFrame(tick),{passive:true});addEventListener('resize',tick);tick();
+ segs.forEach((x,i)=>x.addEventListener('click',()=>{const top=st.getBoundingClientRect().top+scrollY,span=st.offsetHeight-innerHeight;scrollTo({top:top+span*(i+.5)/N,behavior:'smooth'})}));
+})();
 
 /* ================= faq ================= */
 $('#faq').innerHTML=FAQ.map((f,i)=>`<div class="qa${i?'':' open'}"><button aria-expanded="${!i}"><span>${f[0]}</span><span class="pm"></span></button><div class="a"><div><p>${f[1]}</p></div></div></div>`).join('');
