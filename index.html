@@ -451,10 +451,24 @@ form.req{display:grid;grid-template-columns:1fr 1fr;gap:34px 28px}
 .hero .film{z-index:1}.hero::after{z-index:1}.hero .wrap{z-index:2}
 .sec.navy{--rule:#23345A;--rule2:#2E4370;--mute:#8393AE;--deep:#5D6E8C;background:radial-gradient(110% 130% at 88% 0%,#1C2E52 0%,#111D36 42%,#0A1224 100%)}
 .sec.navy .rule-b{background:var(--navy-l);box-shadow:0 0 18px rgba(127,150,190,.35)}
-.st-fill{background:linear-gradient(90deg,var(--navy-l),var(--hi))}
+.st-fill{height:2px;top:-.5px;background:linear-gradient(90deg,#16264A 0%,#2C4A86 35%,#7F96BE 70%,#E6EBF4 100%);box-shadow:0 0 14px rgba(44,74,134,.55)}
 .closing.sec{background:radial-gradient(70% 90% at 92% 100%,rgba(28,46,82,.45),transparent 70%),var(--void)}
 .nav.solid{background:rgba(8,11,19,.84)}
 ::selection{background:var(--navy2);color:#fff}
+
+
+/* legal pages + footer credit */
+.legal-top{padding-top:calc(150px + env(safe-area-inset-top,0px));padding-bottom:0}
+.legal{max-width:68ch;display:grid;gap:14px}
+.legal h2{font-size:clamp(1.15rem,1.6vw,1.35rem);letter-spacing:-.01em;margin-top:26px;padding-top:22px;border-top:1px solid var(--rule)}
+.legal h2:first-child{margin-top:0;border-top:0;padding-top:0}
+.legal p{font-size:16px}
+.flinks{display:flex;gap:18px}
+.flinks a{color:var(--mute);transition:color .3s}
+.flinks a:hover{color:var(--hi)}
+.credit{font-size:13px;color:var(--deep)}
+.credit a{color:var(--lo);transition:color .3s}
+.credit a:hover{color:var(--hi)}
 
 /* footer */
 footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90px calc(40px + env(safe-area-inset-bottom,0px))}
@@ -809,6 +823,35 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
 
 </main>
 
+
+<!-- ================= PRIVACY ================= -->
+<main data-page="privacy" id="p-privacy" hidden>
+  <section class="sec legal-top">
+    <div class="wrap">
+      <p class="label b">Privacy</p>
+      <h1 class="d2" style="margin-top:18px">Privacy policy</h1>
+      <p class="label" style="margin-top:22px">Last updated October 14, 2026</p>
+    </div>
+  </section>
+  <section class="sec" style="padding-top:clamp(40px,5vw,70px)">
+    <div class="wrap"><article class="legal"><h2>Who we are</h2><p>This policy explains how Vestrium Global ("Vestrium", "we", "us") handles personal information collected through this website. It applies only to this site and to enquiries made through it.</p><h2>What we collect</h2><p>When you introduce yourself through our form, we collect the details you choose to share: your name, email address, sport, the stage of your career, your school or team, who introduced you, who is already on your team, and any message you write.</p><p>Like most websites, our hosting provider automatically records basic technical information when you visit, such as your IP address, browser type and the pages you view. This is used to keep the site secure and working.</p><p>We do not ask for, and ask you not to send, account numbers, contract terms, government identifiers or other sensitive financial information through this site.</p><h2>How we use it</h2><p>We use the information you send to reply to you, to arrange a conversation if you request one, and to keep a record of enquiries we receive. We do not sell your personal information, and we do not use it for third-party advertising.</p><h2>Who handles it on our behalf</h2><p>We rely on a small number of service providers to run this site: our hosting provider stores form submissions and site logs, and an email delivery service forwards enquiries to our team. Typefaces are loaded from Google Fonts, which receives your IP address when the page loads. These providers process information only to provide their services to us.</p><h2>Cookies</h2><p>This site does not use advertising or analytics cookies. Our hosting provider may set strictly necessary cookies to deliver the site securely.</p><h2>How long we keep it</h2><p>We keep enquiry details for as long as needed to respond and to maintain a record of our correspondence, and then delete them. You can ask us to delete your information sooner.</p><h2>Your choices</h2><p>You may ask to see, correct or delete the personal information you have sent us, or ask us to stop contacting you. To make a request, write to us through the introduction form on our Work with us page and tell us what you would like us to do. Depending on where you live, you may have additional rights under local law, including the California Consumer Privacy Act; we will honor those rights as they apply.</p><h2>Young people</h2><p>This site is intended for adults. If you are under 18, please ask a parent or guardian to contact us on your behalf.</p><h2>Changes</h2><p>We may update this policy from time to time. The date at the top of the page shows when it last changed.</p></article></div>
+  </section>
+</main>
+
+<!-- ================= TERMS ================= -->
+<main data-page="terms" id="p-terms" hidden>
+  <section class="sec legal-top">
+    <div class="wrap">
+      <p class="label b">Terms</p>
+      <h1 class="d2" style="margin-top:18px">Terms of use</h1>
+      <p class="label" style="margin-top:22px">Last updated October 14, 2026</p>
+    </div>
+  </section>
+  <section class="sec" style="padding-top:clamp(40px,5vw,70px)">
+    <div class="wrap"><article class="legal"><h2>About these terms</h2><p>These terms govern your use of this website, operated by Vestrium Global ("Vestrium", "we", "us"). By using the site, you agree to them. If you do not agree, please do not use the site.</p><h2>Information only</h2><p>The content of this site is general information about Vestrium and the work we do. It is not legal, tax, accounting or investment advice, and it should not be relied on as such. Formation, tax opinions and drafting are performed by licensed attorneys and accountants.</p><p>Vestrium is not a registered investment adviser or broker-dealer and does not manage, hold or direct client assets. Nothing on this site is an offer to sell, or a solicitation of an offer to buy, any security, or a recommendation about any investment. Descriptions of our approach are illustrative, and outcomes depend on individual circumstances.</p><h2>No client relationship</h2><p>Using this site or sending an enquiry does not create a client, advisory or fiduciary relationship. A relationship begins only when both parties sign a written engagement agreement.</p><h2>Your enquiry</h2><p>When you contact us, please send only accurate information that you are entitled to share, and do not send confidential, financial or account information through the site.</p><h2>Intellectual property</h2><p>The Vestrium Global name, the V mark, and the text, design and code of this site belong to Vestrium or its licensors. You may view and share pages for personal, non-commercial purposes, but you may not copy, modify or reuse them otherwise without our written permission.</p><h2>Links to other sites</h2><p>This site may link to websites we do not control. We are not responsible for their content or practices.</p><h2>Disclaimers and liability</h2><p>The site is provided "as is" and "as available". We do not warrant that it will be uninterrupted, error-free or complete. To the fullest extent permitted by law, Vestrium is not liable for any loss arising from your use of, or reliance on, this site.</p><h2>NIL compliance</h2><p>Student-athletes remain responsible for complying with the rules of their institution, conference and governing bodies, and with applicable state law.</p><h2>Changes</h2><p>We may update these terms from time to time. The date at the top of the page shows when they last changed, and continued use of the site means you accept the updated terms.</p></article></div>
+  </section>
+</main>
+
 <footer>
   <div class="wrap">
     <div class="fg">
@@ -824,7 +867,8 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
     <div class="fine">
       <p>Vestrium Global does not provide legal, tax, or investment advice. Formation, tax opinions, and drafting are performed by licensed counsel and CPAs.</p>
       <p>Vestrium Global is not a registered investment adviser or broker-dealer and does not manage, hold, or direct client assets. Nothing on this site is an offer to sell, or a solicitation of an offer to buy, any security, or a recommendation about any investment. Descriptions of structures are illustrative and general; outcomes depend on individual circumstances. Athletes should confirm NIL activity with their institution's compliance office and applicable state law.</p>
-      <div class="row"><span>© 2026 Vestrium Global. All rights reserved.</span><span>Privacy · Terms</span></div>
+      <div class="row"><span>© 2026 Vestrium Global. All rights reserved.</span><span class="flinks"><a href="#privacy" data-route="privacy">Privacy</a><a href="#terms" data-route="terms">Terms</a></span></div>
+      <p class="credit">Designed and developed by <a href="https://reaustudio.com" target="_blank" rel="noopener">REAU Studio</a></p>
     </div>
   </div>
 </footer>
@@ -1143,7 +1187,7 @@ function preset(sport,aud){if(sport){const r=form.querySelector(`input[name=spor
   if(aud==='pro'){const r=form.querySelector('input[name=stage][value="Professional joining the network"]');if(r){r.checked=true;show(2)}}summary()}
 
 /* ================= routing ================= */
-const pages={home:$('#p-home'),team:$('#p-team'),work:$('#p-work')};let cur=null;
+const pages={home:$('#p-home'),team:$('#p-team'),work:$('#p-work'),privacy:$('#p-privacy'),terms:$('#p-terms')};let cur=null;
 function go(r,target,aud,anim=true){if(!pages[r])r='home';
  const swap=()=>{Object.entries(pages).forEach(([k,el])=>el.hidden=k!==r);cur=r;
   $$('.links a.nl').forEach(a=>a.classList.toggle('on',a.dataset.route===r));
