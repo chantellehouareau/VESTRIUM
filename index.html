@@ -110,9 +110,9 @@ b,strong{font-weight:400;color:var(--strong)}
 @media (max-width:640px){.hero h1.hero-h br{display:none}}
 .hero .lede{color:#B2B9C6}
 .word{display:inline-grid;vertical-align:top;overflow:hidden}
-.word b{grid-area:1/1;padding-bottom:.14em;font-weight:300;color:var(--hi);white-space:nowrap;opacity:0;transform:translateY(40%);transition:opacity .55s ease,transform .7s var(--ease)}
+.word b{grid-area:1/1;padding-bottom:.14em;font-weight:300;color:var(--hi);white-space:nowrap;opacity:0;transform:translateY(100%);transition:opacity .45s ease,transform .75s var(--ease)}
 .word b.on{opacity:1;transform:none}
-.word b.out{opacity:0;transform:translateY(-40%)}
+.word b.out{opacity:0;transform:translateY(-100%)}
 .word b.reset{transition:none}
 .hrow{display:flex;flex-wrap:wrap;align-items:center;gap:20px 34px}
 .hfoot{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;padding-top:26px;border-top:1px solid rgba(150,158,172,.16)}
@@ -511,8 +511,8 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
   <section class="hero" id="top">
     <canvas class="film" id="heroFilm" aria-hidden="true"></canvas>
     <div class="wrap intro-in">
-      <h1 class="d1 hero-h">Where <span class="word" id="word" aria-hidden="true"></span><span class="sr">sport meets business.</span> <br><span aria-hidden="true">meets </span><span class="word" id="word2" aria-hidden="true"></span></h1>
-      <p class="lede">A private business institution at the meeting point of sport and enterprise. We build the companies, brands and partnerships that turn talent into ownership, for athletes and for the businesses and founders around them.</p>
+      <h1 class="d1 hero-h">Built for <span class="word" id="word" aria-hidden="true"></span><span class="sr">sport and business.</span> <br>Designed for generations.</h1>
+      <p class="lede">A private business institution for sport. We build the companies, brands and partnerships that turn talent into ownership, for athletes and for the businesses and founders who work alongside them.</p>
       <div class="hrow">
         <a class="btn btn-solid" href="#work" data-route="work" data-target="request">Start a conversation <span class="ar">→</span></a>
         <a class="tlink" href="#approach" data-scroll="approach">Our approach <span>↓</span></a>
@@ -995,14 +995,13 @@ const FAQ=[
 
 /* ================= hero ================= */
 const wordEl=$('#word');
-wordEl.innerHTML=SCENES.map((s,i)=>`<b${i?'':' class="on"'}>${s.venue}</b>`).join('');
-const BIZ=['the boardroom.','the balance sheet.','the term sheet.','the cap table.','the ledger.','the deal table.'];
-const word2=$('#word2');word2.innerHTML=BIZ.map((w,i)=>`<b${i?'':' class="on"'}>${w}</b>`).join('');
-const words=[...wordEl.children],words2=[...word2.children];let wi=0;
+const HWORDS=['the hardwood.','the boardroom.','the gridiron.','the founder.','the pitch.','the partnership.'];
+wordEl.innerHTML=HWORDS.map((w,i)=>`<b${i?'':' class="on"'}>${w}</b>`).join('');
+const words=[...wordEl.children];let wi=0;
 function swapIn(list,from,to,delay){setTimeout(()=>{const o=list[from],w=list[to];o.className='out';w.className='reset';void w.offsetWidth;w.className='on';setTimeout(()=>{if(o.className==='out'){o.className='reset';void o.offsetWidth;o.className=''}},750)},delay)}
-function setWord(n){if(n===wi)return;swapIn(words,wi,n,0);swapIn(words2,wi%words2.length,n%words2.length,1600);wi=n}
+function setWord(n){if(n===wi)return;swapIn(words,wi,n,0);wi=n}
 const HOLD=3200,hbar=$('#heroBar');
-function cap(i){$('#heroCapT').textContent=SCENES[i].k;hbar.classList.remove('run');void hbar.offsetWidth;if(!RM)hbar.classList.add('run')}
+function cap(i){$('#heroCapT').textContent='';hbar.classList.remove('run');void hbar.offsetWidth;if(!RM)hbar.classList.add('run')}
 document.documentElement.style.setProperty('--dur',HOLD+'ms');
 /* ================= etched hero: one fine-line pattern per sport ================= */
 function sportPattern(g,k,W,H){const wide=W/H>1.15,cx=wide?W*.74:W*.5,cy=wide?H*.42:H*.3,M=Math.hypot(W,H),x0=wide?W*.34:0;g.beginPath();
