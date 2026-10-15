@@ -21,8 +21,8 @@
   --hi:#ECEDEF; --lo:#9A9DA4; --body:#A2A5AC; --strong:#DCDEE2; --mute:#71757D; --deep:#4C5058;
   --f-sans:"Helvetica Neue","Inter",Helvetica,Arial,sans-serif;
   --f-mono:"SF Mono",Menlo,"JetBrains Mono",ui-monospace,monospace;
-  --gl:max(clamp(20px,6vw,88px), env(safe-area-inset-left,0px));
-  --gr:max(clamp(20px,6vw,88px), env(safe-area-inset-right,0px));
+  --gl:max(clamp(20px,3.6vw,64px), env(safe-area-inset-left,0px));
+  --gr:max(clamp(20px,3.6vw,64px), env(safe-area-inset-right,0px));
   --ease:cubic-bezier(.22,.7,.12,1);
   --sec:clamp(110px,13vw,190px);
   --navy:#13203B; --navy2:#1C2E52; --navy-l:#7F96BE;
@@ -40,7 +40,7 @@ b,strong{font-weight:400;color:var(--strong)}
 :focus-visible{outline:1px solid var(--blue-l);outline-offset:4px}
 [id]{scroll-margin-top:90px}
 
-.wrap{max-width:1360px;margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
+.wrap{max-width:none;margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
 .sec{padding-block:var(--sec);position:relative}
 .sec+.sec{border-top:1px solid var(--rule)}
 .d1{font-size:clamp(2.2rem,6.6vw,6.2rem);line-height:1;letter-spacing:-.035em}
