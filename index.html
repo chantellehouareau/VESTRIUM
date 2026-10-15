@@ -25,6 +25,7 @@
   --gr:max(clamp(20px,6vw,88px), env(safe-area-inset-right,0px));
   --ease:cubic-bezier(.22,.7,.12,1);
   --sec:clamp(110px,13vw,190px);
+  --navy:#13203B; --navy2:#1C2E52; --navy-l:#7F96BE;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -75,8 +76,8 @@ b,strong{font-weight:400;color:var(--strong)}
 .nav.solid{background:rgba(5,7,10,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:var(--rule)}
 .nav .wrap{height:84px;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .brand{display:flex;align-items:center;gap:14px}
-.brand svg{width:30px;height:27px;flex:none}
-.brand span{font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--strong);font-weight:300}
+.brand svg{width:36px;height:32px;flex:none}
+.brand span{font-size:14.5px;letter-spacing:.4em;text-transform:uppercase;color:var(--strong);font-weight:300}
 .links{display:flex;align-items:center;gap:34px}
 .links a.nl{font-size:14.5px;color:var(--lo);position:relative;padding-block:8px;transition:color .3s}
 .links a.nl:hover,.links a.nl.on{color:var(--hi)}
@@ -444,6 +445,17 @@ form.req{display:grid;grid-template-columns:1fr 1fr;gap:34px 28px}
 
 .two-line span{display:block}
 @media (min-width:700px){.two-line{font-size:clamp(1.9rem,3.3vw,3.4rem)}.two-line span{white-space:nowrap}}
+
+/* navy undertone */
+.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(48% 62% at 76% 38%,rgba(28,46,82,.55) 0%,rgba(19,32,59,.22) 45%,transparent 75%)}
+.hero .film{z-index:1}.hero::after{z-index:1}.hero .wrap{z-index:2}
+.sec.navy{--rule:#23345A;--rule2:#2E4370;--mute:#8393AE;--deep:#5D6E8C;background:radial-gradient(110% 130% at 88% 0%,#1C2E52 0%,#111D36 42%,#0A1224 100%)}
+.sec.navy .rule-b{background:var(--navy-l);box-shadow:0 0 18px rgba(127,150,190,.35)}
+.st-fill{background:linear-gradient(90deg,var(--navy-l),var(--hi))}
+.closing.sec{background:radial-gradient(70% 90% at 92% 100%,rgba(28,46,82,.45),transparent 70%),var(--void)}
+.nav.solid{background:rgba(8,11,19,.84)}
+::selection{background:var(--navy2);color:#fff}
+
 /* footer */
 footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90px calc(40px + env(safe-area-inset-bottom,0px))}
 .fg{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:44px}
@@ -512,7 +524,7 @@ footer{border-top:1px solid var(--rule);background:var(--edge);padding-block:90p
     </div>
   </section>
 
-  <section class="sec light">
+  <section class="sec">
     <div class="wrap split">
       <h2 class="d2 rv two-line"><span>Talent opens the door.</span> <span>Structure keeps it open.</span></h2>
       <div class="stack rv">
